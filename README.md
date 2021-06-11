@@ -1,7 +1,10 @@
 ## Table of contents
-* [Comment nommer les branche](#Commandes)
+* [Comment nommer les branche](#Branches)
 * [Workflow](#Workflow)
 * [Commandes](#Commandes)
+
+## Branches
+ pour nommer les branches: `votre-prenom/nom-de-la-fonctionnalite`
 
 
 ## Workflow
