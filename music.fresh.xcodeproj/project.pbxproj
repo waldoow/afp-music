@@ -11,7 +11,7 @@
 		68F274532673584600BAD3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F274522673584600BAD3C2 /* ContentView.swift */; };
 		68F274552673584800BAD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274542673584800BAD3C2 /* Assets.xcassets */; };
 		68F274582673584800BAD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274572673584800BAD3C2 /* Preview Assets.xcassets */; };
-		FCEE410B267381AA008AA0B7 /* dylantest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEE410A267381AA008AA0B7 /* dylantest.swift */; };
+		FCF7C69826753F840087C892 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF7C69726753F840087C892 /* ArtistModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +21,7 @@
 		68F274542673584800BAD3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68F274572673584800BAD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68F274592673584800BAD3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCEE410A267381AA008AA0B7 /* dylantest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dylantest.swift; sourceTree = "<group>"; };
+		FCF7C69726753F840087C892 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +54,10 @@
 		68F2744F2673584600BAD3C2 /* music.fresh */ = {
 			isa = PBXGroup;
 			children = (
+				FCEE41112673A468008AA0B7 /* View */,
+				FCEE41102673A462008AA0B7 /* Model */,
 				68F274502673584600BAD3C2 /* music_freshApp.swift */,
 				68F274522673584600BAD3C2 /* ContentView.swift */,
-				FCEE410A267381AA008AA0B7 /* dylantest.swift */,
 				68F274542673584800BAD3C2 /* Assets.xcassets */,
 				68F274592673584800BAD3C2 /* Info.plist */,
 				68F274562673584800BAD3C2 /* Preview Content */,
@@ -70,6 +71,21 @@
 				68F274572673584800BAD3C2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FCEE41102673A462008AA0B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCF7C69726753F840087C892 /* ArtistModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FCEE41112673A468008AA0B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68F274532673584600BAD3C2 /* ContentView.swift in Sources */,
-				FCEE410B267381AA008AA0B7 /* dylantest.swift in Sources */,
+				FCF7C69826753F840087C892 /* ArtistModel.swift in Sources */,
 				68F274512673584600BAD3C2 /* music_freshApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
