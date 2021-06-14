@@ -19,13 +19,15 @@ struct DetailedView: View {
         VStack(alignment: .leading) {
             ZStack {
                 Image(artist.imageName).resizable()
-                    // .scaledToFit()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFit()
+                    // .aspectRatio(contentMode: .fit)
                     .ignoresSafeArea()
+            
                 
                 Text(artist.name).bold()
                     .foregroundColor(.white)
                     .font(.title)
+                    .padding(.top, 130)
             }
             
             Text("Biographie").bold()
@@ -35,6 +37,17 @@ struct DetailedView: View {
             
             Text(artist.description).padding(.horizontal)
             
+            Text("Titres").bold()
+                .underline()
+                .foregroundColor(.gray)
+                .padding(.leading)
+            
+            LazyVGrid(columns: columns) {
+                SongListCell()
+                SongListCell()
+                SongListCell()
+                
+            }
             
             Spacer()
         }
