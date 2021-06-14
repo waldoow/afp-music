@@ -12,19 +12,25 @@ struct UserView: View {
     
     var body: some View {
         VStack {
-            Image(user.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipShape(Circle())
-                .shadow(radius: 10)
-                .overlay(Circle().stroke(Color.blue, lineWidth: 5))
-                .padding(5)
-            Text(user.name)
-                .fixedSize()
-                .font(.caption)
-                .padding(5)
+            VStack {
+                ZStack {
+                    Image(user.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                        .overlay(Circle().stroke(Color.blue, lineWidth: 5))
+                        .padding(5)
+                    Text(user.name)
+                        .fixedSize()
+                        .font(.caption)
+                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .bottom)
+                }
         }
         .frame(width: 320, height: 130,alignment: .trailing)
+            
+                SelectionView()
+        }
     }
 }
 
