@@ -12,52 +12,34 @@ struct DetailedView: View {
     let artist: Artist
     
     var columns: [GridItem] =
-            Array(repeating: .init(.flexible()), count: 3)
+        Array(repeating: .init(.flexible()), count: 3)
     
     
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
                 Image(artist.imageName).resizable()
-                    .scaledToFit()
+                    // .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
                     .ignoresSafeArea()
-                Text("Klemn Schen").bold()
+                
+                Text(artist.name).bold()
                     .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.largeTitle)
-                    .padding(.top, 100)
-                }
+                    .font(.title)
+            }
             
-            Text("Biographie")
+            Text("Biographie").bold()
                 .underline()
-                .bold()
                 .foregroundColor(.gray)
-                .font(.title3)
                 .padding(.leading)
             
-
             Text(artist.description).padding(.horizontal)
-              
-            Text("Titres")
-                .underline()
-                .bold()
-                .foregroundColor(.gray)
-                .font(.title3)
-                .padding([.leading, .top] )
             
-    
-            LazyVGrid(columns: columns)  {
-                SongListCell()
-                SongListCell()
-                SongListCell()
-                
-                
-                
-                
-            }
+            
             Spacer()
         }
     }
+    
 }
 
 struct DetailedView_Previews: PreviewProvider {
