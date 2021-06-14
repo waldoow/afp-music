@@ -56,7 +56,7 @@
 			children = (
 				68F274502673584600BAD3C2 /* music_freshApp.swift */,
 				68F274522673584600BAD3C2 /* ContentView.swift */,
-				C5F4F63A26774DA70003CD9A /* model */,
+				C5F4F63A26774DA70003CD9A /* Model */,
 				68F274542673584800BAD3C2 /* Assets.xcassets */,
 				68F274592673584800BAD3C2 /* Info.plist */,
 				68F274562673584800BAD3C2 /* Preview Content */,
@@ -72,12 +72,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C5F4F63A26774DA70003CD9A /* model */ = {
+		C5F4F63A26774DA70003CD9A /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				C5F4F63B26774DC80003CD9A /* User.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
