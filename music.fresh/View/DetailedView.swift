@@ -34,13 +34,16 @@ struct DetailedView: View {
                 .underline()
                 .foregroundColor(.gray)
                 .padding(.leading)
+                .font(.title2)
             
-            Text(artist.description).padding(.horizontal)
+            Text(artist.description).padding([.horizontal, .top, .bottom], 15)
+                .font(.title3)
             
             Text("Titres").bold()
                 .underline()
                 .foregroundColor(.gray)
                 .padding(.leading)
+                .font(.title2)
             
             LazyVGrid(columns: columns) {
                 SongListCell()
