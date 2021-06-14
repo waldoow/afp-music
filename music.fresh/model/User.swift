@@ -12,5 +12,5 @@ struct User {
     let imageName: String
     var recentSongs: [Song]
     var myPlaylists: [Playlist]
-    var myFriends: [Friend]
+//    var myFriends: [Friend]
 }
