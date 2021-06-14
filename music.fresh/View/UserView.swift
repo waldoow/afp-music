@@ -15,8 +15,16 @@ struct UserView: View {
             Image(user.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .clipShape(Circle())
+                .shadow(radius: 10)
+                .overlay(Circle().stroke(Color.blue, lineWidth: 5))
+                .padding(5)
             Text(user.name)
+                .fixedSize()
+                .font(.caption)
+                .padding(5)
         }
+        .frame(width: 320, height: 130,alignment: .trailing)
     }
 }
 
