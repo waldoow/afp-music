@@ -20,6 +20,7 @@
 		68F274532673584600BAD3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F274522673584600BAD3C2 /* ContentView.swift */; };
 		68F274552673584800BAD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274542673584800BAD3C2 /* Assets.xcassets */; };
 		68F274582673584800BAD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274572673584800BAD3C2 /* Preview Assets.xcassets */; };
+		C5F4F6432677AED10003CD9A /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F4F6422677AED10003CD9A /* UserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		68F274542673584800BAD3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68F274572673584800BAD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68F274592673584800BAD3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5F4F6422677AED10003CD9A /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				4BD3BFDD2677838300AAC075 /* PlaylistList.swift */,
 				4B7DE1FF2677461600CD2F1A /* SongList.swift */,
+				C5F4F6422677AED10003CD9A /* UserView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				4BD3C001267799D300AAC075 /* Data.swift in Sources */,
 				4B7DE1F82677448300CD2F1A /* SongData.swift in Sources */,
 				4BD3BFE7267783C700AAC075 /* User.swift in Sources */,
+				C5F4F6432677AED10003CD9A /* UserView.swift in Sources */,
 				68F274512673584600BAD3C2 /* music_freshApp.swift in Sources */,
 				4BD3BFDE2677838300AAC075 /* PlaylistList.swift in Sources */,
 				4BD3BFF8267796FA00AAC075 /* Artist.swift in Sources */,
