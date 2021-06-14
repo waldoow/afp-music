@@ -19,7 +19,7 @@ struct ContentView: View {
                                 Text("Découvrir")
                             }
                         }.tag(1)
-                    Text("Tab Content 2")
+                    MusicPlayer()
                         .tabItem {
                             VStack {
                                 Image(systemName: "magnifyingglass")
