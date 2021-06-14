@@ -8,7 +8,6 @@
 import Foundation
 
 struct Song: Identifiable {
-    
     var id = UUID()
     
     let title: String
