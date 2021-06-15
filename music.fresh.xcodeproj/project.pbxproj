@@ -20,6 +20,7 @@
 		68F274532673584600BAD3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F274522673584600BAD3C2 /* ContentView.swift */; };
 		68F274552673584800BAD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274542673584800BAD3C2 /* Assets.xcassets */; };
 		68F274582673584800BAD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274572673584800BAD3C2 /* Preview Assets.xcassets */; };
+		6F28D82126788C7300FF400F /* SongOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D82026788C7300FF400F /* SongOfTheDayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		68F274542673584800BAD3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68F274572673584800BAD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68F274592673584800BAD3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F28D82026788C7300FF400F /* SongOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongOfTheDayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				4BD3BFDD2677838300AAC075 /* PlaylistList.swift */,
 				4B7DE1FF2677461600CD2F1A /* SongList.swift */,
+				6F28D82026788C7300FF400F /* SongOfTheDayView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				4BD3C001267799D300AAC075 /* Data.swift in Sources */,
 				4B7DE1F82677448300CD2F1A /* SongData.swift in Sources */,
 				4BD3BFE7267783C700AAC075 /* User.swift in Sources */,
+				6F28D82126788C7300FF400F /* SongOfTheDayView.swift in Sources */,
 				68F274512673584600BAD3C2 /* music_freshApp.swift in Sources */,
 				4BD3BFDE2677838300AAC075 /* PlaylistList.swift in Sources */,
 				4BD3BFF8267796FA00AAC075 /* Artist.swift in Sources */,
