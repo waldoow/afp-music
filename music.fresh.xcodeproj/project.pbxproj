@@ -22,6 +22,7 @@
 		68F274582673584800BAD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274572673584800BAD3C2 /* Preview Assets.xcassets */; };
 		6F28D82126788C7300FF400F /* SongOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D82026788C7300FF400F /* SongOfTheDayView.swift */; };
 		6F28D82326788F6900FF400F /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D82226788F6900FF400F /* VoteView.swift */; };
+		6F28D8252678A22100FF400F /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D8242678A22100FF400F /* Vote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		68F274592673584800BAD3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F28D82026788C7300FF400F /* SongOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongOfTheDayView.swift; sourceTree = "<group>"; };
 		6F28D82226788F6900FF400F /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		6F28D8242678A22100FF400F /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				4BD3BFF126778FCF00AAC075 /* Playlist.swift */,
 				4B7DE1F32677431000CD2F1A /* Song.swift */,
 				4BD3BFF7267796FA00AAC075 /* Artist.swift */,
+				6F28D8242678A22100FF400F /* Vote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				4B7DE2002677461600CD2F1A /* SongList.swift in Sources */,
 				4B7DE1F42677431000CD2F1A /* Song.swift in Sources */,
 				4BD3BFF226778FCF00AAC075 /* Playlist.swift in Sources */,
+				6F28D8252678A22100FF400F /* Vote.swift in Sources */,
 				68F274532673584600BAD3C2 /* ContentView.swift in Sources */,
 				4BD3C001267799D300AAC075 /* Data.swift in Sources */,
 				4B7DE1F82677448300CD2F1A /* SongData.swift in Sources */,
