@@ -10,7 +10,7 @@ import Foundation
 struct Vote: Identifiable {
     var id = UUID()
     
-    let user = User(name: "", imageName: "", recentSongs: [], myPlaylists: [])
+    let user: User
     
     let positiveVote:Int
     let negativeVote: Int

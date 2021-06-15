@@ -37,25 +37,17 @@ struct SongOfTheDayView: View {
             
             ScrollView(.vertical){
                 
-//                List {
-//                    VoteView(positiveVote: voteList[0], negativeVote: voteList[0])
-//                    VoteView(positiveVote: voteList[1], negativeVote: voteList[1])
-//                    VoteView(positiveVote: voteList[2], negativeVote: voteList[2])
-//                    VoteView(positiveVote: voteList[3], negativeVote: voteList[3])
-//                    VoteView(positiveVote: voteList[4], negativeVote: voteList[4])
-//                }
-                
                 VStack{
-                    VoteView()
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
-                    VoteView()
+                    VoteView(vote: vote1)
                         .frame(maxWidth: .infinity, maxHeight:150)
-                    VoteView()
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
-                    VoteView()
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
-                    VoteView()
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
+                    VoteView(vote: vote2)
+                        .frame(maxWidth: .infinity, maxHeight:150)
+                    VoteView(vote: vote3)
+                        .frame(maxWidth: .infinity, maxHeight:150)
+                    VoteView(vote: vote4)
+                        .frame(maxWidth: .infinity, maxHeight:150)
+                    VoteView(vote: vote5)
+                        .frame(maxWidth: .infinity, maxHeight:150)
                 }
             }
         }

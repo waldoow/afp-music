@@ -9,30 +9,33 @@ import SwiftUI
 
 struct VoteView: View {
     
+    let vote: Vote
+    
     var body: some View {
         VStack{
             HStack{
-                Image(vote1.user.imageName)
+                Image(vote.user.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 50,height: 50)
                     .cornerRadius(50)
                     
-                Text(user1.name)
+                Text(vote.user.name)
+                    .bold()
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,  alignment: .leading)
             HStack{
-                Text(vote1.comment)
+                Text(vote.comment)
                     .frame(height: 50)
                 Spacer()
                 Image(systemName: "play.rectangle.fill")
                     .font(.largeTitle)
             }
             HStack{
-                if vote1.positiveVote > vote1.negativeVote {
+                if vote.positiveVote > vote.negativeVote {
                     Image(systemName: "hand.thumbsup.fill")
                         .foregroundColor(.green)
-                    Text("\(vote1.positiveVote + vote1.negativeVote)")
+                    Text("\(vote.positiveVote + vote.negativeVote)")
                         .foregroundColor(.green)
                     Image(systemName: "hand.thumbsdown")
                 } else {
@@ -51,7 +54,7 @@ struct VoteView: View {
 
 struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
-        VoteView()
+        VoteView(vote: vote5)
             .previewLayout(.sizeThatFits)
             
     }
