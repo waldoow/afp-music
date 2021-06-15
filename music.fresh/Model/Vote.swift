@@ -12,6 +12,7 @@ struct Vote: Identifiable {
     
     let positiveVote:Int
     let negativeVote: Int
+    let comment: String
     
 }
 

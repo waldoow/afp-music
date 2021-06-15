@@ -31,10 +31,10 @@ let user3 = User(name: "Pippin Took", imageName: "user3.jpg", recentSongs: songs
 let usersList = [user1, user2, user3]
 
 
-let vote1 = Vote(positiveVote: 300, negativeVote: 200)
-let vote2 = Vote(positiveVote: 406, negativeVote: 232)
-let vote3 = Vote(positiveVote: 674, negativeVote: 455)
-let vote4 = Vote(positiveVote:932, negativeVote: 129)
-let vote5 = Vote(positiveVote: 234, negativeVote: 518)
+let vote1 = Vote(positiveVote: 300, negativeVote: 200, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est incroyable.")
+let vote2 = Vote(positiveVote: 406, negativeVote: 232, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est super.")
+let vote3 = Vote(positiveVote: 674, negativeVote: 455, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est ouf.")
+let vote4 = Vote(positiveVote:932, negativeVote: 129, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est top.")
+let vote5 = Vote(positiveVote: 234, negativeVote: 518, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est géniale.")
 
 let voteList = [vote1, vote2, vote3, vote4, vote5]

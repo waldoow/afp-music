@@ -25,7 +25,8 @@ struct VoteView: View {
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,  alignment: .leading)
             HStack{
-                Text("Bonjour, je vous propose d'écouter cette chanson, elle est incroyable, le titre c'est...")
+                Text(vote1.comment)
+                    .frame(height: 50)
                 Spacer()
                 Image(systemName: "play.rectangle.fill")
                     .font(.largeTitle)
