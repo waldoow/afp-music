@@ -29,11 +29,12 @@ struct VoteView: View {
                 Text(vote.comment)
                     .frame(height: 50)
                 Spacer()
+                // ajouter lecture du morceau
                 Image(systemName: "play.rectangle.fill")
                     .font(.largeTitle)
             }
             HStack{
-                if vote.positiveVote > vote.negativeVote {
+                if vote.positiveVote >= vote.negativeVote {
                     Button(action: {
                         // action
                         if (addVote == 0) || (addVote == -1) {
