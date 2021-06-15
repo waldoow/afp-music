@@ -22,6 +22,12 @@ struct PlaylistList: View {
                 Text(playlist.user)
                     .foregroundColor(.secondary)
                 }
+                Spacer()
+                Button(action: {
+                }, label: {
+                    Image(systemName: "greaterthan")
+                        .foregroundColor(.gray)
+                })
             }
         }
     }
