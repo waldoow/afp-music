@@ -36,3 +36,5 @@ let vote2 = Vote(positiveVote: 406, negativeVote: 232)
 let vote3 = Vote(positiveVote: 674, negativeVote: 455)
 let vote4 = Vote(positiveVote:932, negativeVote: 129)
 let vote5 = Vote(positiveVote: 234, negativeVote: 518)
+
+let voteList = [vote1, vote2, vote3, vote4, vote5]

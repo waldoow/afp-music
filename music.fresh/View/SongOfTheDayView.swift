@@ -34,7 +34,7 @@ struct SongOfTheDayView: View {
                     .offset(y: 60)
             }
             // ajouter différentes votes
-            VoteView()
+            VoteView(positiveVote: vote2, negativeVote: vote2)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
 
                 

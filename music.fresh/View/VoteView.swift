@@ -9,8 +9,8 @@ import SwiftUI
 
 struct VoteView: View {
     
-    var positiveVote:Int = 200
-    var negativeVote: Int = 100
+    var positiveVote: Vote
+    var negativeVote: Vote
     
     var body: some View {
         VStack{
@@ -26,10 +26,10 @@ struct VoteView: View {
                     .font(.largeTitle)
             }
             HStack{
-                if positiveVote > negativeVote{
+                if vote1.positiveVote > vote1.negativeVote {
                     Image(systemName: "hand.thumbsup.fill")
                         .foregroundColor(.green)
-                    Text("\(positiveVote + negativeVote)")
+                    Text("\(vote1.positiveVote + vote1.negativeVote)")
                         .foregroundColor(.green)
                     Image(systemName: "hand.thumbsdown")
                 } else {
@@ -48,7 +48,7 @@ struct VoteView: View {
 
 struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
-        VoteView()
+        VoteView(positiveVote: vote5, negativeVote: vote5)
             .previewLayout(.sizeThatFits)
     }
 }
