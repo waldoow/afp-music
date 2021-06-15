@@ -12,11 +12,11 @@ struct SongOfTheDayView: View {
         VStack{
             VStack{
                 Image(systemName: "plus.circle")
-                                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-                            Text("Chanson du jour")
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                                .font(.title)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                Text("Chanson du jour")
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                    .font(.title)
             }
             Spacer()
             Text("Découvrez de la vraie nouveauté, peu connu, que vous ne trouvez pas sur les autres apps.")
@@ -24,7 +24,7 @@ struct SongOfTheDayView: View {
             Text("En attente de la AudioPlayerView")
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
                 .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                                .background(Color.yellow)
+                .background(Color.yellow)
             ZStack{
                 Image(artist1.imageName)
                     .frame(maxWidth: .infinity)
@@ -33,11 +33,21 @@ struct SongOfTheDayView: View {
                     .foregroundColor(.white)
                     .offset(y: 60)
             }
-            // ajouter différentes votes
-            VoteView(positiveVote: vote2, negativeVote: vote2)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
-
-                
+            
+            ScrollView(.vertical){
+                VStack{
+                    VoteView(positiveVote: vote1, negativeVote: vote1)
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
+                    VoteView(positiveVote: vote2, negativeVote: vote2)
+                        .frame(maxWidth: .infinity, maxHeight:150)
+                    VoteView(positiveVote: vote3, negativeVote: vote3)
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
+                    VoteView(positiveVote: vote4, negativeVote: vote4)
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
+                    VoteView(positiveVote: vote5, negativeVote: vote5)
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
+                }
+            }
         }
         .padding()
     }

@@ -16,7 +16,7 @@ struct VoteView: View {
         VStack{
             HStack{
                 Image(systemName: "person.circle.fill")
-                Text("UserName")
+                Text(user1.name)
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,  alignment: .leading)
             HStack{
