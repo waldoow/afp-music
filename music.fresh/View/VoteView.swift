@@ -15,7 +15,12 @@ struct VoteView: View {
     var body: some View {
         VStack{
             HStack{
-                Image(systemName: "person.circle.fill")
+                Image(user1.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 50,height: 50)
+                    .cornerRadius(50)
+                    
                 Text(user1.name)
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,  alignment: .leading)
@@ -50,6 +55,7 @@ struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
         VoteView(positiveVote: vote5, negativeVote: vote5)
             .previewLayout(.sizeThatFits)
+            
     }
 }
 

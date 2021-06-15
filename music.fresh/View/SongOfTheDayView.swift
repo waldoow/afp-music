@@ -26,13 +26,14 @@ struct SongOfTheDayView: View {
                 .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                 .background(Color.yellow)
             ZStack{
+                Text(artist1.name)
+//                    .foregroundColor(.white)
+                    .offset(y: 60)
                 Image(artist1.imageName)
                     .frame(maxWidth: .infinity)
                     .aspectRatio(contentMode: .fill)
-                Text(artist1.name)
-                    .foregroundColor(.white)
-                    .offset(y: 60)
             }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
             
             ScrollView(.vertical){
                 
