@@ -33,10 +33,10 @@ struct SongOfTheDayView: View {
                     .foregroundColor(.white)
                     .offset(y: 60)
             }
-            Text("En attente de la VoteView")
+            // ajouter différentes votes
+            VoteView()
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
-                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                .background(Color.yellow)
+
                 
         }
         .padding()
