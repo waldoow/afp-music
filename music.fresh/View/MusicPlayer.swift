@@ -10,9 +10,7 @@ import AVKit
 
 struct MusicPlayer: View {
     var body: some View {
-        NavigationView {
-            Player().navigationBarTitle("Music Player")
-        }
+        Player().navigationBarTitle("Musique")
     }
 }
 
