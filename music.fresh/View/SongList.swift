@@ -28,6 +28,8 @@ struct SongList: View {
                     showAlert = true
                 }, label: {
                     Image(systemName: "plus.circle")
+                        .resizable()
+                        .frame(width: 23, height: 23)
                         .foregroundColor(.yellow)
                 }).alert(isPresented: $showAlert) {
                     Alert(title: Text("Titre ajouté aux favoris"), dismissButton: .default(Text("Ok")))

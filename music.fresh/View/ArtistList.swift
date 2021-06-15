@@ -25,7 +25,7 @@ struct ArtistList: View {
                 Spacer()
                 Button(action: {
                 }, label: {
-                    Image(systemName: "greaterthan")
+                    Image(systemName: "chevron.right")
                         .foregroundColor(.gray)
                 })
             }

@@ -11,25 +11,41 @@ struct SearchView: View {
     @State private var selection = 0
     @State var currentTab = "Titres"
     @Namespace var animation
+    @State private var showModal = false
     var body: some View {
-        VStack(alignment: .center, spacing: 0){
-            HStack(alignment: .center, spacing: 0){
-                selectionsButton(title: "Titres", currentTab: $currentTab, animation: animation)
-                selectionsButton(title: "Playlists", currentTab: $currentTab, animation: animation)
-                selectionsButton(title: "Artistes", currentTab: $currentTab, animation: animation)
-            }
-            VStack{
-                if currentTab == "Titres" {
-                    SongList(songs: songsList)
+        NavigationView{
+            VStack(alignment: .center, spacing: 0){
+                SearchBar(text: .constant(""))
+                    .padding(.bottom, 20)
+                HStack(alignment: .center, spacing: 0){
+                    selectionsButton(title: "Titres", currentTab: $currentTab, animation: animation)
+                    selectionsButton(title: "Playlists", currentTab: $currentTab, animation: animation)
+                    selectionsButton(title: "Artistes", currentTab: $currentTab, animation: animation)
                 }
-                if currentTab == "Playlists" {
-                    PlaylistList(playlists: playlistsList)
+                VStack{
+                    if currentTab == "Titres" {
+                        SongList(songs: songsList)
+                    }
+                    if currentTab == "Playlists" {
+                        PlaylistList(playlists: playlistsList)
+                    }
+                    if currentTab == "Artistes" {
+                        ArtistList(artists: artistsList)
+                    }
                 }
-                if currentTab == "Artistes" {
-                    ArtistList(artists: artistsList)
-                }
-            }
-            .padding(.top, 20)
+            }.navigationBarTitle("Rechercher")
+            //            .toolbar {
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                                        showModal.toggle()
+                                    }, label: {
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                            .foregroundColor(Color.yellow)
+                                    })).sheet(isPresented: $showModal) {
+                                        // mettre une View
+                                    }
         }
     }
 }
