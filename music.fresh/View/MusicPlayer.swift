@@ -36,36 +36,34 @@ struct Player: View {
     var body : some View{
         
         VStack(spacing: 20){
-            
             Image(uiImage: self.data.count == 0 ? UIImage(named: "itunes")! : UIImage(data: self.data)!)
-            .resizable()
-            .frame(width: self.data.count == 0 ? 250 : nil, height: 250)
-            .cornerRadius(15)
+                .resizable()
+                .frame(width: self.data.count == 0 ? 250 : nil, height: 250)
+                .cornerRadius(15)
             
             Text(self.title).font(.title).padding(.top)
-            
             ZStack(alignment: .leading) {
-            
+                
                 Capsule().fill(Color.black.opacity(0.08)).frame(height: 8)
                 
                 Capsule().fill(Color.red).frame(width: self.width, height: 8)
-                .gesture(DragGesture()
-                    .onChanged({ (value) in
-                        
-                        let x = value.location.x
-                        
-                        self.width = x
-                        
-                    }).onEnded({ (value) in
-                        
-                        let x = value.location.x
-                        
-                        let screen = UIScreen.main.bounds.width - 30
-                        
-                        let percent = x / screen
-                        
-                        self.player.currentTime = Double(percent) * self.player.duration
-                    }))
+                    .gesture(DragGesture()
+                                .onChanged({ (value) in
+                                    
+                                    let x = value.location.x
+                                    
+                                    self.width = x
+                                    
+                                }).onEnded({ (value) in
+                                    
+                                    let x = value.location.x
+                                    
+                                    let screen = UIScreen.main.bounds.width - 30
+                                    
+                                    let percent = x / screen
+                                    
+                                    self.player.currentTime = Double(percent) * self.player.duration
+                                }))
             }
             .padding(.top)
             
@@ -81,77 +79,81 @@ struct Player: View {
                     }
                     
                 }) {
-            
+                    
                     Image(systemName: "backward.fill").font(.title)
                     
                 }
                 
-                    Button(action: {
-                        
-                        self.player.currentTime -= 15
-                        
-                    }) {
+                Button(action: {
+                    
+                    self.player.currentTime -= 15
+                    
+                }) {
+                    
+                    Image(systemName: "gobackward.15").font(.title)
+                    
+                }
                 
-                        Image(systemName: "gobackward.15").font(.title)
+                Button(action: {
+                    
+                    if self.player.isPlaying{
                         
+                        self.player.pause()
+                        self.playing = false
                     }
-                
-                    Button(action: {
+                    else{
                         
-                        if self.player.isPlaying{
+                        if self.finish{
                             
-                            self.player.pause()
-                            self.playing = false
-                        }
-                        else{
+                            self.player.currentTime = 0
+                            self.width = 0
+                            self.finish = false
                             
-                            if self.finish{
-                                
-                                self.player.currentTime = 0
-                                self.width = 0
-                                self.finish = false
-                                
-                            }
-                            
-                            self.player.play()
-                            self.playing = true
                         }
                         
-                    }) {
-                
-                        Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.fill").font(.title)
-                        
+                        self.player.play()
+                        self.playing = true
                     }
+                    
+                }) {
+                    
+                    Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.fill").font(.title)
+                    
+                }
                 
-                    Button(action: {
-                       
-                        let increase = self.player.currentTime + 15
+                Button(action: {
+                    
+                    let increase = self.player.currentTime + 15
+                    
+                    if increase < self.player.duration{
                         
-                        if increase < self.player.duration{
-                            
-                            self.player.currentTime = increase
-                        }
-                        
-                    }) {
-                
-                        Image(systemName: "goforward.15").font(.title)
-                        
+                        self.player.currentTime = increase
                     }
+                    
+                }) {
+                    
+                    Image(systemName: "goforward.15").font(.title)
+                    
+                    
+                    
+                }
                 
-                    Button(action: {
-                        
-                        if self.songs.count - 1 != self.current{
-                            
-                            self.current += 1
-                            
-                            self.ChangeSongs()
-                        }
-                        
-                    }) {
                 
-                        Image(systemName: "forward.fill").font(.title)
+                
+                Button(action: {
+                    
+                    if self.songs.count - 1 != self.current{
                         
+                        self.current += 1
+                        
+                        self.ChangeSongs()
                     }
+                    
+                }) {
+                    
+                    Image(systemName: "forward.fill").font(.title)
+                    
+                }
                 
             }.padding(.top,25)
             .foregroundColor(.black)
@@ -231,7 +233,7 @@ struct Player: View {
         
         self.player.play()
         
-
+        
     }
 }
 
