@@ -10,7 +10,7 @@ import SwiftUI
 struct VoteView: View {
     
     let vote: Vote
-    @State var addVote: Int = 0
+    @State var addVote = 0
     
     var body: some View {
         VStack{
@@ -36,32 +36,51 @@ struct VoteView: View {
                 if vote.positiveVote > vote.negativeVote {
                     Button(action: {
                         // action
-                        addVote += 1
+                        if (addVote == 0) || (addVote == -1) {
+                            addVote += 1
+                        } else if (addVote == 1){
+                            addVote -= 1
+                        }
                     }) {
                         Image(systemName: "hand.thumbsup.fill")
                             .foregroundColor(.green)
                     }
                     
-                    Text("\(vote.positiveVote + vote.negativeVote)")
+                    Text("\(vote.positiveVote + vote.negativeVote + addVote)")
                         .foregroundColor(.green)
                     Button(action: {
                         // action
-                        addVote -= 1
+                        if (addVote == 0) || (addVote == 1) {
+                            addVote -= 1
+                        } else if (addVote == -1){
+                            addVote += 1
+                        }
                     }) {
                         Image(systemName: "hand.thumbsdown")
+                            .foregroundColor(.black)
                     }
                 } else {
                     Button(action: {
                         // action
-                        addVote += 1
+                        if (addVote == 0) || (addVote == -1) {
+                            addVote += 1
+                        } else if (addVote == 1){
+                            addVote -= 1
+                        }
                     }) {
                         Image(systemName: "hand.thumbsup")
+                            .foregroundColor(.black)
                     }
                     Text("\(vote.positiveVote + vote.negativeVote + addVote)")
                         .foregroundColor(.red)
                     Button(action: {
                         // action
-                        addVote -= 1
+                        if (addVote == 0) || (addVote == 1) {
+                            addVote -= 1
+                        } else if (addVote == -1){
+                            addVote += 1
+                        }
+                        
                     }) {
                         Image(systemName: "hand.thumbsdown.fill")
                             .foregroundColor(.red)
