@@ -38,6 +38,7 @@ struct Player: View {
         VStack(spacing: 20){
             Image(uiImage: self.data.count == 0 ? UIImage(named: "itunes")! : UIImage(data: self.data)!)
                 .resizable()
+                .scaledToFit()
                 .frame(width: self.data.count == 0 ? 250 : nil, height: 250)
                 .cornerRadius(15)
             
