@@ -9,15 +9,13 @@ import SwiftUI
 
 struct VoteView: View {
     
-    var positiveVote:Int
-    var negativeVote: Int
-    var voteResult: Int
+    var positiveVote:Int = 200
+    var negativeVote: Int = 100
     
     var body: some View {
         VStack{
             HStack{
                 Image(systemName: "person.circle.fill")
-                Text("")
                 Text("UserName")
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,  alignment: .leading)
@@ -28,10 +26,20 @@ struct VoteView: View {
                     .font(.largeTitle)
             }
             HStack{
-                Image(systemName: "hand.thumbsup.fill")
-                    .foregroundColor(.green)
-                Text("191")
-                Image(systemName: "hand.thumbsdown")
+                if positiveVote > negativeVote{
+                    Image(systemName: "hand.thumbsup.fill")
+                        .foregroundColor(.green)
+                    Text("\(positiveVote + negativeVote)")
+                        .foregroundColor(.green)
+                    Image(systemName: "hand.thumbsdown")
+                } else {
+                    Image(systemName: "hand.thumbsup")
+                    Text("191")
+                        .foregroundColor(.red)
+                    Image(systemName: "hand.thumbsdown.fill")
+                        .foregroundColor(.red)
+                }
+                
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,  alignment: .leading)
         }
@@ -40,7 +48,7 @@ struct VoteView: View {
 
 struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
-        VoteView(positiveVote: 200, negativeVote: 100, voteResult: 100)
+        VoteView()
             .previewLayout(.sizeThatFits)
     }
 }
