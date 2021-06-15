@@ -21,7 +21,7 @@ struct SongOfTheDayView: View {
             Spacer()
             Text("Découvrez de la vraie nouveauté, peu connu, que vous ne trouvez pas sur les autres apps.")
             Spacer()
-            Text("AudioPlayerView")
+            Text("En attente de la AudioPlayerView")
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
                 .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                                 .background(Color.yellow)
@@ -33,7 +33,7 @@ struct SongOfTheDayView: View {
                     .foregroundColor(.white)
                     .offset(y: 60)
             }
-            Text("VoteView")
+            Text("En attente de la VoteView")
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
                 .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                 .background(Color.yellow)
