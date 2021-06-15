@@ -35,6 +35,15 @@ struct SongOfTheDayView: View {
             }
             
             ScrollView(.vertical){
+                
+//                List {
+//                    VoteView(positiveVote: voteList[0], negativeVote: voteList[0])
+//                    VoteView(positiveVote: voteList[1], negativeVote: voteList[1])
+//                    VoteView(positiveVote: voteList[2], negativeVote: voteList[2])
+//                    VoteView(positiveVote: voteList[3], negativeVote: voteList[3])
+//                    VoteView(positiveVote: voteList[4], negativeVote: voteList[4])
+//                }
+                
                 VStack{
                     VoteView(positiveVote: vote1, negativeVote: vote1)
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
