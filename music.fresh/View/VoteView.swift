@@ -9,13 +9,10 @@ import SwiftUI
 
 struct VoteView: View {
     
-    var positiveVote: Vote
-    var negativeVote: Vote
-    
     var body: some View {
         VStack{
             HStack{
-                Image(user1.imageName)
+                Image(vote1.user.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 50,height: 50)
@@ -54,7 +51,7 @@ struct VoteView: View {
 
 struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
-        VoteView(positiveVote: vote5, negativeVote: vote5)
+        VoteView()
             .previewLayout(.sizeThatFits)
             
     }

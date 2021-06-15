@@ -46,15 +46,15 @@ struct SongOfTheDayView: View {
 //                }
                 
                 VStack{
-                    VoteView(positiveVote: vote1, negativeVote: vote1)
+                    VoteView()
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
-                    VoteView(positiveVote: vote2, negativeVote: vote2)
+                    VoteView()
                         .frame(maxWidth: .infinity, maxHeight:150)
-                    VoteView(positiveVote: vote3, negativeVote: vote3)
+                    VoteView()
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
-                    VoteView(positiveVote: vote4, negativeVote: vote4)
+                    VoteView()
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
-                    VoteView(positiveVote: vote5, negativeVote: vote5)
+                    VoteView()
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
                 }
             }
