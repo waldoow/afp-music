@@ -11,7 +11,7 @@ struct SongOfTheDayView: View {
     var body: some View {
         VStack{
             VStack{
-                Image(systemName: "plus.circle")
+                Image(systemName: "plus.circle") // ajouter chanson du jour
                     .foregroundColor(.blue)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 Text("Chanson du jour")
