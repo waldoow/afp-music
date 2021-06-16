@@ -26,13 +26,13 @@ struct SongOfTheDayView: View {
                 .foregroundColor(.blue)
                 .background(Color.yellow)
             ZStack{
-                Text(artist1.name)
-//                    .foregroundColor(.white)
-                    .offset(y: 60)
                 Image("user1.jpg")
                     .resizable()
                     .frame(maxWidth: .infinity)
                     .aspectRatio(contentMode: .fit)
+                Text(artist1.name)
+                    .foregroundColor(.white)
+                    .offset(y: 60)
             }
             .frame(maxWidth: .infinity, maxHeight:150)
             
