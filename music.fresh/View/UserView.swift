@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension Color {
-    static let darkBlueStart = Color(red: 0 / 255, green: 78 / 255, blue: 146 / 255)
-    static let darkBlueEnd = Color(red: 0 / 255, green: 4 / 255, blue: 40 / 255)
+    static let lightBlueStart = Color(red: 109 / 255, green: 213 / 255, blue: 250 / 255)
+    static let lightBlueEnd = Color(red: 41 / 255, green: 128 / 255, blue: 185 / 255)
 }
 
 extension LinearGradient {
@@ -23,42 +23,40 @@ struct UserView: View {
     @State private var showingSheet = false
     
     var body: some View {
-        
-        GeometryReader { proxy in
-            VStack {
-                ZStack {
-                    Image(user.imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                        .shadow(radius: 10)
-                        .overlay(Circle().stroke(Color.white, lineWidth: 5))
-                        .padding(5)
-                    
-                    Text(user.name)
-                        .font(.caption)
-                        .foregroundColor(.white)
-                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 80, alignment: .bottom)
-                        .padding(.top, 40)
-                    
-                    Button(action: {
-                        showingSheet.toggle()
-                        
-                    }, label: {
-                        Image(systemName: "gearshape")
-                            .foregroundColor(.white)
-                            .frame(width: 90, height: 120, alignment: .topTrailing)
-                    }
-                    ).sheet(isPresented: $showingSheet) {
-                        TestView()
-                    }
-                }
+        NavigationView {
+            GeometryReader { proxy in
+                //SelectionView()
             }
-            .frame(width: 320, height: 130,alignment: .trailing)
-            //SelectionView()
+            .background(LinearGradient(Color.lightBlueStart, Color.lightBlueEnd))
+            .navigationBarItems(
+                leading:
+                    Text(user.name)
+                    .font(.body)
+                    .foregroundColor(Color(.systemGray)),
+                
+                trailing:
+                    HStack {
+                        Button(action: {
+                            showingSheet.toggle()
+                            
+                        }, label: {
+                            Image(systemName: "gearshape")
+                                .foregroundColor(.gray)
+                        }
+                        ).sheet(isPresented: $showingSheet) {
+                            ProfileView()
+                        }
+                        
+                        Image(user1.imageName ?? "")
+                            .resizable()
+                            .frame(width: 60, height: 100)
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 5))
+                    }
+            )
+            .edgesIgnoringSafeArea(.top)
         }
-        .background(LinearGradient(Color.darkBlueStart, Color.darkBlueEnd))
-        .edgesIgnoringSafeArea(.top)
     }
 }
 
