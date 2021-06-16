@@ -8,53 +8,27 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @Binding var text: String
-    @State private var isEditing = false
+    @Binding var searchText: String
     var body: some View {
-        HStack(alignment: .center){
-            TextField("Titres, playlists ou artistes", text: $text)
-                .padding(10)
-                .padding(.horizontal, 25)
-                .background(Color(.systemGray6))
-                .cornerRadius(6)
-                .padding(.horizontal, 10)
-                .onTapGesture {
-                    self.isEditing = true
-                }
-                .overlay(
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
-                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 18)
-                        if isEditing {
-                            Button(action: {
-                                self.text = " "
-                            }) {
-                                Image(systemName: "multiply.circle.fill")
-                                    .foregroundColor(.gray)
-                                    .padding(.trailing, 20)
-                            }
-                        }
-                    }
-                )
-            if isEditing {
-                Button(action: {
-                    self.isEditing = false
-                    self.text = " "
-                }, label: {
-                    Text("Annuler")
-                })
-                .padding(3)
-                .transition(.move(edge: .trailing))
-                .animation(.default)
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color(.systemGray4))
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("Titres, playlists ou artistes ..", text: $searchText)
+                
             }
+            .foregroundColor(.white)
+            .padding(.leading, 13)
         }
+        .frame(height: 40)
+        .cornerRadius(13)
+        .padding()
     }
 }
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar(text: .constant(""))
+        SearchBar(searchText: .constant(" "))
     }
 }

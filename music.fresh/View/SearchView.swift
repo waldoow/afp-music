@@ -15,7 +15,7 @@ struct SearchView: View {
     var body: some View {
         NavigationView{
             VStack(alignment: .center, spacing: 0){
-                SearchBar(text: .constant(""))
+                SearchBar(searchText: .constant(" "))
                     .padding(.bottom, 20)
                 HStack(alignment: .center, spacing: 0){
                     selectionsButton(title: "Titres", currentTab: $currentTab, animation: animation)
