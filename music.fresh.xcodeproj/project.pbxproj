@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B38B812267A3F020002EB35 /* NewPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B38B811267A3F020002EB35 /* NewPlaylistView.swift */; };
 		4B7DE1F42677431000CD2F1A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7DE1F32677431000CD2F1A /* Song.swift */; };
 		4B7DE1F82677448300CD2F1A /* SongData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7DE1F72677448300CD2F1A /* SongData.swift */; };
 		4B7DE2002677461600CD2F1A /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7DE1FF2677461600CD2F1A /* SongList.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B38B811267A3F020002EB35 /* NewPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaylistView.swift; sourceTree = "<group>"; };
 		4B7DE1F32677431000CD2F1A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		4B7DE1F72677448300CD2F1A /* SongData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongData.swift; sourceTree = "<group>"; };
 		4B7DE1FF2677461600CD2F1A /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				4BC6124E26788CD100A0B7CA /* SearchView.swift */,
+				4B38B811267A3F020002EB35 /* NewPlaylistView.swift */,
 				4BABC5692678DD0100965FA5 /* SearchBar.swift */,
 				4BD3BFDD2677838300AAC075 /* PlaylistList.swift */,
 				4B7DE1FF2677461600CD2F1A /* SongList.swift */,
@@ -219,6 +222,7 @@
 				4B7DE1F42677431000CD2F1A /* Song.swift in Sources */,
 				4BD3BFF226778FCF00AAC075 /* Playlist.swift in Sources */,
 				68F274532673584600BAD3C2 /* ContentView.swift in Sources */,
+				4B38B812267A3F020002EB35 /* NewPlaylistView.swift in Sources */,
 				4BD3C001267799D300AAC075 /* Data.swift in Sources */,
 				4B7DE1F82677448300CD2F1A /* SongData.swift in Sources */,
 				4BD3C0072677A6FF00AAC075 /* ArtistList.swift in Sources */,
