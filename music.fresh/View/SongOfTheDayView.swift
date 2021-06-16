@@ -12,32 +12,34 @@ struct SongOfTheDayView: View {
         VStack{
             VStack{
                 Image(systemName: "plus.circle")
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                    .foregroundColor(.blue)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
                 Text("Chanson du jour")
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.title)
             }
             Spacer()
             Text("Découvrez de la vraie nouveauté, peu connu, que vous ne trouvez pas sur les autres apps.")
             Spacer()
             Text("En attente de la AudioPlayerView")
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
-                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                .frame(maxWidth: .infinity, maxHeight:150)
+                .foregroundColor(.blue)
                 .background(Color.yellow)
             ZStack{
                 Text(artist1.name)
 //                    .foregroundColor(.white)
                     .offset(y: 60)
-                Image(artist1.imageName)
+                Image("user1.jpg")
+                    .resizable()
                     .frame(maxWidth: .infinity)
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
             }
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight:150)
+            .frame(maxWidth: .infinity, maxHeight:150)
             
             ScrollView(.vertical){
                 
                 VStack{
+                    // mettre tableau vote
                     VoteView(vote: vote1)
                         .frame(maxWidth: .infinity, maxHeight:150)
                     VoteView(vote: vote2)
