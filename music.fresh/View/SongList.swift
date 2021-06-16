@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct SongList: View {
+    
     let songs: [Song]
     @State private var showAlert = false
+    @State var searchText = ""
+    
     var body: some View {
         HStack{
             List(songs) { song in

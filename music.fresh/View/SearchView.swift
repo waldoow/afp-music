@@ -12,10 +12,14 @@ struct SearchView: View {
     @State var currentTab = "Titres"
     @Namespace var animation
     @State private var showModal = false
+    
+    @State var searchText = ""
+    @State var searching = false
+    
     var body: some View {
         NavigationView{
             VStack(alignment: .center, spacing: 0){
-                SearchBar(searchText: .constant(" "))
+                SearchBar(searchText: $searchText, searching: $searching)
                     .padding(.bottom, 20)
                 HStack(alignment: .center, spacing: 0){
                     selectionsButton(title: "Titres", currentTab: $currentTab, animation: animation)
@@ -33,8 +37,8 @@ struct SearchView: View {
                         ArtistList(artists: artistsList)
                     }
                 }
-            }.navigationBarTitle("Rechercher")
-            //            .toolbar {
+            }
+            .navigationBarTitle("Rechercher")
             .navigationBarItems(trailing:
                                     Button(action: {
                                         showModal.toggle()
@@ -44,7 +48,7 @@ struct SearchView: View {
                                             .frame(width: 20, height: 20)
                                             .foregroundColor(Color.yellow)
                                     })).sheet(isPresented: $showModal) {
-                                        // mettre une View
+                                        // mettre la modal CreatePlaylist
                                     }
         }
     }
