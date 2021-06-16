@@ -13,13 +13,12 @@ struct SearchView: View {
     @Namespace var animation
     @State private var showModal = false
     
-    @State var searchText = ""
-    @State var searching = false
+    @State var text = ""
     
     var body: some View {
         NavigationView{
             VStack(alignment: .center, spacing: 0){
-                SearchBar(searchText: $searchText, searching: $searching)
+                SearchBar(text: $text)
                     .padding(.bottom, 20)
                 HStack(alignment: .center, spacing: 0){
                     selectionsButton(title: "Titres", currentTab: $currentTab, animation: animation)
