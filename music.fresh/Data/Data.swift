@@ -7,9 +7,9 @@
 
 import Foundation
 
-let song1 = Song(title: "Titre1", artist: "Artiste", description: "Album", imageName: "imageSong", url: "", year: 2021)
-let song2 = Song(title: "Titre2", artist: "Artiste", description: "Album", imageName: "imageSong", url: "", year: 2021)
-let song3 = Song(title: "Titre3", artist: "Artiste", description: "Album", imageName: "imageSong", url: "", year: 2021)
+let song1 = Song(title: "Titre1", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
+let song2 = Song(title: "Titre2", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
+let song3 = Song(title: "Titre3", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
 let songsList = [song1, song2, song3]
 
 
@@ -25,7 +25,7 @@ let artist3 = Artist(name: "Carbonne", imageName: "CarbonnePhoto", description: 
 let artistsList = [artist1, artist2, artist3]
 
 
-let user1 = User(name: "User1", imageName: "", recentSongs: songsList, myPlaylists: playlistsList)
-let user2 = User(name: "User2", imageName: "", recentSongs: songsList, myPlaylists: playlistsList)
-let user3 = User(name: "User3", imageName: "", recentSongs: songsList, myPlaylists: playlistsList)
+let user1 = User(name: "Bilbo Baggins", imageName: "user1.jpg", recentSongs: songsList, myPlaylists: playlistsList)
+let user2 = User(name: "Arwen Undomiel", imageName: "user2.jpg", recentSongs: songsList, myPlaylists: playlistsList)
+let user3 = User(name: "Pippin Took", imageName: "user3.jpg", recentSongs: songsList, myPlaylists: playlistsList)
 let usersList = [user1, user2, user3]

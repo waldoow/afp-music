@@ -20,7 +20,7 @@ struct SongList: View {
                 VStack(alignment: .leading){
                     Text(song.title)
                         .font(.title3)
-                    Text(song.artist)
+                    Text(song.artist.name)
                         .foregroundColor(.secondary)
                 }
                 Spacer()
