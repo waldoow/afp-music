@@ -16,6 +16,7 @@ struct ArtistList: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 55, height: 55)
+                    .clipped()
                 VStack(alignment: .leading){
                     Text(artist.name)
                         .font(.title3)

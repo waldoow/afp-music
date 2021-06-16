@@ -20,6 +20,7 @@ struct SongList: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 55, height: 55)
+                    .clipped()
                 VStack(alignment: .leading){
                     Text(song.title)
                         .font(.title3)
