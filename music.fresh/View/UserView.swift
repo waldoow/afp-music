@@ -54,9 +54,6 @@ struct UserView: View {
                     }
                 }
             }
-            
-            
-            
             .frame(width: 320, height: 130,alignment: .trailing)
             //SelectionView()
         }
