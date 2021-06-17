@@ -11,8 +11,9 @@ struct User: Identifiable {
     var id = UUID()
     
     let name: String
-    let imageName: String
-    var recentSongs: [Song]
-    var myPlaylists: [Playlist]
+    let email: String
+    let imageName: String?
+    var recentSongs: [Song] = []
+    var myPlaylists: [Playlist] = []
 //    var myFriends: [Friend]
 }
