@@ -15,17 +15,22 @@ struct NewPlaylistView: View {
     
     @State var retrieved = ""
     @State var showSongs = false
+    
+    @State private var isShowPhotoLibrary = false
+    @State private var image = UIImage()
     var body: some View {
         NavigationView{
             VStack{
-                Image("imagePlaylist")
+                Image(uiImage: self.image)
                     .resizable()
                     .frame(width: 250, height: 250)
                     .cornerRadius(15)
                     .opacity(0.2)
+                    .clipped()
                     .overlay(
                         Button(action: {
                             //affiche la modal pour choisir une image
+                            self.isShowPhotoLibrary = true
                         }, label: {
                             Image(systemName: "camera.circle.fill")
                                 .resizable()
@@ -35,6 +40,10 @@ struct NewPlaylistView: View {
                         })
                     )
                     .padding(20)
+                    
+                    .sheet(isPresented: $isShowPhotoLibrary) {
+                        ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                    }
                 Form{
                     Section(content: {
                         TextField("Nom de la playlist", text: $playlistName)
@@ -65,7 +74,7 @@ struct NewPlaylistView: View {
                                 trailing:
                                     Button(action: {
                                         self.showModal.toggle()
-                                        playlistsList.append(Playlist(title: playlistName, user: user1.name, imageName: playlist1.imageName, year: year, songs: []))
+                                        playlistsList.append(Playlist(title: playlistName, user: user1.name, imageName: "imagePlaylist", year: year, songs: []))
                                         UserDefaults.standard.set(self.playlistName, forKey: "PlaylistName")
                                         self.retrieved = self.playlistName
                                         self.playlistName = ""
