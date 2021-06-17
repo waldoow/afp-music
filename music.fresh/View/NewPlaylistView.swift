@@ -13,6 +13,7 @@ struct NewPlaylistView: View {
     @Binding var showModal: Bool
     let year = Int(DateFormatter.displayDate.string(from: Date())) ?? 2021
     
+    @State var retrieved = ""
     var body: some View {
         NavigationView{
             VStack{
@@ -56,17 +57,21 @@ struct NewPlaylistView: View {
                                 ,
                                 trailing:
                                     Button(action: {
-                                        let playlist = createNewPlaylist()
-                                        print(playlist)
+                                        playlistsList.append(Playlist(title: playlistName, user: "random", imageName: "", year: year, songs: []))
+                                        UserDefaults.standard.set(self.playlistName, forKey: "PlaylistName")
+                                        self.retrieved = self.playlistName
+                                        self.playlistName = ""
                                         
                                     }, label: {
                                         Text("Créer")
                                             .foregroundColor(Color.yellow)
                                     }))
+            .onAppear{
+                guard let retrievedplaylist = UserDefaults.standard.value(forKey: "PlaylistName") else { return }
+                
+                self.retrieved = retrievedplaylist as! String
+                }
         }
-    }
-    func createNewPlaylist() -> Playlist {
-        return Playlist(title: playlistName, user: "random", imageName: "test", year: year, songs: songsList)
     }
 }
 
