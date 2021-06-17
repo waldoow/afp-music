@@ -47,7 +47,7 @@ struct SearchView: View {
                                             .frame(width: 20, height: 20)
                                             .foregroundColor(Color.yellow)
                                     })).sheet(isPresented: $showModal) {
-                                        // mettre la modal CreatePlaylist
+                                        NewPlaylistView(showModal: $showModal)
                                     }
         }
     }
