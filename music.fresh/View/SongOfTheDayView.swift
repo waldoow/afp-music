@@ -8,25 +8,29 @@
 import SwiftUI
 
 struct SongOfTheDayView: View {
+    
+    @State private var isPresented = false
+    
     var body: some View {
         NavigationView {
             VStack{
                 
-                NavigationLink(destination: AddSongOfTheDayView(name: "Halestorm", title: "Do Not Disturb", url: "https://www.youtube.com/watch?v=WZNb8A48USo", year: "2018", description: "Halestorm est un groupe de heavy metal américain, originaire de York, en Pennsylvanie. Le groupe est actuellement signé chez Atlantic Records et a réalisé son premier album éponyme en avril 2009. Suit The Strange Case of... en 2012, dont le premier single, Love Bites (So Do I), qui est récompensé d'un Grammy Award dans la catégorie de la meilleure chanson hard rock/metal, le 10 février 2013. En 2015 sort l'album Into the Wild Life. Et en 2018 le groupe sort l'album Vicious, avec le single Uncomfortable qui est nommé au Grammy Award dans la catégorie meilleure prestation rock. Ils ont également sorti plusieurs EP, notamment des albums de reprises.")){
+                NavigationLink(destination: AddSongOfTheDayView()){
 
                 }
                 .navigationTitle("Chanson du jour")
-                .navigationBarItems(trailing: Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                Image(systemName: "plus.circle")
-                    .foregroundColor(.blue)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-            })
+// bouton lien vers modale
+                .navigationBarItems(trailing: Button("+") {
+                    isPresented.toggle()
+                }
+                .fullScreenCover(isPresented: $isPresented, content: AddSongView.init)
+                .font(.largeTitle)
+                )
                 
-                //                VStack{
-                //                    Text("Chanson du jour")
-                //                        .frame(maxWidth: .infinity, alignment: .leading)
-                //                        .font(.title)
-                //                }
+//                Image(systemName: "plus.circle")
+//                    .foregroundColor(.blue)
+//                    .frame(maxWidth: .infinity, alignment: .trailing)
+
                 Spacer()
                 Text("Découvrez de la vraie nouveauté, peu connu, que vous ne trouvez pas sur les autres apps.")
                 Spacer()
@@ -65,6 +69,84 @@ struct SongOfTheDayView: View {
             .padding()
         }
         //        .edgesIgnoringSafeArea(.top)
+    }
+}
+
+
+struct AddSongView: View{
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+//    @State var song: Song
+    @State private var nom: String = ""
+    @State private var title: String = ""
+    @State private var url: String = ""
+    @State private var year: String = ""
+    @State private var description: String = ""
+    
+    var body: some View {
+        
+        VStack(alignment: .leading) {
+            Image(systemName: "photo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200, alignment: .leading)
+            
+            Form{
+                Section{
+                    TextField("Nom", text: $nom)
+                                        .textContentType(.name)
+                                        .disableAutocorrection(true)
+                                    TextField("Titre", text: $title)
+                                        .disableAutocorrection(true)
+                }
+                Section{
+                    TextField("URL", text: $url)
+                                        .textContentType(.URL)
+                                        .disableAutocorrection(true)
+                                    TextField("Année", text: $year)
+                                        .textContentType(.telephoneNumber)
+                                        .keyboardType(.numberPad)
+                }
+                Section{
+                    TextField("Biographie", text: $description)
+                }
+                
+            }
+            
+            
+            //            HStack {
+            //                Text("Nom :")
+            //                TextField("Nom", text: $song.artist)
+            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            //            }
+            //            HStack {
+            //                Text("Titre :")
+            //                TextField("Titre", text: $song.title)
+            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            //            }
+            //            HStack {
+            //                Text("URL :")
+            //                TextField("URL", text: $song.url)
+            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            //            }
+            //            HStack{
+            //                Text("Année :")
+            //                TextField("Année", text: $song.year)
+            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            //            }
+            //            HStack {
+            //                Text("Biographie :")
+            //                TextField("", text: $song.description)
+            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            //            }
+            
+            Button("Valider"){
+                presentationMode.wrappedValue.dismiss()
+            }
+            
+        }
+        .padding()
     }
 }
 
