@@ -16,21 +16,21 @@ struct SongOfTheDayView: View {
             VStack{
                 
                 NavigationLink(destination: AddSongOfTheDayView()){
-
+                    
                 }
                 .navigationTitle("Chanson du jour")
-// bouton lien vers modale
+                // bouton lien vers modale
                 .navigationBarItems(trailing: Button("+") {
                     isPresented.toggle()
                 }
-                .fullScreenCover(isPresented: $isPresented, content: AddSongView.init)
+                .fullScreenCover(isPresented: $isPresented, content: AddSongOfTheDayView.init)
                 .font(.largeTitle)
                 )
                 
-//                Image(systemName: "plus.circle")
-//                    .foregroundColor(.blue)
-//                    .frame(maxWidth: .infinity, alignment: .trailing)
-
+                //                Image(systemName: "plus.circle")
+                //                    .foregroundColor(.blue)
+                //                    .frame(maxWidth: .infinity, alignment: .trailing)
+                
                 Spacer()
                 Text("Découvrez de la vraie nouveauté, peu connu, que vous ne trouvez pas sur les autres apps.")
                 Spacer()
@@ -75,17 +75,16 @@ struct SongOfTheDayView: View {
 
 struct AddSongView: View{
     
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
     
-//    @State var song: Song
     @State private var name: String = ""
     @State private var title: String = ""
     @State private var url: String = ""
     @State private var year: String = ""
     @State private var description: String = ""
     
-    @State private var nameRetreived = ""
-
+//    @State private var nameRetreived = ""
+    
     
     var body: some View {
         
@@ -98,18 +97,19 @@ struct AddSongView: View{
             Form{
                 Section{
                     TextField("Nom", text: $name)
-                                        .textContentType(.name)
-                                        .disableAutocorrection(true)
-                                    TextField("Titre", text: $title)
-                                        .disableAutocorrection(true)
+                        .textContentType(.name)
+                        .disableAutocorrection(true)
+                    TextField("Titre", text: $title)
+                        .disableAutocorrection(true)
                 }
                 Section{
                     TextField("URL", text: $url)
-                                        .textContentType(.URL)
-                                        .disableAutocorrection(true)
-                                    TextField("Année", text: $year)
-                                        .textContentType(.telephoneNumber)
-                                        .keyboardType(.numberPad)
+                        .autocapitalization(.none)
+                        .textContentType(.URL)
+                        .disableAutocorrection(true)
+                    TextField("Année", text: $year)
+                        .textContentType(.telephoneNumber)
+                        .keyboardType(.numberPad)
                 }
                 Section{
                     TextField("Desciption", text: $description)
@@ -118,45 +118,15 @@ struct AddSongView: View{
             }
             
             
-            //            HStack {
-            //                Text("Nom :")
-            //                TextField("Nom", text: $song.artist)
-            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            //            }
-            //            HStack {
-            //                Text("Titre :")
-            //                TextField("Titre", text: $song.title)
-            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            //            }
-            //            HStack {
-            //                Text("URL :")
-            //                TextField("URL", text: $song.url)
-            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            //            }
-            //            HStack{
-            //                Text("Année :")
-            //                TextField("Année", text: $song.year)
-            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            //            }
-            //            HStack {
-            //                Text("Biographie :")
-            //                TextField("", text: $song.description)
-            //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            //            }
-            
-//            Button("Valider"){
-//                presentationMode.wrappedValue.dismiss()
-//            }
-            
-            Button(action: {
-                UserDefaults.standard.setValue(self.$name, forKey: "Nom")
-                self.nameRetreived = self.name
-                self.name = ""
-            }, label: {
-                                Text("Valider")
-                                    .padding()
-                            
-            })
+//            Button(action: {
+//                UserDefaults.standard.setValue(self.$name, forKey: "Nom")
+//                self.nameRetreived = self.name
+//                self.name = ""
+//            }, label: {
+//                Text("Valider")
+//                    .padding()
+//
+//            })
             
         }
         .padding()
