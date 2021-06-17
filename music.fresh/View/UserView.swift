@@ -14,7 +14,7 @@ extension Color {
 
 extension LinearGradient {
     init(_ colors: Color...) {
-        self.init(gradient: Gradient(colors: colors), startPoint: .topLeading, endPoint: .bottomTrailing)
+        self.init(gradient: Gradient(colors: colors), startPoint: .leading, endPoint: .trailing)
     }
 }
 
@@ -24,15 +24,16 @@ struct UserView: View {
     
     var body: some View {
         NavigationView {
-            GeometryReader { proxy in
-                //SelectionView()
+            VStack {
+                Text("kkdjfjff")
             }
-            .background(LinearGradient(Color.lightBlueStart, Color.lightBlueEnd))
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .background(LinearGradient(Color.lightBlueEnd, Color.lightBlueStart))
             .navigationBarItems(
                 leading:
                     Text(user.name)
                     .font(.body)
-                    .foregroundColor(Color(.systemGray)),
+                    .foregroundColor(Color(.systemTeal)),
                 
                 trailing:
                     HStack {
@@ -41,21 +42,22 @@ struct UserView: View {
                             
                         }, label: {
                             Image(systemName: "gearshape")
-                                .foregroundColor(.gray)
+                                .foregroundColor(.lightBlueEnd)
                         }
                         ).sheet(isPresented: $showingSheet) {
-                            ProfileView()
+                            ProfileUpdateForm()
                         }
                         
-                        Image(user1.imageName ?? "")
+                        Image(user.imageName ?? "")
                             .resizable()
                             .frame(width: 60, height: 100)
                             .clipShape(Circle())
-                            .shadow(radius: 10)
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 5))
+                            .shadow(radius: 5)
+                            .overlay(Circle().stroke(Color.lightBlueEnd, lineWidth: 5))
                     }
             )
             .edgesIgnoringSafeArea(.top)
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
 }

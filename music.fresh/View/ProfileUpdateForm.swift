@@ -7,20 +7,25 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct ProfileUpdateForm: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var userName: String = ""
     @State var email: String = ""
     @State var imageName: String = ""
+    @State var password: String = ""
     @State var termsAccepted = false
     
     var body: some View {
         NavigationView {
             Form {
-                TextField("Nom d'utilisateur", text: $userName)
+                TextField("nom d'utilisateur", text: $userName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Adresse e-mail", text: $email)
+                TextField("adresse e-mail", text: $email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("url de ton image", text: $imageName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("mot de passe", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
                 if self.isUserInformationValid() {
@@ -65,8 +70,8 @@ struct ProfileView: View {
 }
 
 
-struct ProfileView_Previews: PreviewProvider {
+struct ProfileUpdateForm_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileUpdateForm()
     }
 }
