@@ -12,6 +12,7 @@ struct SongList: View {
     @State var text = ""
     @State private var showAlert = false
     var body: some View {
+        VStack{
         ScrollView(.vertical, showsIndicators: false) {
             ForEach(songs.filter({"\($0)".contains(text.lowercased()) || text.isEmpty })) { song in
                 HStack{
@@ -33,11 +34,12 @@ struct SongList: View {
                             .frame(width: 23, height: 23)
                             .foregroundColor(.yellow)
                     }).alert(isPresented: $showAlert){
-                        Alert(title: Text("Titre ajouté aux favoris"), dismissButton: .default(Text("Ok")))
+                        Alert(title: Text("Titre ajouté à ta playlist"), dismissButton: .default(Text("Ok")))
                     }.buttonStyle(PlainButtonStyle())
                 }
             }
         }.padding(15)
+    }
     }
 }
 
