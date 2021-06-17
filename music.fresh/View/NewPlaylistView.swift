@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct NewPlaylistView: View {
     @State var playlistName = ""
     @Binding var showModal: Bool
+    let year = Int(DateFormatter.displayDate.string(from: Date())) ?? 2021
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -53,7 +56,9 @@ struct NewPlaylistView: View {
                                 ,
                                 trailing:
                                     Button(action: {
-                                        //action création de playlist
+                                        let playlist = createNewPlaylist()
+                                        print(playlist)
+                                        
                                     }, label: {
                                         Text("Créer")
                                             .foregroundColor(Color.yellow)
@@ -61,6 +66,14 @@ struct NewPlaylistView: View {
         }
     }
     func createNewPlaylist() -> Playlist {
-        return Playlist(title: playlistName, user: "test", imageName: "test", year: 2021, songs: songsList)
+        return Playlist(title: playlistName, user: "random", imageName: "test", year: year, songs: songsList)
     }
+}
+
+extension DateFormatter {
+    static let displayDate: DateFormatter = {
+         let formatter = DateFormatter()
+         formatter.dateFormat = "YYYY"
+         return formatter
+    }()
 }
