@@ -78,11 +78,14 @@ struct AddSongView: View{
     @Environment(\.presentationMode) var presentationMode
     
 //    @State var song: Song
-    @State private var nom: String = ""
+    @State private var name: String = ""
     @State private var title: String = ""
     @State private var url: String = ""
     @State private var year: String = ""
     @State private var description: String = ""
+    
+    @State private var nameRetreived = ""
+
     
     var body: some View {
         
@@ -94,7 +97,7 @@ struct AddSongView: View{
             
             Form{
                 Section{
-                    TextField("Nom", text: $nom)
+                    TextField("Nom", text: $name)
                                         .textContentType(.name)
                                         .disableAutocorrection(true)
                                     TextField("Titre", text: $title)
@@ -109,7 +112,7 @@ struct AddSongView: View{
                                         .keyboardType(.numberPad)
                 }
                 Section{
-                    TextField("Biographie", text: $description)
+                    TextField("Desciption", text: $description)
                 }
                 
             }
@@ -141,9 +144,19 @@ struct AddSongView: View{
             //                    .textFieldStyle(RoundedBorderTextFieldStyle())
             //            }
             
-            Button("Valider"){
-                presentationMode.wrappedValue.dismiss()
-            }
+//            Button("Valider"){
+//                presentationMode.wrappedValue.dismiss()
+//            }
+            
+            Button(action: {
+                UserDefaults.standard.setValue(self.$name, forKey: "Nom")
+                self.nameRetreived = self.name
+                self.name = ""
+            }, label: {
+                                Text("Valider")
+                                    .padding()
+                            
+            })
             
         }
         .padding()
