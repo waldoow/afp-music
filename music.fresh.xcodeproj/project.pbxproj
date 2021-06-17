@@ -17,9 +17,9 @@
 		68F274532673584600BAD3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F274522673584600BAD3C2 /* ContentView.swift */; };
 		68F274552673584800BAD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274542673584800BAD3C2 /* Assets.xcassets */; };
 		68F274582673584800BAD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274572673584800BAD3C2 /* Preview Assets.xcassets */; };
+		FCA89022267B2BE000164894 /* black.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCA89021267B2BE000164894 /* black.mp3 */; };
 		FCB16F962677C05900C23779 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB16F952677C05900C23779 /* MusicPlayer.swift */; };
 		FCB16F9A2677C0DE00C23779 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB16F992677C0DE00C23779 /* Playlist.swift */; };
-		FCB16F9D2677C23F00C23779 /* black.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCB16F9C2677C23F00C23779 /* black.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +35,9 @@
 		68F274542673584800BAD3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68F274572673584800BAD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68F274592673584800BAD3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA89021267B2BE000164894 /* black.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = black.mp3; path = ../../../Downloads/black.mp3; sourceTree = "<group>"; };
 		FCB16F952677C05900C23779 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		FCB16F992677C0DE00C23779 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
-		FCB16F9C2677C23F00C23779 /* black.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = black.mp3; path = "../../../Downloads/Music Player/Music Player/black.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				68F274502673584600BAD3C2 /* music_freshApp.swift */,
+				FCA89021267B2BE000164894 /* black.mp3 */,
 				68F274522673584600BAD3C2 /* ContentView.swift */,
-				FCB16F9C2677C23F00C23779 /* black.mp3 */,
 				4B7DE1FC267745F600CD2F1A /* View */,
 				4B7DE1F22677430200CD2F1A /* Data */,
 				4B7DE1EF267742E600CD2F1A /* Model */,
@@ -179,7 +179,7 @@
 			files = (
 				68F274582673584800BAD3C2 /* Preview Assets.xcassets in Resources */,
 				68F274552673584800BAD3C2 /* Assets.xcassets in Resources */,
-				FCB16F9D2677C23F00C23779 /* black.mp3 in Resources */,
+				FCA89022267B2BE000164894 /* black.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
