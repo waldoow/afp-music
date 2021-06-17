@@ -79,6 +79,8 @@
 		4B7DE1FC267745F600CD2F1A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC771E3326754B6C0063968A /* SongListCell.swift */,
+				FCF7C69A267540350087C892 /* DetailedView.swift */,
 				4BD3BFDD2677838300AAC075 /* PlaylistList.swift */,
 				4B7DE1FF2677461600CD2F1A /* SongList.swift */,
 			);
@@ -104,7 +106,6 @@
 		68F2744F2673584600BAD3C2 /* music.fresh */ = {
 			isa = PBXGroup;
 			children = (
-				FCEE41112673A468008AA0B7 /* View */,
 				68F274502673584600BAD3C2 /* music_freshApp.swift */,
 				68F274522673584600BAD3C2 /* ContentView.swift */,
 				4B7DE1FC267745F600CD2F1A /* View */,
@@ -123,15 +124,6 @@
 				68F274572673584800BAD3C2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		FCEE41112673A468008AA0B7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FCF7C69A267540350087C892 /* DetailedView.swift */,
-				FC771E3326754B6C0063968A /* SongListCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
