@@ -1,5 +1,5 @@
 //
-//  PlaylistList.swift
+//  ArtistList.swift
 //  music.fresh
 //
 //  Created by mac32 on 14/06/2021.
@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct PlaylistList: View {
-    let playlists: [Playlist]
+struct ArtistList: View {
+    let artists: [Artist]
     @State var text = ""
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            ForEach(playlists.filter({"\($0)".contains(text.lowercased()) || text.isEmpty })) { playlist in
+            ForEach(artists.filter({"\($0)".contains(text.lowercased()) || text.isEmpty })) { artist in
                 HStack{
-                    Image(playlist.imageName)
+                    Image(artist.imageName)
                         .resizable()
                         .frame(width: 55, height: 55)
                         .clipped()
                     VStack(alignment: .leading){
-                        Text(playlist.title)
+                        Text(artist.name)
                             .font(.title3)
-                        Text(playlist.user)
+                        Text("Artiste")
                             .foregroundColor(.secondary)
                     }
                     Spacer()
@@ -36,8 +36,8 @@ struct PlaylistList: View {
     }
 }
 
-struct PlaylistList_Previews: PreviewProvider {
+struct ArtistList_Previews: PreviewProvider {
     static var previews: some View {
-        PlaylistList(playlists: playlistsList)
+        ArtistList(artists: artistsList)
     }
 }
