@@ -19,14 +19,14 @@ struct ContentView: View {
                                 Text("Découvrir")
                             }
                         }.tag(1)
-                    Text("Tab Content 2")
+                    SearchView()
                         .tabItem {
                             VStack {
                                 Image(systemName: "magnifyingglass")
                                 Text("Recherche")
                             }
                         }.tag(2)
-                    Text("Tab Content 3")
+                    UserView(user: user1)
                         .tabItem {
                             VStack {
                                 Image(systemName: "person.fill")

@@ -8,38 +8,41 @@
 import SwiftUI
 
 struct SearchView: View {
+    @Namespace var animation
+    
     @State private var selection = 0
     @State var currentTab = "Titres"
-    @Namespace var animation
     @State private var showModal = false
-    
     @State var text = ""
-    
+
     var body: some View {
         NavigationView{
             VStack(alignment: .center, spacing: 0){
                 SearchBar(text: $text)
                     .padding(.bottom, 20)
+
                 HStack(alignment: .center, spacing: 0){
                     selectionsButton(title: "Titres", currentTab: $currentTab, animation: animation)
                     selectionsButton(title: "Playlists", currentTab: $currentTab, animation: animation)
                     selectionsButton(title: "Artistes", currentTab: $currentTab, animation: animation)
                 }
+
                 VStack{
                     if currentTab == "Titres" {
                         SongList(songs: songsList)
                     }
+
                     if currentTab == "Playlists" {
                         PlaylistList(playlists: playlistsList)
                     }
+
                     if currentTab == "Artistes" {
                         ArtistList(artists: artistsList)
                     }
                 }
             }
             .navigationBarTitle("Rechercher")
-            .navigationBarItems(trailing:
-                                    Button(action: {
+            .navigationBarItems(trailing: Button(action: {
                                         showModal.toggle()
                                     }, label: {
                                         Image(systemName: "plus")

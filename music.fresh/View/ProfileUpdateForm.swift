@@ -10,55 +10,59 @@ import SwiftUI
 struct ProfileUpdateForm: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State var retrieved = ""
-    
-    @State var userName: String = ""
-    @State var email: String = ""
+    @State var retrieved         = ""
+    @State var userName: String  = ""
+    @State var email: String     = ""
     @State var imageName: String = ""
-    @State var password: String = ""
+    @State var password: String  = ""
     
     var body: some View {
         NavigationView {
-            Form {
-                Text(retrieved).fontWeight(.heavy)
-                TextField("nom d'utilisateur", text: $userName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("adresse e-mail", text: $email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("url de ton image", text: $imageName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("mot de passe", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                
-                if self.isUserInformationValid() {
-                    Button(action: {
-                        print("Updated profile")
-                    }, label: {
-                        Text("Update Profile")
-                    })
-                }
-                
-                Section {
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                        createUser()
-                        
-                        UserDefaults.standard.set(self.userName, forKey: "nom d'utilisateur")
-                        self.retrieved = self.userName
-                        self.userName = ""
-                        
-                        UserDefaults.standard.set(self.email, forKey: "adresse e-mail")
-                        self.retrieved = self.email
-                        self.email = ""
-                    }) {
-                        Text("Valider").padding(15)
+            VStack {
+                Form {
+                    Section {
+                        TextField("adresse e-mail", text: $email)
+                        TextField("nom d'utilisateur", text: $userName)
                     }
-                    .padding(1)
-                    .background(Color.orange)
-                    .foregroundColor(.white)
-                    .cornerRadius(9)
-                    
+
+                    Section {
+                        TextField("url de ton image", text: $imageName)
+                    }
+
+                    Section {
+                        TextField("mot de passe", text: $password)
+                    }
+
+                    if self.isUserInformationValid() {
+                        Button(action: {
+                            print("Updated profile")
+                        }, label: {
+                            Text("Update Profile")
+                        })
+                    }
                 }
+
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                    createUser()
+                    
+                    UserDefaults.standard.set(self.userName, forKey: "nom d'utilisateur")
+                    self.retrieved = self.userName
+                    self.userName  = ""
+                    
+                    UserDefaults.standard.set(self.email, forKey: "adresse e-mail")
+                    self.retrieved = self.email
+                    self.email     = ""
+                }) {
+                    Text("Valider")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(10)
+                        .padding(.horizontal, 100)
+                }
+                .background(Color.orange)
+                .foregroundColor(.white)
+                .cornerRadius(9)
             }
             .navigationBarTitle(currentUser != nil ? currentUser!.name : "Créer mon profil")
         }
@@ -74,9 +78,7 @@ struct ProfileUpdateForm: View {
         let newUser = User(name: userName, email: email, imageName: imageName, recentSongs:[], myPlaylists: [])
         usersList.append(newUser)
         currentUser = newUser
-        print(currentUser!)
     }
-    
     
     func isUserInformationValid() -> Bool {
         if userName.isEmpty {
@@ -88,7 +90,6 @@ struct ProfileUpdateForm: View {
         return true
     }
 }
-
 
 struct ProfileUpdateForm_Previews: PreviewProvider {
     static var previews: some View {

@@ -40,11 +40,11 @@ struct NewPlaylistView: View {
                         })
                     )
                     .padding(20)
-                    
                     .sheet(isPresented: $isShowPhotoLibrary) {
                         ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
                     }
-                Form{
+
+                Form {
                     Section(content: {
                         TextField("Nom de la playlist", text: $playlistName)
                         Button(action: {
@@ -61,27 +61,29 @@ struct NewPlaylistView: View {
                     })
                     .padding(8)
                 }
+
                 Spacer()
-            }.navigationBarTitle(Text("Nouvelle playlist"), displayMode: .inline)
-            .navigationBarItems(leading:
-                                    Button(action: {
-                                        self.showModal.toggle()
-                                    }, label: {
-                                        Text("Annuler")
-                                            .foregroundColor(.yellow)
-                                    })
-                                ,
-                                trailing:
-                                    Button(action: {
-                                        self.showModal.toggle()
-                                        playlistsList.append(Playlist(title: playlistName, user: user1.name, imageName: "imagePlaylist", year: year, songs: []))
-                                        UserDefaults.standard.set(self.playlistName, forKey: "PlaylistName")
-                                        self.retrieved = self.playlistName
-                                        self.playlistName = ""
-                                    }, label: {
-                                        Text("Créer")
-                                            .foregroundColor(Color.yellow)
-                                    }))
+            }
+            .navigationBarTitle(Text("Nouvelle playlist"), displayMode: .inline)
+            .navigationBarItems(
+                leading:
+                    Button(action: {
+                        self.showModal.toggle()
+                    }, label: {
+                        Text("Annuler")
+                            .foregroundColor(.yellow)
+                    })
+                ,trailing:
+                    Button(action: {
+                        self.showModal.toggle()
+                        playlistsList.append(Playlist(title: playlistName, user: user1.name, imageName: "imagePlaylist", year: year, songs: []))
+                        UserDefaults.standard.set(self.playlistName, forKey: "PlaylistName")
+                        self.retrieved = self.playlistName
+                        self.playlistName = ""
+                    }, label: {
+                        Text("Créer")
+                            .foregroundColor(Color.yellow)
+                    }))
             .onAppear{
                 guard let retrievedplaylist = UserDefaults.standard.value(forKey: "PlaylistName") else { return }
                 

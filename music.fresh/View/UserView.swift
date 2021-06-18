@@ -20,8 +20,9 @@ extension LinearGradient {
 
 struct UserView: View {
     let user : User
+
     @State private var showingSheet = false
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -43,12 +44,11 @@ struct UserView: View {
                         }, label: {
                             Image(systemName: "gearshape")
                                 .foregroundColor(.lightBlueEnd)
-                        }
-                        ).sheet(isPresented: $showingSheet) {
+                        }).sheet(isPresented: $showingSheet) {
                             ProfileUpdateForm()
                         }
                         
-                        Image(user.imageName!)
+                        Image(user.imageName)
                             .resizable()
                             .frame(width: 60, height: 100)
                             .clipShape(Circle())
