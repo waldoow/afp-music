@@ -48,7 +48,7 @@ struct UserView: View {
                             ProfileUpdateForm()
                         }
                         
-                        Image(user.imageName ?? "")
+                        Image(user.imageName!)
                             .resizable()
                             .frame(width: 60, height: 100)
                             .clipShape(Circle())
