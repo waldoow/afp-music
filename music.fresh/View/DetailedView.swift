@@ -19,7 +19,7 @@ struct DetailedView: View {
 
     var body: some View {
         NavigationView {
-            
+
         }
         .overlay(
             VStack {
@@ -33,13 +33,13 @@ struct DetailedView: View {
                                 Text(artist.name).bold()
                                     .foregroundColor(.white)
                                     .font(.system(size:50, weight: .bold))
-                                
+
                                 Spacer()
                             }
                             .padding(5)
                         }
                     )
-                
+
                 ScrollView(.vertical, showsIndicators: false, content: {
                     VStack {
                         VStack(alignment: .leading) {
@@ -51,19 +51,19 @@ struct DetailedView: View {
                             Text(artist.description).padding([.horizontal, .top, .bottom], 15)
                                 .font(.callout)
                         }.padding()
-                        
+
                         VStack(alignment: .leading) {
                             Text("Titres").bold()
                                 .foregroundColor(.gray)
                                 .padding(.leading)
                                 .font(.title2)
-                            
+
                             ScrollView(.horizontal, showsIndicators: false, content: {
                                 HStack(spacing: 20) {
                                     ForEach(songs, id: \.id, content: { song in
                                         Image(song.imageName)
                                             .resizable()
-                                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            .frame(width: 100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
                                             .overlay(
                                                 NavigationLink(
                                                     destination: Text("Player"),
@@ -77,7 +77,7 @@ struct DetailedView: View {
                                 }
                             }).padding()
                         }
-                        
+
                         Spacer()
                     }
                 })

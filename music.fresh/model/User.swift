@@ -12,7 +12,7 @@ struct User: Identifiable {
     
     var name: String
     var email: String
-    var imageName: String?
+    var imageName: String
     var recentSongs: [Song] = []
     var myPlaylists: [Playlist] = []
 //  var myFriends: [Friend]
