@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SongList: View {
     let songs: [Song]
+
     @State var text = ""
     @State private var showModalAddToPlaylist = false
     @State private var showModalCreatePlaylist = false
@@ -21,13 +22,16 @@ struct SongList: View {
                         Image(song.imageName)
                             .resizable()
                             .frame(width: 55, height: 55)
+
                         VStack(alignment: .leading){
                             Text(song.title)
                                 .font(.title3)
                             Text(song.artist.name)
                                 .foregroundColor(.secondary)
                         }
+
                         Spacer()
+
                         Button(action: {
                             self.showModalAddToPlaylist.toggle()
                         }, label: {

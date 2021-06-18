@@ -30,8 +30,32 @@ struct PlaylistList: View {
                     }, label: {
                         Image(systemName: "chevron.right")
                             .foregroundColor(.gray)
+                NavigationLink(
+                    destination: PlaylistView(playlist: playlist),
+                    label: {
+                        HStack {
+                            Image(playlist.imageName)
+                                .resizable()
+                                .frame(width: 55, height: 55)
+                                .clipped()
+
+                            VStack(alignment: .leading){
+                                Text(playlist.title)
+                                    .font(.title3)
+                                Text(playlist.user)
+                                    .foregroundColor(.secondary)
+                            }
+
+                            Spacer()
+
+                            Button(action: {
+                            }, label: {
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.gray)
+                            })
+                        }
                     })
-                }
+
             }
         }.padding(15)
     }

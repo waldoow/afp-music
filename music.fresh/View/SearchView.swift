@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct SearchView: View {
+    @Namespace var animation
+    
+    @State private var selection = 0
+    @State var currentTab = "Titres"
     @State private var showModal = false
     @State var annuler = false
 
     @State var text = ""
+
     var body: some View {
         NavigationView{
             VStack{

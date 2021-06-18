@@ -31,6 +31,10 @@
 		C5F4F6432677AED10003CD9A /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F4F6422677AED10003CD9A /* UserView.swift */; };
 		FC771E3426754B6C0063968A /* SongListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC771E3326754B6C0063968A /* SongListCell.swift */; };
 		FCF7C69B267540350087C892 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF7C69A267540350087C892 /* DetailedView.swift */; };
+		6F1D86182679E869008966B4 /* AddSongOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1D86172679E869008966B4 /* AddSongOfTheDayView.swift */; };
+		6F28D82126788C7300FF400F /* SongOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D82026788C7300FF400F /* SongOfTheDayView.swift */; };
+		6F28D82326788F6900FF400F /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D82226788F6900FF400F /* VoteView.swift */; };
+		6F28D8252678A22100FF400F /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D8242678A22100FF400F /* Vote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		C5F4F6422677AED10003CD9A /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		FC771E3326754B6C0063968A /* SongListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListCell.swift; sourceTree = "<group>"; };
 		FCF7C69A267540350087C892 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
+		6F1D86172679E869008966B4 /* AddSongOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongOfTheDayView.swift; sourceTree = "<group>"; };
+		6F28D82026788C7300FF400F /* SongOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongOfTheDayView.swift; sourceTree = "<group>"; };
+		6F28D82226788F6900FF400F /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		6F28D8242678A22100FF400F /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 				4BD3BFF126778FCF00AAC075 /* Playlist.swift */,
 				4B7DE1F32677431000CD2F1A /* Song.swift */,
 				4BD3BFF7267796FA00AAC075 /* Artist.swift */,
+				6F28D8242678A22100FF400F /* Vote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +119,9 @@
 				C5F02240267A01FE0045099E /* ProfileUpdateForm.swift */,
 				68C42945267A28A800B25BA6 /* PlaylistView.swift */,
 				4BD3C0062677A6FF00AAC075 /* ArtistList.swift */,
+				6F28D82026788C7300FF400F /* SongOfTheDayView.swift */,
+				6F1D86172679E869008966B4 /* AddSongOfTheDayView.swift */,
+				6F28D82226788F6900FF400F /* VoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,6 +240,7 @@
 				4B7DE2002677461600CD2F1A /* SongList.swift in Sources */,
 				4B7DE1F42677431000CD2F1A /* Song.swift in Sources */,
 				4BD3BFF226778FCF00AAC075 /* Playlist.swift in Sources */,
+				6F28D8252678A22100FF400F /* Vote.swift in Sources */,
 				68F274532673584600BAD3C2 /* ContentView.swift in Sources */,
 				4BBA9D69267B908B006B5337 /* ImagePicker.swift in Sources */,
 				4B38B812267A3F020002EB35 /* NewPlaylistView.swift in Sources */,
@@ -241,10 +254,13 @@
 				4BD3BFE7267783C700AAC075 /* User.swift in Sources */,
 				C5F4F6432677AED10003CD9A /* UserView.swift in Sources */,
 				4BC6124F26788CD100A0B7CA /* SearchView.swift in Sources */,
+				6F28D82126788C7300FF400F /* SongOfTheDayView.swift in Sources */,
+				6F1D86182679E869008966B4 /* AddSongOfTheDayView.swift in Sources */,
 				68F274512673584600BAD3C2 /* music_freshApp.swift in Sources */,
 				4BD3BFDE2677838300AAC075 /* PlaylistList.swift in Sources */,
 				4BD3BFF8267796FA00AAC075 /* Artist.swift in Sources */,
 				4BD3BFE1267783B600AAC075 /* PlaylistData.swift in Sources */,
+				6F28D82326788F6900FF400F /* VoteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

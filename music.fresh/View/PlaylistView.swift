@@ -18,10 +18,10 @@ struct PlaylistView: View {
                         Spacer()
                         Image(playlist.songs.indices.contains(0) ? playlist.songs[0].imageName : "defaultImageSong")
                             .resizable()
-                            .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 80, height: 80, alignment: .center)
                         Image(playlist.songs.indices.contains(1) ? playlist.songs[1].imageName : "defaultImageSong")
                             .resizable()
-                            .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 80, height: 80, alignment: .center)
                         Spacer()
                     }
 
@@ -29,10 +29,10 @@ struct PlaylistView: View {
                         Spacer()
                         Image(playlist.songs.indices.contains(0) ? playlist.songs[0].imageName : "defaultImageSong")
                             .resizable()
-                            .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 80, height: 80, alignment: .center)
                         Image(playlist.songs.indices.contains(1) ? playlist.songs[1].imageName : "defaultImageSong")
                             .resizable()
-                            .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 80, height: 80, alignment: .center)
                         Spacer()
                     }
                 }
@@ -56,7 +56,7 @@ struct PlaylistView: View {
                     HStack {
                         Image(song.imageName)
                             .resizable()
-                            .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 40, height: 40, alignment: .center)
                         
                         HStack {
                             Text(song.title)

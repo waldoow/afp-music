@@ -41,11 +41,11 @@ struct NewPlaylistView: View {
                         })
                     )
                     .padding(20)
-                    
                     .sheet(isPresented: $isShowPhotoLibrary) {
                         ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
                     }
-                Form{
+
+                Form {
                     Section(content: {
                         TextField("Nom de la playlist", text: $playlistName)
                         Button(action: {
@@ -62,6 +62,7 @@ struct NewPlaylistView: View {
                     })
                     .padding(8)
                 }
+
                 Spacer()
             }.navigationBarTitle(Text("Nouvelle playlist"), displayMode: .inline)
             .navigationBarItems(leading:

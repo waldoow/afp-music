@@ -16,4 +16,9 @@ struct Song: Identifiable {
     let imageName: String
     let url: String
     let year: Int
+    
+//    func CreateSong() -> Song {
+//                    return Song(title: title, artist: artist, description: description, imageName: imageName, url: url, year: year)
+//                }
+    
 }

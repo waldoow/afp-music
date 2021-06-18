@@ -4,14 +4,13 @@
 //
 //  Created by mac32 on 15/06/2021.
 //
-
 import SwiftUI
 
 struct SearchBar: View {
     @Binding var text: String
     @State private var isEditing = false
     var body: some View {
-        HStack{
+        HStack {
             TextField("Titres, playlists ou artistes", text: $text)
                 .padding(8)
                 .padding(.horizontal, 25)
@@ -38,6 +37,7 @@ struct SearchBar: View {
                 ).onTapGesture {
                     self.isEditing = true
                 }
+
             if isEditing {
                 Button(action: {
                     self.isEditing = false
@@ -49,7 +49,6 @@ struct SearchBar: View {
                         .transition(.move(edge: .trailing))
                         .animation(.default)
                 }
-                
             }
         }
         .padding(10)
