@@ -35,7 +35,7 @@ struct PlaylistList: View {
                                     .foregroundColor(.gray)
                             })
                         }
-                    })
+                    }).foregroundColor(.black)
             }.padding(15)
         }
     }
