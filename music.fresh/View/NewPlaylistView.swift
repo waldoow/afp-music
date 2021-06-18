@@ -18,6 +18,7 @@ struct NewPlaylistView: View {
     
     @State private var isShowPhotoLibrary = false
     @State private var image = UIImage()
+
     var body: some View {
         NavigationView{
             VStack{
@@ -56,7 +57,7 @@ struct NewPlaylistView: View {
                             }
                             .foregroundColor(Color.yellow)
                         }).sheet(isPresented: $showSongs) {
-                            SongList(songs: songsList)
+                            NewPlaylistView(showModal: $showModal)
                         }
                     })
                     .padding(8)
