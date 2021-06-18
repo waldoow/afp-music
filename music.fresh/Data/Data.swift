@@ -30,3 +30,11 @@ let user3 = User(name: "Pippin Took", email: "pippintook@gmail.com", imageName: 
 var usersList = [user1, user2, user3]
 var currentUser: User? = nil
 
+
+let vote1 = Vote(user: user1, positiveVote: 300, negativeVote: 200, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est incroyable.")
+let vote2 = Vote(user: user2, positiveVote: 406, negativeVote: 232, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est super.")
+let vote3 = Vote(user: user3, positiveVote: 674, negativeVote: 455, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est ouf.")
+let vote4 = Vote(user: user1, positiveVote:932, negativeVote: 129, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est top.")
+let vote5 = Vote(user: user2, positiveVote: 234, negativeVote: 518, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est géniale.")
+
+let voteList = [vote1, vote2, vote3, vote4, vote5]
