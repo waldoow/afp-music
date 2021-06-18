@@ -15,7 +15,7 @@ struct VoteView: View {
     var body: some View {
         VStack{
             HStack{
-                Image(vote.user.imageName!)
+                Image(vote.user.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 50,height: 50)
