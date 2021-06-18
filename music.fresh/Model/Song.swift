@@ -11,7 +11,7 @@ struct Song: Identifiable {
     var id = UUID()
     
     let title: String
-    let artist: String
+    let artist: Artist
     let description: String
     let imageName: String
     let url: String
