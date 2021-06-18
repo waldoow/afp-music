@@ -19,6 +19,8 @@ struct AddSongOfTheDayView: View {
     @State private var year: String = ""
     @State private var description: String = ""
     
+    @State private var showingAlert = false
+    
     var body: some View {
         
         NavigationView{
@@ -69,6 +71,13 @@ struct AddSongOfTheDayView: View {
                     Button("Valider"){
                         presentationMode.wrappedValue.dismiss()
                     }
+//                    Button("OK"){
+//                                            presentationMode.wrappedValue.dismiss()
+//                                            showingAlert = true
+//                                        }
+//                    .alert("Ajout effectué.", isPresented: $showingAlert) {
+//                                Button("OK") { }
+//                            }
                 }
                 .font(.title2)
                 

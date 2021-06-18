@@ -29,7 +29,7 @@ struct VoteView: View {
                 Text(vote.comment)
                     .frame(height: 50)
                 Spacer()
-                // ajouter lecture du morceau
+                // ajouter lecture du morceau sur recentSong, créer des recentSong
                 Image(systemName: "play.rectangle.fill")
                     .font(.largeTitle)
             }
