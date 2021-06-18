@@ -10,9 +10,10 @@ import Foundation
 struct User: Identifiable {
     var id = UUID()
     
-    let name: String
-    let imageName: String
-    var recentSongs: [Song]
-    var myPlaylists: [Playlist]
-//    var myFriends: [Friend]
+    var name: String
+    var email: String
+    var imageName: String?
+    var recentSongs: [Song] = []
+    var myPlaylists: [Playlist] = []
+//  var myFriends: [Friend]
 }
