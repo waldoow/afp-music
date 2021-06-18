@@ -21,6 +21,9 @@ struct AddSongOfTheDayView: View {
     
     @State private var showingAlert = false
     
+    @State private var isShowPhotoLibrary = false
+    @State private var image = UIImage()
+    
     var body: some View {
         
         NavigationView{
@@ -28,16 +31,30 @@ struct AddSongOfTheDayView: View {
             VStack(alignment: .leading) {
                 
                 ZStack {
-                    Image(systemName: "photo")
+                    
+                    Image(uiImage: self.image)
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200, alignment: .leading)
-                    Image(systemName: "plus.circle")
-                        .resizable()
-                        .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .frame(width: 150, height: 150)
+                        .cornerRadius(15)
+                        .opacity(0.2)
+                        .clipped()
+                        .overlay(
+                            Button(action: {
+                                //affiche la modal pour choisir une image
+                                self.isShowPhotoLibrary = true
+                            }, label: {
+                                Image(systemName: "camera.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                    .frame(width: 80, height: 80)
+                            })
+                        )
+                        .padding(20)
+                        
+                        .sheet(isPresented: $isShowPhotoLibrary) {
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                        }
                 }
-
                 
                 Form{
                     Section{
@@ -77,7 +94,7 @@ struct AddSongOfTheDayView: View {
                         Alert(title: Text("Ajout effectué."), message: Text("Vous pouvez fermer."), dismissButton: .default(Text("Fermer"), action:{
                             presentationMode.wrappedValue.dismiss()
                         } ))
-                            }
+                    }
                 }
                 .font(.title2)
                 
