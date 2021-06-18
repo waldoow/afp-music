@@ -69,11 +69,14 @@ struct AddSongOfTheDayView: View {
                     }
                     Spacer()
                     Button("Valider"){
+                        
                         showingAlert = true
-                        presentationMode.wrappedValue.dismiss()
                     }
+                    // ajouter condition si champs vide
                     .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Ajout effectué."))
+                        Alert(title: Text("Ajout effectué."), message: Text("Vous pouvez fermer."), dismissButton: .default(Text("Fermer"), action:{
+                            presentationMode.wrappedValue.dismiss()
+                        } ))
                             }
                 }
                 .font(.title2)
