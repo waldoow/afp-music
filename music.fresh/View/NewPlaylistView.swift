@@ -18,6 +18,7 @@ struct NewPlaylistView: View {
     
     @State private var isShowPhotoLibrary = false
     @State private var image = UIImage()
+
     var body: some View {
         NavigationView{
             VStack{
@@ -56,34 +57,37 @@ struct NewPlaylistView: View {
                             }
                             .foregroundColor(Color.yellow)
                         }).sheet(isPresented: $showSongs) {
-                            SongList(songs: songsList)
+                            NewPlaylistView(showModal: $showModal)
                         }
                     })
                     .padding(8)
                 }
 
                 Spacer()
-            }
-            .navigationBarTitle(Text("Nouvelle playlist"), displayMode: .inline)
-            .navigationBarItems(
-                leading:
-                    Button(action: {
-                        self.showModal.toggle()
-                    }, label: {
-                        Text("Annuler")
-                            .foregroundColor(.yellow)
-                    })
-                ,trailing:
-                    Button(action: {
-                        self.showModal.toggle()
-                        playlistsList.append(Playlist(title: playlistName, user: user1.name, imageName: "imagePlaylist", year: year, songs: []))
-                        UserDefaults.standard.set(self.playlistName, forKey: "PlaylistName")
-                        self.retrieved = self.playlistName
-                        self.playlistName = ""
-                    }, label: {
-                        Text("Créer")
-                            .foregroundColor(Color.yellow)
-                    }))
+            }.navigationBarTitle(Text("Nouvelle playlist"), displayMode: .inline)
+            .navigationBarItems(leading:
+                                    Button(action: {
+                                        self.showModal.toggle()
+                                    }, label: {
+                                        Text("Annuler")
+                                            .foregroundColor(.yellow)
+                                    })
+                                ,
+                                trailing:
+                                    Button(action: {
+                                        if self.playlistName.isEmpty {
+                                            self.playlistName = "New Playlist"
+                                            self.image = UIImage(named: "imagePlaylist")!
+                                        }
+                                        self.showModal.toggle()
+                                        playlistsList.append(Playlist(title: playlistName, user: user1.name, imageName: self.image, year: year, songs: []))
+                                        UserDefaults.standard.set(self.playlistName, forKey: "PlaylistName")
+                                        self.retrieved = self.playlistName
+                                        self.playlistName = ""
+                                    }, label: {
+                                        Text("Créer")
+                                            .foregroundColor(Color.yellow)
+                                    }))
             .onAppear{
                 guard let retrievedplaylist = UserDefaults.standard.value(forKey: "PlaylistName") else { return }
                 
