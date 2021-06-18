@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,8 @@
 		68F274552673584800BAD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274542673584800BAD3C2 /* Assets.xcassets */; };
 		68F274582673584800BAD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F274572673584800BAD3C2 /* Preview Assets.xcassets */; };
 		FCA89022267B2BE000164894 /* black.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCA89021267B2BE000164894 /* black.mp3 */; };
+		FCA89028267B31CB00164894 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FCA89027267B31CB00164894 /* FirebaseAnalytics */; };
+		FCA8902A267B31CB00164894 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FCA89029267B31CB00164894 /* FirebaseAuth */; };
 		FCB16F962677C05900C23779 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB16F952677C05900C23779 /* MusicPlayer.swift */; };
 		FCB16F9A2677C0DE00C23779 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB16F992677C0DE00C23779 /* Playlist.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA89028267B31CB00164894 /* FirebaseAnalytics in Frameworks */,
+				FCA8902A267B31CB00164894 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +140,10 @@
 			dependencies = (
 			);
 			name = music.fresh;
+			packageProductDependencies = (
+				FCA89027267B31CB00164894 /* FirebaseAnalytics */,
+				FCA89029267B31CB00164894 /* FirebaseAuth */,
+			);
 			productName = music.fresh;
 			productReference = 68F2744D2673584600BAD3C2 /* music.fresh.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +171,9 @@
 				Base,
 			);
 			mainGroup = 68F274442673584600BAD3C2;
+			packageReferences = (
+				FCA89026267B31CB00164894 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 68F2744E2673584600BAD3C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -386,6 +397,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCA89026267B31CB00164894 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = "6.31-spm-beta";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCA89027267B31CB00164894 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCA89026267B31CB00164894 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FCA89029267B31CB00164894 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCA89026267B31CB00164894 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 68F274452673584600BAD3C2 /* Project object */;
 }
