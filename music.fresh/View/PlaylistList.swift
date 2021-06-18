@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct PlaylistList: View {
-    let playlists: [Playlist]
+    var playlists: [Playlist]
+//    let playlists: [Playlist]
     @State var text = ""
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             ForEach(playlists.filter({"\($0)".contains(text.lowercased()) || text.isEmpty })) { playlist in
                 HStack{
-                    Image(playlist.imageName)
+                    Image(uiImage: playlist.imageName!)
                         .resizable()
                         .frame(width: 55, height: 55)
                         .clipped()

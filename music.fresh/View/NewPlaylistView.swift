@@ -73,8 +73,12 @@ struct NewPlaylistView: View {
                                 ,
                                 trailing:
                                     Button(action: {
+                                        if self.playlistName.isEmpty {
+                                            self.playlistName = "New Playlist"
+                                            self.image = UIImage(named: "imagePlaylist")!
+                                        }
                                         self.showModal.toggle()
-                                        playlistsList.append(Playlist(title: playlistName, user: user1.name, imageName: "imagePlaylist", year: year, songs: []))
+                                        playlistsList.append(Playlist(title: playlistName, user: user1.name, imageName: self.image, year: year, songs: []))
                                         UserDefaults.standard.set(self.playlistName, forKey: "PlaylistName")
                                         self.retrieved = self.playlistName
                                         self.playlistName = ""
