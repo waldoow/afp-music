@@ -70,13 +70,10 @@ struct AddSongOfTheDayView: View {
                     Spacer()
                     Button("Valider"){
                         presentationMode.wrappedValue.dismiss()
+                        showingAlert = true
                     }
-//                    Button("OK"){
-//                                            presentationMode.wrappedValue.dismiss()
-//                                            showingAlert = true
-//                                        }
 //                    .alert("Ajout effectué.", isPresented: $showingAlert) {
-//                                Button("OK") { }
+//                        Button("OK", role: .cancel) { }
 //                            }
                 }
                 .font(.title2)
