@@ -69,12 +69,12 @@ struct AddSongOfTheDayView: View {
                     }
                     Spacer()
                     Button("Valider"){
-                        presentationMode.wrappedValue.dismiss()
                         showingAlert = true
+                        presentationMode.wrappedValue.dismiss()
                     }
-//                    .alert("Ajout effectué.", isPresented: $showingAlert) {
-//                        Button("OK", role: .cancel) { }
-//                            }
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Ajout effectué."))
+                            }
                 }
                 .font(.title2)
                 
