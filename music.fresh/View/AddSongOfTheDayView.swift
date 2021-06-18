@@ -24,10 +24,18 @@ struct AddSongOfTheDayView: View {
         NavigationView{
             
             VStack(alignment: .leading) {
-                Image(systemName: "photo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 200, alignment: .leading)
+                
+                ZStack {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200, alignment: .leading)
+                    Image(systemName: "plus.circle")
+                        .resizable()
+                        .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                }
+
                 
                 Form{
                     Section{
@@ -53,43 +61,6 @@ struct AddSongOfTheDayView: View {
                 }
                 
                 
-                //            Button(action: {
-                //                UserDefaults.standard.setValue(self.$name, forKey: "Nom")
-                //                self.nameRetreived = self.name
-                //                self.name = ""
-                //            }, label: {
-                //                Text("Valider")
-                //                    .padding()
-                //
-                //            })
-                
-                
-                //            HStack {
-                //                Text("Nom :")
-                //                TextField("Nom", text: $song.artist)
-                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                //            }
-                //            HStack {
-                //                Text("Titre :")
-                //                TextField("Titre", text: $song.title)
-                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                //            }
-                //            HStack {
-                //                Text("URL :")
-                //                TextField("URL", text: $song.url)
-                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                //            }
-                //            HStack{
-                //                Text("Année :")
-                //                TextField("Année", text: $song.year)
-                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                //            }
-                //            HStack {
-                //                Text("Biographie :")
-                //                TextField("", text: $song.description)
-                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                //            }
-                
                 HStack {
                     Button("Annuler"){
                         presentationMode.wrappedValue.dismiss()
@@ -99,7 +70,7 @@ struct AddSongOfTheDayView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
-                .font(.largeTitle)
+                .font(.title2)
                 
             }
             .padding()
