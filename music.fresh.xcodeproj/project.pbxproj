@@ -100,6 +100,7 @@
 				4BD3BFDD2677838300AAC075 /* PlaylistList.swift */,
 				4B7DE1FF2677461600CD2F1A /* SongList.swift */,
 				68C42945267A28A800B25BA6 /* PlaylistView.swift */,
+				4BD3C0062677A6FF00AAC075 /* ArtistList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
