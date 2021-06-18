@@ -11,6 +11,7 @@ struct SongList: View {
     let songs: [Song]
     @State var text = ""
     @State private var showModalAddToPlaylist = false
+    @State private var showModalCreatePlaylist = false
 
     var body: some View {
         VStack{
