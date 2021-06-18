@@ -28,4 +28,5 @@ let artistsList = [artist1, artist2, artist3]
 let user1 = User(name: "Bilbo Baggins", email: "bilbobaggins@gmail.com" ,imageName: "user1.jpg", recentSongs: songsList, myPlaylists: playlistsList)
 let user2 = User(name: "Arwen Undomiel", email: "arwenundomiel@gmail.com", imageName: "user2.jpg", recentSongs: songsList, myPlaylists: playlistsList)
 let user3 = User(name: "Pippin Took", email: "pippintook@gmail.com", imageName: "user3.jpg", recentSongs: songsList, myPlaylists: playlistsList)
-let usersList = [user1, user2, user3]
+var usersList = [user1, user2, user3]
+var currentUser: User? = nil

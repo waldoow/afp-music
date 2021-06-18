@@ -10,15 +10,17 @@ import SwiftUI
 struct ProfileUpdateForm: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @State var retrieved = ""
+    
     @State var userName: String = ""
     @State var email: String = ""
     @State var imageName: String = ""
     @State var password: String = ""
-    @State var termsAccepted = false
     
     var body: some View {
         NavigationView {
             Form {
+                Text(retrieved).fontWeight(.heavy)
                 TextField("nom d'utilisateur", text: $userName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("adresse e-mail", text: $email)
@@ -37,23 +39,42 @@ struct ProfileUpdateForm: View {
                 }
                 
                 Section {
-                    Toggle(isOn: $termsAccepted,
-                           label: {
-                            Text("Accepter les conditions")
-                           })
-                    Button("valider") {
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                        let user = createUser()
-                        print(user)
+                        createUser()
+                        
+                        UserDefaults.standard.set(self.userName, forKey: "nom d'utilisateur")
+                        self.retrieved = self.userName
+                        self.userName = ""
+                        
+                        UserDefaults.standard.set(self.email, forKey: "adresse e-mail")
+                        self.retrieved = self.email
+                        self.email = ""
+                    }) {
+                        Text("Valider").padding(15)
                     }
+                    .padding(1)
+                    .background(Color.orange)
+                    .foregroundColor(.white)
+                    .cornerRadius(9)
+                    
                 }
             }
-            .navigationBarTitle("Créer mon profil")
+            .navigationBarTitle(currentUser != nil ? currentUser!.name : "Créer mon profil")
+        }
+        .onAppear {
+            // this will perform whenever this appears on the screen
+            // like viewDidLoad() in UIKit
+            guard let retrievedmsg = UserDefaults.standard.value(forKey: "Nom d'utilisateur") else{return}
+            self.retrieved = retrievedmsg as! String
         }
     }
     
-    func createUser() -> User {
-        return User(name: userName, email: email, imageName: imageName)
+    func createUser() {
+        let newUser = User(name: userName, email: email, imageName: imageName, recentSongs:[], myPlaylists: [])
+        usersList.append(newUser)
+        currentUser = newUser
+        print(currentUser!)
     }
     
     
@@ -61,7 +82,6 @@ struct ProfileUpdateForm: View {
         if userName.isEmpty {
             return false
         }
-        
         if email.isEmpty {
             return false
         }

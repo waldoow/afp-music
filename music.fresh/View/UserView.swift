@@ -25,7 +25,7 @@ struct UserView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("kkdjfjff")
+                Text("selectionView")
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             .background(LinearGradient(Color.lightBlueEnd, Color.lightBlueStart))
