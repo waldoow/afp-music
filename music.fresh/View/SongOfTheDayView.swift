@@ -6,13 +6,81 @@
 //
 
 import SwiftUI
+import AVKit
+
+struct MusicPlayer : View {
+    
+    @State var player : AVAudioPlayer!
+    @State var playing = false
+    @State var songs = ["herestous"]
+    @State var current = 0
+    @State var finish = false
+    @State var del = AVdelegate()
+    
+    var body : some View{
+        
+        VStack(spacing: 20){
+            
+            HStack {
+                
+                Button(action: {
+                    if self.player.isPlaying{
+                        self.player.pause()
+                        self.playing = false
+                    }
+                    else{
+                        if self.finish{
+                            self.player.currentTime = 0
+                            self.finish = false
+                        }
+                        self.player.play()
+                        self.playing = true
+                    }
+                }) {
+                    
+                    Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.fill").font(.title)
+                }
+                
+            }.padding(.top,25)
+            .foregroundColor(.black)
+            
+        }.padding()
+        .onAppear {
+            
+            let url = Bundle.main.path(forResource: self.songs[self.current], ofType: "mp3")
+            
+            self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+            
+            self.player.delegate = self.del
+            
+            self.player.prepareToPlay()
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("Finish"), object: nil, queue: .main) { (_) in
+                
+                self.finish = true
+            }
+        }
+    }
+}
+
+class AVdelegate : NSObject,AVAudioPlayerDelegate{
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name("Finish"), object: nil)
+    }
+}
+
 
 struct SongOfTheDayView: View {
     
     @State private var isPresented = false
     
     var body: some View {
+        
+        
         NavigationView {
+            
             VStack{
                 
                 NavigationLink(destination: AddSongOfTheDayView()){
@@ -32,39 +100,53 @@ struct SongOfTheDayView: View {
                 
                 Spacer()
                 
-                ZStack{
-                    Image("halestorm")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .opacity(0.3)
+                
+                
+                // lecture musique
+                
+                //                    Image("halestorm")
+                //                        .resizable()
+                //                        .aspectRatio(contentMode: .fit)
+                //                        .opacity(0.3)
+                
+                VStack(alignment: .leading) {
                     
-                    VStack(alignment: .leading) {
-                        
-                        HStack {
-                            Image(systemName: "play")
+                    HStack {
+                        VStack {
+                            MusicPlayer()
+                        }
+                        .frame()
+                        //                            Image(systemName: "play")
+                        //                                .resizable()
+                        //                                .scaledToFit()
+                        //                                .padding()
+                        Spacer()
+                        ZStack{
+                            Image("halestorm")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .opacity(0.3)
                                 .padding()
-                            VStack(alignment: .leading){
+                            VStack(alignment: .leading, spacing: 30){
                                 Text("Here's To Us")
                                     .font(.title)
                                     .bold()
-                                    .padding(.vertical)
-                                //                            .foregroundColor(.red)
                                 Text("2012")
                                     .font(.title)
                                     .bold()
-                                    .padding(.vertical)
-                                //
                             }
-//                            .foregroundColor(.red)
                         }
                         
-                        
+                        //                            .foregroundColor(.red)
                     }
+                    .overlay(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                .stroke())
                     
                 }
-                
                 .frame(maxWidth: .infinity, maxHeight:150)
                 
+                
+                // Votes
                 ScrollView(.vertical){
                     
                     VStack{
