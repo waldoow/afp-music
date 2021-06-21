@@ -30,19 +30,23 @@ struct SongOfTheDayView: View {
                 Spacer()
                 Text("Découvrez de la vraie nouveauté, peu connu, que vous ne trouvez pas sur les autres apps.")
                 Spacer()
-                Text("En attente de la AudioPlayerView")
-                    .frame(maxWidth: .infinity, maxHeight:150)
-                    .foregroundColor(.blue)
-                    .background(Color.yellow)
-                ZStack{
-                    Image("user1.jpg")
-                        .resizable()
-                        .frame(maxWidth: .infinity)
-                    //                    .aspectRatio(contentMode: .fit)
-                    Text(artist1.name)
-                        .foregroundColor(.white)
-                        .offset(y: 60)
+                HStack {
+                    Text("En attente de la AudioPlayerView")
+                        .frame(maxWidth: .infinity, maxHeight:150)
+                        .foregroundColor(.blue)
+                        .background(Color.yellow)
+                    ZStack{
+                        Image("user1.jpg")
+                            .resizable()
+                            .frame(maxWidth: .infinity)
+                        //                    .aspectRatio(contentMode: .fit)
+                        Text(artist1.name)
+                            .foregroundColor(.white)
+                            .offset(y: 60)
+                    }
+                    
                 }
+                
                 .frame(maxWidth: .infinity, maxHeight:150)
                 
                 ScrollView(.vertical){
