@@ -11,6 +11,7 @@ struct FriendCell: View {
     let utilisateur: User
     var body: some View {
         HStack {
+            
             Image(utilisateur.imageName).resizable()
                 .frame(width: 100, height: 100)
             VStack(alignment: .leading) {

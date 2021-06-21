@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct FriendList: View {
+    var userlist = usersList
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            FriendCell(utilisateur: user1)
+            FriendCell(utilisateur: user2)
+            FriendCell(utilisateur: user3)
+        }
     }
 }
 
