@@ -81,15 +81,15 @@ struct ProfileUpdateForm: View {
                         Text("Valider").padding(5)
                             .frame(alignment: .leading)
                     }
-                    
                     .frame(width: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .padding(1)
                     .background(Color.yellow)
                     .foregroundColor(.white)
                     .cornerRadius(9)
-                }.edgesIgnoringSafeArea(.bottom)
+                }
+                .edgesIgnoringSafeArea(.bottom)
             }
-            .navigationBarTitle(currentUser != nil ? currentUser!.name : "Créer mon profil")
+            .navigationBarTitle("Créer mon profil")
         }
         .onAppear {
             // this will perform whenever this appears on the screen
