@@ -12,7 +12,7 @@ struct SearchView: View {
     var body: some View {
         NavigationView{
             VStack{
-                GlobalSearchView(songs: songsList, playlists: playlistsList, artists: artistsList)
+                GlobalSearchView(songs: songsList, playlists: playlistsList, artists: artistsList, users: usersList)
             }.navigationBarTitle("Rechercher")
         }
     }
@@ -27,6 +27,7 @@ struct GlobalSearchView: View {
     let songs: [Song]
     let playlists: [Playlist]
     let artists: [Artist]
+    let users: [User]
     
     @State var text = ""
     @State private var showModalAddToPlaylist = false
@@ -96,6 +97,25 @@ struct GlobalSearchView: View {
                             }
                         }).foregroundColor(.black)
                 }
+                ForEach(users.filter({"\($0)".contains(text.lowercased()) || text.isEmpty})) { user in
+                    NavigationLink(
+                        destination: UserView(user: user),
+                        label: {
+                            HStack{
+                                Image(user.imageName)
+                                    .resizable()
+                                    .frame(width: 55, height: 55)
+                                    .clipped()
+                                VStack(alignment: .leading) {
+                                    Text(user.name)
+                                        .font(.title3)
+                                    Text("Artiste")
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                        }).foregroundColor(.black)
+                }
+
             }
             .listStyle(GroupedListStyle())
         }
