@@ -29,20 +29,36 @@ struct SongOfTheDayView: View {
                 
                 Spacer()
                 Text("Découvrez de la vraie nouveauté, peu connu, que vous ne trouvez pas sur les autres apps.")
+                
                 Spacer()
-                HStack {
-                    Text("En attente de la AudioPlayerView")
-                        .frame(maxWidth: .infinity, maxHeight:150)
-                        .foregroundColor(.blue)
-                        .background(Color.yellow)
-                    ZStack{
-                        Image("user1.jpg")
-                            .resizable()
-                            .frame(maxWidth: .infinity)
-                        //                    .aspectRatio(contentMode: .fit)
-                        Text(artist1.name)
-                            .foregroundColor(.white)
-                            .offset(y: 60)
+                
+                ZStack{
+                    Image("halestorm")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .opacity(0.3)
+                    
+                    VStack(alignment: .leading) {
+                        
+                        HStack {
+                            Image(systemName: "play")
+                                .padding()
+                            VStack(alignment: .leading){
+                                Text("Here's To Us")
+                                    .font(.title)
+                                    .bold()
+                                    .padding(.vertical)
+                                //                            .foregroundColor(.red)
+                                Text("2012")
+                                    .font(.title)
+                                    .bold()
+                                    .padding(.vertical)
+                                //
+                            }
+//                            .foregroundColor(.red)
+                        }
+                        
+                        
                     }
                     
                 }
