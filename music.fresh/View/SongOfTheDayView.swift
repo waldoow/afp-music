@@ -38,7 +38,7 @@ struct MusicPlayer : View {
                     }
                 }) {
                     
-                    Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.fill").font(.title)
+                    Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.fill").font(.system(size: 90))
                 }
                 
             }.padding(.top,25)
@@ -100,26 +100,14 @@ struct SongOfTheDayView: View {
                 
                 Spacer()
                 
-                
-                
                 // lecture musique
-                
-                //                    Image("halestorm")
-                //                        .resizable()
-                //                        .aspectRatio(contentMode: .fit)
-                //                        .opacity(0.3)
-                
+
                 VStack(alignment: .leading) {
                     
                     HStack {
                         VStack {
                             MusicPlayer()
                         }
-                        .frame()
-                        //                            Image(systemName: "play")
-                        //                                .resizable()
-                        //                                .scaledToFit()
-                        //                                .padding()
                         Spacer()
                         ZStack{
                             Image("halestorm")
@@ -136,11 +124,7 @@ struct SongOfTheDayView: View {
                                     .bold()
                             }
                         }
-                        
-                        //                            .foregroundColor(.red)
                     }
-                    .overlay(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                .stroke())
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight:150)
@@ -162,11 +146,13 @@ struct SongOfTheDayView: View {
                             .frame(maxWidth: .infinity, maxHeight:150)
                     }
                 }
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                                .stroke())
             }
             .padding()
             
         }
-        //        .edgesIgnoringSafeArea(.top)
     }
 }
 
