@@ -11,13 +11,14 @@ struct SongList: View {
     let songs: [Song]
 
     @State var text = ""
-    @State private var showAlert = false
+    @State private var showModalAddToPlaylist = false
+    @State private var showModalCreatePlaylist = false
 
     var body: some View {
-        VStack {
+        VStack{
             ScrollView(.vertical, showsIndicators: false) {
                 ForEach(songs.filter({"\($0)".contains(text.lowercased()) || text.isEmpty })) { song in
-                    HStack {
+                    HStack{
                         Image(song.imageName)
                             .resizable()
                             .frame(width: 55, height: 55)
@@ -32,24 +33,18 @@ struct SongList: View {
                         Spacer()
 
                         Button(action: {
-                            showAlert = true
+                            self.showModalAddToPlaylist.toggle()
                         }, label: {
                             Image(systemName: "plus.circle")
                                 .resizable()
                                 .frame(width: 23, height: 23)
                                 .foregroundColor(.yellow)
-                        }).alert(isPresented: $showAlert){
-                            Alert(title: Text("Titre ajouté à ta playlist"), dismissButton: .default(Text("Ok")))
-                        }.buttonStyle(PlainButtonStyle())
+                        }).sheet(isPresented: $showModalAddToPlaylist) {
+                            AddToPlaylist(showModalAddToPlaylist: $showModalAddToPlaylist)
+                        }
                     }
                 }
-            }.padding(14)
-        }
-    }
-}
-
-struct SongList_Previews: PreviewProvider {
-    static var previews: some View {
-        SongList(songs: songsList)
+            }
+        }.padding(15)
     }
 }

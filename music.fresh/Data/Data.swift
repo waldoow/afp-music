@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 let song1 = Song(title: "Titre1", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
 let song2 = Song(title: "Titre2", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
@@ -13,9 +14,9 @@ let song3 = Song(title: "Titre3", artist: artist1, description: "Album", imageNa
 var songsList = [song1, song2, song3]
 
 
-let playlist1 = Playlist(title: "Playlist1", user: "User", imageName: "imagePlaylist", year: 2021, songs: songsList)
-let playlist2 = Playlist(title: "Playlist2", user: "User", imageName: "imagePlaylist", year: 2021, songs: songsList)
-let playlist3 = Playlist(title: "Playlist3", user: "User", imageName: "imagePlaylist", year: 2021, songs: songsList)
+let playlist1 = Playlist(title: "Playlist1", user: "User", imageName: UIImage(named: "imagePlaylist"), year: 2021, songs: songsList)
+let playlist2 = Playlist(title: "Playlist2", user: "User", imageName: UIImage(named: "imagePlaylist"), year: 2021, songs: songsList)
+let playlist3 = Playlist(title: "Playlist3", user: "User", imageName: UIImage(named: "imagePlaylist"), year: 2021, songs: songsList)
 var playlistsList = [playlist1, playlist2, playlist3]
 
 
