@@ -88,6 +88,7 @@ struct ProfileUpdateForm: View {
                     .cornerRadius(9)
                 }
                 .edgesIgnoringSafeArea(.bottom)
+
             }
             .navigationBarTitle("Créer mon profil")
         }
@@ -103,10 +104,18 @@ struct ProfileUpdateForm: View {
         let newUser = User(name: userName, email: email, imageName: imageName, password: password, recentSongs:[], myPlaylists: [])
         usersList.append(newUser)
         currentUser = newUser
-        print(currentUser!)
+    }
+    
+    func isUserInformationValid() -> Bool {
+        if userName.isEmpty {
+            return false
+        }
+        if email.isEmpty {
+            return false
+        }
+        return true
     }
 }
-
 
 struct ProfileUpdateForm_Previews: PreviewProvider {
     static var previews: some View {

@@ -9,28 +9,36 @@ import SwiftUI
 
 struct ArtistList: View {
     let artists: [Artist]
+
     @State var text = ""
+
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             ForEach(artists.filter({"\($0)".contains(text.lowercased()) || text.isEmpty })) { artist in
-                HStack{
-                    Image(artist.imageName)
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .clipped()
-                    VStack(alignment: .leading){
-                        Text(artist.name)
-                            .font(.title3)
-                        Text("Artiste")
-                            .foregroundColor(.secondary)
-                    }
-                    Spacer()
-                    Button(action: {
-                    }, label: {
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
-                    })
-                }
+                NavigationLink(
+                    destination: DetailedView(artist: artist),
+                    label: {
+                        HStack{
+                            Image(artist.imageName)
+                                .resizable()
+                                .frame(width: 55, height: 55)
+                                .clipped()
+                            VStack(alignment: .leading) {
+                                Text(artist.name)
+                                    .font(.title3)
+                                Text("Artiste")
+                                    .foregroundColor(.secondary)
+                            }
+
+                            Spacer()
+
+                            Button(action: {
+                            }, label: {
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.gray)
+                            })
+                        }
+                    }).foregroundColor(.black)
             }
         }.padding(15)
     }

@@ -12,6 +12,7 @@ struct SongListCell: View {
         ZStack {
             Image("KlemPhoto").resizable()
                 .frame(width: 100, height:  100)
+
             Image(systemName: "play").resizable()
                 .foregroundColor(.white)
                 .frame(width: 40, height: 40)

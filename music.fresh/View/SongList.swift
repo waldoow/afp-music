@@ -9,42 +9,42 @@ import SwiftUI
 
 struct SongList: View {
     let songs: [Song]
+
     @State var text = ""
-    @State private var showAlert = false
+    @State private var showModalAddToPlaylist = false
+    @State private var showModalCreatePlaylist = false
+
     var body: some View {
         VStack{
-        ScrollView(.vertical, showsIndicators: false) {
-            ForEach(songs.filter({"\($0)".contains(text.lowercased()) || text.isEmpty })) { song in
-                HStack{
-                    Image(song.imageName)
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                    VStack(alignment: .leading){
-                        Text(song.title)
-                            .font(.title3)
-                        Text(song.artist.name)
-                            .foregroundColor(.secondary)
-                    }
-                    Spacer()
-                    Button(action: {
-                        showAlert = true
-                    }, label: {
-                        Image(systemName: "plus.circle")
+            ScrollView(.vertical, showsIndicators: false) {
+                ForEach(songs.filter({"\($0)".contains(text.lowercased()) || text.isEmpty })) { song in
+                    HStack{
+                        Image(song.imageName)
                             .resizable()
-                            .frame(width: 23, height: 23)
-                            .foregroundColor(.yellow)
-                    }).alert(isPresented: $showAlert){
-                        Alert(title: Text("Titre ajouté à ta playlist"), dismissButton: .default(Text("Ok")))
-                    }.buttonStyle(PlainButtonStyle())
+                            .frame(width: 55, height: 55)
+
+                        VStack(alignment: .leading){
+                            Text(song.title)
+                                .font(.title3)
+                            Text(song.artist.name)
+                                .foregroundColor(.secondary)
+                        }
+
+                        Spacer()
+
+                        Button(action: {
+                            self.showModalAddToPlaylist.toggle()
+                        }, label: {
+                            Image(systemName: "plus.circle")
+                                .resizable()
+                                .frame(width: 23, height: 23)
+                                .foregroundColor(.yellow)
+                        }).sheet(isPresented: $showModalAddToPlaylist) {
+                            AddToPlaylist(showModalAddToPlaylist: $showModalAddToPlaylist)
+                        }
+                    }
                 }
             }
         }.padding(15)
-    }
-    }
-}
-
-struct SongList_Previews: PreviewProvider {
-    static var previews: some View {
-        SongList(songs: songsList)
     }
 }
