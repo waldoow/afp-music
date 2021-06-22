@@ -13,6 +13,7 @@ struct VoteView: View {
     @State var addVote = 0
     
     var body: some View {
+        
         VStack{
             HStack{
                 Image(vote.user.imageName ?? "")
