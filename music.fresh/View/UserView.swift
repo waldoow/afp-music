@@ -20,7 +20,7 @@ extension LinearGradient {
 
 struct UserView: View {
     let user : User
-
+    
     @State private var showingSheet = false
     @State private var showModal = false
     @State private var selection = 0
