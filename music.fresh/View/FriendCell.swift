@@ -10,10 +10,11 @@ import SwiftUI
 struct FriendCell: View {
     let utilisateur: User
     var body: some View {
-        HStack {
-            
+        HStack{
+            Spacer()
             Image(utilisateur.imageName).resizable()
                 .frame(width: 100, height: 100)
+
             VStack(alignment: .leading) {
                 Text(utilisateur.name).font(.title2)
                 Button(action: {
@@ -34,6 +35,7 @@ struct FriendCell: View {
                     
                 })
             }
+            Spacer()
         }
     }
 }
