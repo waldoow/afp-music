@@ -41,9 +41,9 @@ struct GlobalSearchView: View {
             return songs
         }
         
-        return songs.filter{
+        return songs.filter {
             $0.title.contains(text) ||
-            $0.artist.name == text ||
+            $0.artist.name.contains(text) ||
             $0.year == Int(text)
         }
     }
@@ -54,7 +54,7 @@ struct GlobalSearchView: View {
         }
         
         return artists.filter{
-            return $0.name == text
+            return $0.name.contains(text)
         }
     }
 
@@ -64,9 +64,9 @@ struct GlobalSearchView: View {
         }
         
         return playlists.filter{
-            $0.user == text ||
+            $0.user.contains(text) ||
             $0.year == Int(text) ||
-            $0.title == text
+            $0.title.contains(text)
         }
     }
 
@@ -76,8 +76,8 @@ struct GlobalSearchView: View {
         }
         
         return users.filter{
-                $0.email == text ||
-                $0.name == text
+                $0.email.contains(text) ||
+                $0.name.contains(text)
         }
     }
     
