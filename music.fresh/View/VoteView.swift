@@ -30,7 +30,7 @@ struct VoteView: View {
                     .frame(height: 50)
                 Spacer()
                 // ajouter lecture du morceau sur recentSong, créer des recentSong
-                Image(systemName: "play.rectangle.fill")
+                Image(systemName: "play.circle")
                     .font(.largeTitle)
             }
             HStack{

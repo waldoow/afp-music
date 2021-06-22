@@ -31,6 +31,12 @@
 		6F28D82126788C7300FF400F /* SongOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D82026788C7300FF400F /* SongOfTheDayView.swift */; };
 		6F28D82326788F6900FF400F /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D82226788F6900FF400F /* VoteView.swift */; };
 		6F28D8252678A22100FF400F /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D8242678A22100FF400F /* Vote.swift */; };
+		6FD59C662681E9BE005C5717 /* la.brigade.du.kif.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD59C612681E9BE005C5717 /* la.brigade.du.kif.mp3 */; };
+		6FD59C672681E9BE005C5717 /* laura.cox.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD59C622681E9BE005C5717 /* laura.cox.mp3 */; };
+		6FD59C682681E9BE005C5717 /* klem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD59C632681E9BE005C5717 /* klem.mp3 */; };
+		6FD59C692681E9BE005C5717 /* manolo.gonzalez.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD59C642681E9BE005C5717 /* manolo.gonzalez.mp3 */; };
+		6FD59C6A2681E9BE005C5717 /* vincent.malone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD59C652681E9BE005C5717 /* vincent.malone.mp3 */; };
+		6FD59C6C2681EC5B005C5717 /* herestous.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD59C6B2681EC5B005C5717 /* herestous.mp3 */; };
 		C5F02241267A01FE0045099E /* ProfileUpdateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F02240267A01FE0045099E /* ProfileUpdateForm.swift */; };
 		C5F4F6432677AED10003CD9A /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F4F6422677AED10003CD9A /* UserView.swift */; };
 		FC771E3426754B6C0063968A /* SongListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC771E3326754B6C0063968A /* SongListCell.swift */; };
@@ -64,6 +70,12 @@
 		6F28D82026788C7300FF400F /* SongOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongOfTheDayView.swift; sourceTree = "<group>"; };
 		6F28D82226788F6900FF400F /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 		6F28D8242678A22100FF400F /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		6FD59C612681E9BE005C5717 /* la.brigade.du.kif.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = la.brigade.du.kif.mp3; sourceTree = "<group>"; };
+		6FD59C622681E9BE005C5717 /* laura.cox.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laura.cox.mp3; sourceTree = "<group>"; };
+		6FD59C632681E9BE005C5717 /* klem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = klem.mp3; sourceTree = "<group>"; };
+		6FD59C642681E9BE005C5717 /* manolo.gonzalez.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = manolo.gonzalez.mp3; sourceTree = "<group>"; };
+		6FD59C652681E9BE005C5717 /* vincent.malone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vincent.malone.mp3; sourceTree = "<group>"; };
+		6FD59C6B2681EC5B005C5717 /* herestous.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = herestous.mp3; sourceTree = "<group>"; };
 		C5F02240267A01FE0045099E /* ProfileUpdateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateForm.swift; sourceTree = "<group>"; };
 		C5F4F6422677AED10003CD9A /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		FC771E3326754B6C0063968A /* SongListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListCell.swift; sourceTree = "<group>"; };
@@ -145,6 +157,12 @@
 		68F2744F2673584600BAD3C2 /* music.fresh */ = {
 			isa = PBXGroup;
 			children = (
+				6FD59C6B2681EC5B005C5717 /* herestous.mp3 */,
+				6FD59C632681E9BE005C5717 /* klem.mp3 */,
+				6FD59C612681E9BE005C5717 /* la.brigade.du.kif.mp3 */,
+				6FD59C622681E9BE005C5717 /* laura.cox.mp3 */,
+				6FD59C642681E9BE005C5717 /* manolo.gonzalez.mp3 */,
+				6FD59C652681E9BE005C5717 /* vincent.malone.mp3 */,
 				68F274502673584600BAD3C2 /* music_freshApp.swift */,
 				68F274522673584600BAD3C2 /* ContentView.swift */,
 				4B7DE1FC267745F600CD2F1A /* View */,
@@ -223,7 +241,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				68F274582673584800BAD3C2 /* Preview Assets.xcassets in Resources */,
+				6FD59C6A2681E9BE005C5717 /* vincent.malone.mp3 in Resources */,
+				6FD59C692681E9BE005C5717 /* manolo.gonzalez.mp3 in Resources */,
 				68F274552673584800BAD3C2 /* Assets.xcassets in Resources */,
+				6FD59C662681E9BE005C5717 /* la.brigade.du.kif.mp3 in Resources */,
+				6FD59C6C2681EC5B005C5717 /* herestous.mp3 in Resources */,
+				6FD59C672681E9BE005C5717 /* laura.cox.mp3 in Resources */,
+				6FD59C682681E9BE005C5717 /* klem.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
