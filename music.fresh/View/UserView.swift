@@ -26,6 +26,7 @@ struct UserView: View {
     @State private var selection = 0
     @State var currentTab = "Récents"
     @Namespace var animation
+    @State private var isPresented = false
     
     var body: some View {
         NavigationView{
@@ -47,8 +48,8 @@ struct UserView: View {
             .navigationBarItems(
                 leading:
                     Text(user.name)
-                    .font(.body)
-                    .foregroundColor(Color(.systemTeal)),
+                    .font(.headline)
+                    .foregroundColor(Color(.purple)),
                 
                 trailing:
                     HStack {
@@ -57,10 +58,10 @@ struct UserView: View {
                                 showingSheet.toggle()
                             }, label: {
                                 Image(systemName: "gearshape")
-                                    .foregroundColor(.lightBlueEnd)
+                                    .foregroundColor(Color(.purple))
                                     .padding(.bottom, 5)
-                            }
-                            ).sheet(isPresented: $showingSheet) {
+                            })
+                            .sheet(isPresented: $showingSheet) {
                                 ProfileUpdateForm()
                             }
                             
@@ -68,19 +69,21 @@ struct UserView: View {
                                 showModal.toggle()
                             }, label: {
                                 Image(systemName: "plus")
-                                    .foregroundColor(.lightBlueEnd)
+                                    .foregroundColor(Color(.purple))
+                                    .padding(.bottom, 5)
+                            })
+                            .sheet(isPresented: $showModal) {
+                                NewPlaylistView(showModal: $showModal)
                             }
-                            ).sheet(isPresented: $showModal) {
-                                ProfileUpdateForm()
-                            }
+                            
                         }
                         
                         Image(user.imageName ?? "")
                             .resizable()
-                            .frame(width: 60, height: 100)
+                            .frame(width: 60, height: 75)
                             .clipShape(Circle())
-                            .shadow(radius: 5)
-                            .overlay(Circle().stroke(Color.lightBlueEnd, lineWidth: 5))
+                            .shadow(radius: 10)
+                            .overlay(Circle().stroke(Color.white, lineWidth: 5))
                     }
             )
             .padding(.top, 50)
@@ -90,7 +93,7 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(user: user1)
+        UserView(user: user2)
     }
 }
 
@@ -123,42 +126,6 @@ struct selectionsButton: View {
                 }
             })
         }
+
     }
 
-
-//        NavigationView {
-//            VStack {
-//                Text("selectionView")
-//            }
-//            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-//            .background(LinearGradient(Color.lightBlueEnd, Color.lightBlueStart))
-//            .navigationBarItems(
-//                leading:
-//                    Text(user.name)
-//                    .font(.body)
-//                    .foregroundColor(Color(.systemTeal)),
-//
-//                trailing:
-//                    HStack {
-//                        Button(action: {
-//                            showingSheet.toggle()
-//
-//                        }, label: {
-//                            Image(systemName: "gearshape")
-//                                .foregroundColor(.lightBlueEnd)
-//                        }
-//                        ).sheet(isPresented: $showingSheet) {
-//                            ProfileUpdateForm()
-//                        }
-//
-//                        Image(user.imageName!)
-//                            .resizable()
-//                            .frame(width: 60, height: 100)
-//                            .clipShape(Circle())
-//                            .shadow(radius: 5)
-//                            .overlay(Circle().stroke(Color.lightBlueEnd, lineWidth: 5))
-//                    }
-//            )
-//            .edgesIgnoringSafeArea(.top)
-//            .edgesIgnoringSafeArea(.bottom)
-//        }
