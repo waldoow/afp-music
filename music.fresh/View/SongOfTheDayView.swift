@@ -38,7 +38,7 @@ struct MusicPlayer : View {
                     }
                 }) {
                     
-                    Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.fill").font(.system(size: 90))
+                    Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.circle").font(.system(size: 90))
                 }
                 
             }.padding(.top,25)
