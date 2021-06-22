@@ -49,6 +49,7 @@ struct SearchView: View {
                                             NewArtistFormView(showModal: $showModal)
                                         }
                                     }
+            }
         }
     }
 }
