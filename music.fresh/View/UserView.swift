@@ -162,34 +162,3 @@ struct selectionsButton: View {
 //            .edgesIgnoringSafeArea(.top)
 //            .edgesIgnoringSafeArea(.bottom)
 //        }
-
-struct selectionsButton: View {
-    var title: String
-    @Binding var currentTab: String
-    var animation: Namespace.ID
-    var body: some View {
-        Button(action: {
-            withAnimation {
-                currentTab = title
-            }
-        }, label: {
-            LazyVStack(spacing: 12){
-                Text(title).fontWeight(.semibold)
-                    
-                    .foregroundColor(currentTab == title ? .yellow : .gray)
-                    .padding(.horizontal)
-                
-                if currentTab == title {
-                    Capsule()
-                        .fill(Color.yellow)
-                        .frame(height: 1.2)
-                        .matchedGeometryEffect(id: "TAB", in: animation)
-                } else {
-                    Capsule()
-                        .fill(Color.clear)
-                        .frame(height: 1.2)
-                }
-            }
-        })
-    }
-}
