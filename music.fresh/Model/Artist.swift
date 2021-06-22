@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Artist: Identifiable {
+struct Artist: Identifiable, Hashable {
     var id = UUID()
     
     let name: String

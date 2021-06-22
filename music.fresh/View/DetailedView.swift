@@ -18,10 +18,6 @@ struct DetailedView: View {
     }
 
     var body: some View {
-        NavigationView {
-
-        }
-        .overlay(
             VStack {
                 Image(artist.imageName)
                     .resizable()
@@ -81,7 +77,7 @@ struct DetailedView: View {
                         Spacer()
                     }
                 })
-            })
+            }
         .edgesIgnoringSafeArea(.top)
     }
 }

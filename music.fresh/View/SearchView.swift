@@ -27,7 +27,28 @@ struct SearchView: View {
                     PlaylistList(playlists: playlistsList)
                     ArtistList(artists: artistsList)
                 }
-            }.navigationBarTitle("Rechercher")
+
+            .navigationBarTitle("Rechercher")
+            .navigationBarItems(trailing: Button(action: {
+                                        showModal.toggle()
+                                    }, label: {
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                            .foregroundColor(Color.yellow)
+                                    })).sheet(isPresented: $showModal) {
+                                        if currentTab == "Playlists" {
+                                            NewPlaylistView(showModal: $showModal)
+                                        }
+                                        
+                                        if currentTab == "Titres" {
+                                            NewSongFormView(showModal: $showModal)
+
+                                        }
+                                        if currentTab == "Artistes" {
+                                            NewArtistFormView(showModal: $showModal)
+                                        }
+                                    }
         }
     }
 }
