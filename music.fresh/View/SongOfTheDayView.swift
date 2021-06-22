@@ -9,7 +9,8 @@ import SwiftUI
 import AVKit
 
 struct MusicPlayer : View {
-    
+    @Environment(\.colorScheme) var colorScheme
+
     @State var player : AVAudioPlayer!
     @State var playing = false
     @State var song = "herestous"
@@ -41,7 +42,7 @@ struct MusicPlayer : View {
                 }
                 
             }.padding(.top,25)
-            .foregroundColor(.black)
+            .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
             
         }.padding()
         .onAppear {
