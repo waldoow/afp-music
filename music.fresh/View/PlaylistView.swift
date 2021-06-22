@@ -11,7 +11,7 @@ struct PlaylistView: View {
     var playlist: Playlist
 
     var body: some View {
-        NavigationView {
+        VStack {
             VStack {
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {

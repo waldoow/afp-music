@@ -13,44 +13,41 @@ struct ContentView: View {
     //miniplayer properties...
     @State var expand = false
     @Namespace var animation
-    
-    
+
     var body: some View {
-        
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
-            
-            TabView(selection: $selection,
-                            content:  {
-                                SongOfTheDayView()
-                                    .tabItem {
-                                        VStack {
-                                            Image(systemName: "music.note")
-                                            Text("Découvrir")
-                                        }
-                                    }.tag(1)
-                                SearchView()
-                                    .tabItem {
-                                        VStack {
-                                            Image(systemName: "magnifyingglass")
-                                            Text("Recherche")
-                                        }
-                                    }.tag(2)
-                                UserView(user: user1)
-                                    .tabItem {
-                                        VStack {
-                                            Image(systemName: "person.fill")
-                                            Text("Mon espace")
-                                        }
-                                    }.tag(2)
-                            })
+            TabView(selection: $selection, content:  {
+                SongOfTheDayView()
+                    .padding(.bottom, 70)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "music.note")
+                            Text("Découvrir")
+                        }
+                    }.tag(1)
+                SearchView()
+                    .padding(.bottom, 45)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "magnifyingglass")
+                            Text("Recherche")
+                        }
+                    }.tag(2)
+                UserView(user: user1)
+                    .padding(.bottom, 50)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "person.fill")
+                            Text("Mon espace")
+                        }
+                    }.tag(2)
+            })
             
             
             MiniPlayerView(animation: animation, expand: $expand)
             
         })
-        
-
-}
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

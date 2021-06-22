@@ -8,6 +8,7 @@ import SwiftUI
 
 struct SearchBar: View {
     @Binding var text: String
+
     @State private var isEditing = false
     var body: some View {
         HStack {
@@ -15,7 +16,6 @@ struct SearchBar: View {
                 .padding(8)
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
-                .foregroundColor(.black)
                 .cornerRadius(13)
                 .overlay(
                     HStack{
@@ -26,12 +26,14 @@ struct SearchBar: View {
                         
                         if isEditing{
                             Button(action: {
+                                isEditing = false
                                 self.text = ""
                             }, label: {
                                 Image(systemName: "multiply.circle.fill")
                                     .foregroundColor(.gray)
                                     .padding(.trailing, 8)
                             })
+                            .animation(.easeInOut(duration: 2).delay(2))
                         }
                     }
                 ).onTapGesture {
@@ -47,7 +49,7 @@ struct SearchBar: View {
                     Text("Annuler")
                         .padding(.trailing, 10)
                         .transition(.move(edge: .trailing))
-                        .animation(.default)
+                        .animation(.easeInOut(duration: 2).delay(2))
                 }
             }
         }
