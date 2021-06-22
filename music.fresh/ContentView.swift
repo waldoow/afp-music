@@ -43,9 +43,7 @@ struct ContentView: View {
                     }.tag(2)
             })
             
-            
             MiniPlayerView(animation: animation, expand: $expand)
-            
         })
     }
 }
