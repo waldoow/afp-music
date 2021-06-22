@@ -12,8 +12,8 @@ struct MusicPlayer : View {
     
     @State var player : AVAudioPlayer!
     @State var playing = false
-    @State var songs = ["herestous"]
-    @State var current = 0
+    @State var song = "herestous"
+    
     @State var finish = false
     @State var del = AVdelegate()
     
@@ -30,7 +30,6 @@ struct MusicPlayer : View {
                     }
                     else{
                         if self.finish{
-//                            self.player.currentTime = 0
                             self.finish = false
                         }
                         self.player.play()
@@ -38,7 +37,7 @@ struct MusicPlayer : View {
                     }
                 }) {
                     
-                    Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.circle").font(.system(size: 90))
+                    Image(systemName: self.playing && !self.finish ? "pause.circle" : "play.circle").font(.system(size: 90))
                 }
                 
             }.padding(.top,25)
@@ -47,7 +46,7 @@ struct MusicPlayer : View {
         }.padding()
         .onAppear {
             
-            let url = Bundle.main.path(forResource: self.songs[self.current], ofType: "mp3")
+            let url = Bundle.main.path(forResource: self.song, ofType: "mp3")
             
             self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
             
@@ -100,8 +99,8 @@ struct SongOfTheDayView: View {
                 
                 Spacer()
                 
-                // lecture musique
-
+                // chanson du jour
+                
                 VStack(alignment: .leading) {
                     
                     HStack {
@@ -110,7 +109,7 @@ struct SongOfTheDayView: View {
                         }
                         Spacer()
                         ZStack{
-                            Image("halestorm")
+                            Image("Halestorm")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .opacity(0.3)
@@ -148,7 +147,7 @@ struct SongOfTheDayView: View {
                 }
                 .padding()
                 .overlay(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                                .stroke())
+                            .stroke())
             }
             .padding()
             
