@@ -10,7 +10,7 @@ import SwiftUI
 struct FriendList: View {
     var userlist = usersList
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             FriendCell(utilisateur: user1)
             FriendCell(utilisateur: user2)
             FriendCell(utilisateur: user3)
