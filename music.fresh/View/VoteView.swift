@@ -15,7 +15,7 @@ struct VoteView: View {
     var body: some View {
         VStack{
             HStack{
-                Image(vote.user.imageName)
+                Image(vote.user.imageName ?? "")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 50,height: 50)
@@ -30,7 +30,7 @@ struct VoteView: View {
                     .frame(height: 50)
                 Spacer()
                 // ajouter lecture du morceau sur recentSong, créer des recentSong
-                Image(systemName: "play.rectangle.fill")
+                Image(systemName: "play.circle")
                     .font(.largeTitle)
             }
             HStack{
