@@ -10,61 +10,87 @@ import SwiftUI
 struct ProfileUpdateForm: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State var retrieved         = ""
-    @State var userName: String  = ""
-    @State var email: String     = ""
-    @State var imageName: String = ""
-    @State var password: String  = ""
+    @State var retrieved = ""
+    
+    @State private var userName: String = ""
+    @State private var email: String = ""
+    @State private var imageName: String = ""
+    @State private var password: String = ""
+    @State private var confirmPassword = ""
+    
+    @State private var isShowPhotoLibrary = false
+    @State private var image = UIImage()
     
     var body: some View {
         NavigationView {
-            VStack {
-                Form {
-                    Section {
-                        TextField("adresse e-mail", text: $email)
-                        TextField("nom d'utilisateur", text: $userName)
-                    }
-
-                    Section {
-                        TextField("url de ton image", text: $imageName)
-                    }
-
-                    Section {
-                        TextField("mot de passe", text: $password)
-                    }
-
-                    if self.isUserInformationValid() {
-                        Button(action: {
-                            print("Updated profile")
-                        }, label: {
-                            Text("Update Profile")
-                        })
-                    }
-                }
-
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                    createUser()
+            Form {
+                VStack {
+                    Image(uiImage: self.image)
+                        .resizable()
+                        .frame(width: 250, height: 250)
+                        .cornerRadius(15)
+                        .opacity(0.2)
+                        .clipped()
+                        .overlay(
+                            Button(action: {
+                                //affiche la modal pour choisir une image
+                                self.isShowPhotoLibrary = true
+                            }, label: {
+                                Image(systemName: "person.crop.circle.badge.plus")
+                                    .resizable()
+                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                    .frame(width: 80, height: 80)
+                                    .foregroundColor(Color.yellow)
+                            })
+                        )
+                        
+                        .sheet(isPresented: $isShowPhotoLibrary) {
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                        }
+                    Text(retrieved).fontWeight(.heavy)
+                    TextField("nom d'utilisateur", text: $userName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
+                    TextField("adresse e-mail", text: $email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.bottom, 20)
+                        .textContentType(.emailAddress)
                     
-                    UserDefaults.standard.set(self.userName, forKey: "nom d'utilisateur")
-                    self.retrieved = self.userName
-                    self.userName  = ""
-                    
-                    UserDefaults.standard.set(self.email, forKey: "adresse e-mail")
-                    self.retrieved = self.email
-                    self.email     = ""
-                }) {
-                    Text("Valider")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .padding(10)
-                        .padding(.horizontal, 100)
+                    SecureField("Mot de passe", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textContentType(.password)
+                    SecureField("confirmer mot de passe", text: $confirmPassword)
+                        .textContentType(.password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.bottom, 20)
                 }
-                .background(Color.orange)
-                .foregroundColor(.white)
-                .cornerRadius(9)
+                Spacer()
+                Spacer()
+                Section {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                        createUser()
+                        
+                        UserDefaults.standard.set(self.userName, forKey: "nom d'utilisateur")
+                        self.retrieved = self.userName
+                        self.userName = ""
+                        
+                        UserDefaults.standard.set(self.email, forKey: "adresse e-mail")
+                        self.retrieved = self.email
+                        self.email = ""
+                    }) {
+                        Text("Valider").padding(5)
+                            .frame(alignment: .leading)
+                    }
+                    .frame(width: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding(1)
+                    .background(Color.yellow)
+                    .foregroundColor(.white)
+                    .cornerRadius(9)
+                }
+                .edgesIgnoringSafeArea(.bottom)
+
             }
-            .navigationBarTitle(currentUser != nil ? currentUser!.name : "Créer mon profil")
+            .navigationBarTitle("Créer mon profil")
         }
         .onAppear {
             // this will perform whenever this appears on the screen
@@ -75,7 +101,7 @@ struct ProfileUpdateForm: View {
     }
     
     func createUser() {
-        let newUser = User(name: userName, email: email, imageName: imageName, recentSongs:[], myPlaylists: [])
+        let newUser = User(name: userName, email: email, imageName: imageName, password: password, recentSongs:[], myPlaylists: [])
         usersList.append(newUser)
         currentUser = newUser
     }
