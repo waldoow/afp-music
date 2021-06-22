@@ -30,7 +30,7 @@ struct MusicPlayer : View {
                     }
                     else{
                         if self.finish{
-                            self.player.currentTime = 0
+//                            self.player.currentTime = 0
                             self.finish = false
                         }
                         self.player.play()
