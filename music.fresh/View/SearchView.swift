@@ -102,7 +102,7 @@ struct GlobalSearchView: View {
                         destination: UserView(user: user),
                         label: {
                             HStack{
-                                Image(user.imageName)
+                                Image(user.imageName ?? "")
                                     .resizable()
                                     .frame(width: 55, height: 55)
                                     .clipped()
