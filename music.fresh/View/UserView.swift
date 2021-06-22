@@ -71,18 +71,11 @@ struct UserView: View {
                                     .foregroundColor(.lightBlueEnd)
                             }
                             ).sheet(isPresented: $showModal) {
-                                NewPlaylistView(showModal: $showingSheet)
+                                ProfileUpdateForm()
                             }
                         }
-                        Image(user.imageName ?? "")
-                        }, label: {
-                            Image(systemName: "gearshape")
-                                .foregroundColor(.lightBlueEnd)
-                        }).sheet(isPresented: $showingSheet) {
-                            ProfileUpdateForm()
-                        }
                         
-                        Image(user.imageName)
+                        Image(user.imageName ?? "")
                             .resizable()
                             .frame(width: 60, height: 100)
                             .clipShape(Circle())
@@ -100,6 +93,37 @@ struct UserView_Previews: PreviewProvider {
         UserView(user: user1)
     }
 }
+
+struct selectionsButton: View {
+        var title: String
+        @Binding var currentTab: String
+        var animation: Namespace.ID
+        var body: some View {
+            Button(action: {
+                withAnimation {
+                    currentTab = title
+                }
+            }, label: {
+                LazyVStack(spacing: 12){
+                    Text(title).fontWeight(.semibold)
+                        
+                        .foregroundColor(currentTab == title ? .yellow : .gray)
+                        .padding(.horizontal)
+                    
+                    if currentTab == title {
+                        Capsule()
+                            .fill(Color.yellow)
+                            .frame(height: 1.2)
+                            .matchedGeometryEffect(id: "TAB", in: animation)
+                    } else {
+                        Capsule()
+                            .fill(Color.clear)
+                            .frame(height: 1.2)
+                    }
+                }
+            })
+        }
+    }
 
 
 //        NavigationView {

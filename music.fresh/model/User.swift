@@ -14,7 +14,6 @@ struct User: Identifiable {
     var email: String
     var imageName: String?
     var password: String
-    var imageName: String
     var recentSongs: [Song] = []
     var myPlaylists: [Playlist] = []
 //  var myFriends: [Friend]
