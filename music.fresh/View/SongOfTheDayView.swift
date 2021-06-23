@@ -111,7 +111,7 @@ struct SongOfTheDayView: View {
                 //                )
                 
                 Spacer()
-                Text("Découvrez de la vraie nouveauté, peu connue, que vous ne trouvez pas sur les autres apps.")
+                Text("Découvrez de la vraie nouveauté, peu connue, que vous ne trouvez nul part ailleurs.")
                 
                 Spacer()
                 

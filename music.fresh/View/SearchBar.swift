@@ -33,7 +33,7 @@ struct SearchBar: View {
                                     .foregroundColor(.gray)
                                     .padding(.trailing, 8)
                             })
-                            .animation(.easeInOut(duration: 2).delay(2))
+                            .animation(Animation.easeInOut(duration: 2).delay(2))
                         }
                     }
                 ).onTapGesture {
@@ -49,7 +49,7 @@ struct SearchBar: View {
                     Text("Annuler")
                         .padding(.trailing, 10)
                         .transition(.move(edge: .trailing))
-                        .animation(.easeInOut(duration: 2).delay(2))
+                        .animation(Animation.easeInOut(duration: 2).delay(2))
                 }
             }
         }
