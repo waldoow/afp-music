@@ -18,26 +18,27 @@ struct FriendCell: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 55, height: 55)
                 .clipped()
-            VStack(alignment: .leading){
+            HStack{
                 Text(utilisateur.name).font(.title3)
-                Button(action: {
-                    
-                }, label: {
-                    if utilisateur.isFavorite == true {
-                        
-                        Label("Ne plus suivre", systemImage: "star")
-                            .foregroundColor(.white)
-                            .padding(8)
-                            .background(Color.yellow)
-                            .cornerRadius(20)
-                    } else {
-                        Label("Suivre", systemImage: "star.fill")
-                            .foregroundColor(.white)
-                            .padding(8)
-                            .background(Color.yellow)
-                            .cornerRadius(20)
-                    }
-                })
+                
+// Vaut mieux éviter ce bouton x)
+                
+//                Button(action: {
+//
+//                }, label: {
+//                    if utilisateur.isFavorite == true {
+//                        
+//                        Image(systemName: "star")
+//                            .foregroundColor(.yellow)
+//                            .padding(8)
+//                            .cornerRadius(20)
+//                    } else {
+//                        Image(systemName: "star.fill")
+//                            .foregroundColor(.yellow)
+//                            .padding(8)
+//                            .cornerRadius(20)
+//                    }
+//                })
             }
             Spacer()
         }
