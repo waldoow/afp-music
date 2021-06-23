@@ -14,7 +14,7 @@ struct FriendCell: View {
         HStack{
             
             
-            Image(utilisateur.imageName).resizable()
+            Image(utilisateur.imageName ?? "").resizable()
                 .frame(width: 100, height: 100)
             Spacer()
             VStack(alignment: .center) {
