@@ -77,7 +77,8 @@ struct SongOfTheDayView: View {
     @State private var isPresented = false
     
     @State private var showingSheet = false
-    @State private var showModal = false
+//    @State private var showModal = false
+    @State private var annuler = false
     
     var body: some View {
         
@@ -88,12 +89,12 @@ struct SongOfTheDayView: View {
                 
                 VStack {
                     Button(action: {
-                        showModal.toggle()
+                        self.annuler.toggle()
                     }, label: {
                         Image(systemName: "plus")
                     })
-                    .sheet(isPresented: $showModal) {
-                        AddSongOfTheDayView(showModal: false)
+                    .sheet(isPresented: $annuler) {
+                        AddSongOfTheDayView(annuler: $annuler)
                     }
                 }
                 

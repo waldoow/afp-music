@@ -20,9 +20,11 @@ struct AddSongOfTheDayView: View {
     @State private var description: String = ""
     
     @State private var showingAlert = false
-    @State var showModal: Bool
+//    @State var showModal: Bool
     @State private var isShowPhotoLibrary = false
     @State private var image = UIImage()
+    
+    @Binding var annuler: Bool
     
     var body: some View {
         
@@ -101,11 +103,11 @@ struct AddSongOfTheDayView: View {
             .padding()
             .navigationBarTitle(Text("Nouvelle musique"), displayMode: .inline)
             .navigationBarItems(leading:Button(action: {
-                self.showModal.toggle()
+                self.annuler.toggle()
             }, label: {
                 Text("Annuler")
             }), trailing: Button(action: {
-                self.showModal.toggle()
+                self.annuler.toggle()
             }, label: {
                 Text("Valider")
             }))
@@ -113,9 +115,9 @@ struct AddSongOfTheDayView: View {
     }
 }
 
-struct AddSongOfTheDayView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSongOfTheDayView(showModal: false)
-    }
-}
+//struct AddSongOfTheDayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddSongOfTheDayView(showModal: false)
+//    }
+//}
 
