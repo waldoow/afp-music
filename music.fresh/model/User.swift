@@ -17,4 +17,5 @@ struct User: Identifiable {
     var recentSongs: [Song] = []
     var myPlaylists: [Playlist] = []
 //  var myFriends: [Friend]
+    var isFavorite = false
 }
