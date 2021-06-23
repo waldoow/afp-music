@@ -31,6 +31,11 @@
 		6F28D82126788C7300FF400F /* SongOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D82026788C7300FF400F /* SongOfTheDayView.swift */; };
 		6F28D82326788F6900FF400F /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D82226788F6900FF400F /* VoteView.swift */; };
 		6F28D8252678A22100FF400F /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28D8242678A22100FF400F /* Vote.swift */; };
+		C5F02241267A01FE0045099E /* ProfileUpdateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F02240267A01FE0045099E /* ProfileUpdateForm.swift */; };
+		C5F4F6432677AED10003CD9A /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F4F6422677AED10003CD9A /* UserView.swift */; };
+		FC771E3426754B6C0063968A /* SongListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC771E3326754B6C0063968A /* SongListCell.swift */; };
+		FCD36A572680899600045581 /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD36A562680899600045581 /* FriendList.swift */; };
+		FCD36A5A268089A700045581 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD36A59268089A700045581 /* FriendCell.swift */; };
 		6FD59C662681E9BE005C5717 /* la.brigade.du.kif.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD59C612681E9BE005C5717 /* la.brigade.du.kif.mp3 */; };
 		6FD59C672681E9BE005C5717 /* laura.cox.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD59C622681E9BE005C5717 /* laura.cox.mp3 */; };
 		6FD59C682681E9BE005C5717 /* klem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD59C632681E9BE005C5717 /* klem.mp3 */; };
@@ -73,6 +78,11 @@
 		6F28D82026788C7300FF400F /* SongOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongOfTheDayView.swift; sourceTree = "<group>"; };
 		6F28D82226788F6900FF400F /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 		6F28D8242678A22100FF400F /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		C5F02240267A01FE0045099E /* ProfileUpdateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateForm.swift; sourceTree = "<group>"; };
+		C5F4F6422677AED10003CD9A /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		FC771E3326754B6C0063968A /* SongListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListCell.swift; sourceTree = "<group>"; };
+		FCD36A562680899600045581 /* FriendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
+		FCD36A59268089A700045581 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		6FD59C612681E9BE005C5717 /* la.brigade.du.kif.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = la.brigade.du.kif.mp3; sourceTree = "<group>"; };
 		6FD59C622681E9BE005C5717 /* laura.cox.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laura.cox.mp3; sourceTree = "<group>"; };
 		6FD59C632681E9BE005C5717 /* klem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = klem.mp3; sourceTree = "<group>"; };
@@ -85,6 +95,7 @@
 		C5F02240267A01FE0045099E /* ProfileUpdateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateForm.swift; sourceTree = "<group>"; };
 		C5F4F6422677AED10003CD9A /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		FC771E3326754B6C0063968A /* SongListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListCell.swift; sourceTree = "<group>"; };
+
 		FCF7C69A267540350087C892 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,8 +151,13 @@
 				6F28D82026788C7300FF400F /* SongOfTheDayView.swift */,
 				6F1D86172679E869008966B4 /* AddSongOfTheDayView.swift */,
 				6F28D82226788F6900FF400F /* VoteView.swift */,
+
+				FCD36A562680899600045581 /* FriendList.swift */,
+				FCD36A59268089A700045581 /* FriendCell.swift */,
+
 				C5DEBB272682284500128300 /* MiniPlayerView.swift */,
 				C5DEBB292682288300128300 /* BlurView.swift */,
+
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,7 +287,9 @@
 				FC771E3426754B6C0063968A /* SongListCell.swift in Sources */,
 				FCF7C69B267540350087C892 /* DetailedView.swift in Sources */,
 				68F274532673584600BAD3C2 /* ContentView.swift in Sources */,
+				FCD36A572680899600045581 /* FriendList.swift in Sources */,
 				4B7DE2002677461600CD2F1A /* SongList.swift in Sources */,
+				FCD36A5A268089A700045581 /* FriendCell.swift in Sources */,
 				4B7DE1F42677431000CD2F1A /* Song.swift in Sources */,
 				4BD3BFF226778FCF00AAC075 /* Playlist.swift in Sources */,
 				6F28D8252678A22100FF400F /* Vote.swift in Sources */,

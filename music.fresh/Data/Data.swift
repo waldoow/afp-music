@@ -25,9 +25,9 @@ let artist2 = Artist(name: "Carbonne", imageName: "KlemPhoto", description: "Cl�
 let artist3 = Artist(name: "Carbonne", imageName: "KlemPhoto", description: "Clément Chotteau AKA Klem Schen est un jeune rappeur originaire d’Aix en Provence (13), né en Décembre 2001. Très productif dès ses débuts avec son propre label KlemLabel, il sort ses trois premiers projets en l’espace d’un mois seulement (Blanc au noir, Sommeil, puis Lueurs) au début de l’année 2019.")
 var artistsList = [artist1, artist2, artist3].shuffled()
 
-let user1 = User(name: "Bilbo Baggins", email: "bilbobaggins@gmail.com" ,imageName: "user1.jpg", password: "baggins", recentSongs: songsList, myPlaylists: playlistsList)
-let user2 = User(name: "Arwen Undomiel", email: "arwenundomiel@gmail.com", imageName: "user2.jpg", password: "undomiel", recentSongs: songsList, myPlaylists: playlistsList)
-let user3 = User(name: "Pippin Took", email: "pippintook@gmail.com", imageName: "user3.jpg", password: "pippin", recentSongs: songsList, myPlaylists: playlistsList)
+let user1 = User(name: "Bilbo Baggins", email: "bilbobaggins@gmail.com" ,imageName: "user1.jpg", password: "baggins", recentSongs: songsList, myPlaylists: playlistsList, isFavorite: true)
+let user2 = User(name: "Arwen Undomiel", email: "arwenundomiel@gmail.com", imageName: "user2.jpg", password: "undomiel",  recentSongs: songsList, myPlaylists: playlistsList, isFavorite: true)
+let user3 = User(name: "Pippin Took", email: "pippintook@gmail.com", imageName: "user3.jpg", password: "pippin", recentSongs: songsList, myPlaylists: playlistsList, isFavorite:  true)
 var usersList = [user1, user2, user3]
 var currentUser: User? = nil
 
