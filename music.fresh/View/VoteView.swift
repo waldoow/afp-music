@@ -38,8 +38,6 @@ struct VoteView: View {
                     .frame(height: 50)
                 Spacer()
                 // ajouter lecture du morceau sur recentSong, créer des recentSong
-//                Image(systemName: "play.circle")
-//                    .font(.largeTitle)
                 
                 Button(action: {
                     songChanged.toggle()
