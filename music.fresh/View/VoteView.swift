@@ -58,24 +58,24 @@ struct VoteView: View {
                 }
                 
                 if vote.positiveVote >= vote.negativeVote {
-                    Text("\(vote.positiveVote + vote.negativeVote + addVote)")
+                    Text("\(vote.positiveVote - vote.negativeVote + addVote)")
                         .foregroundColor(.green)
                 } else if vote.positiveVote < vote.negativeVote {
-                    Text("\(vote.positiveVote + vote.negativeVote + addVote)")
+                    Text("\(vote.positiveVote - vote.negativeVote + addVote)")
                         .foregroundColor(.red)
                 }
                 
                 
                 Button(action: {
                     if addVote == 0 && voteNegatif == false && votePositif == false {
-                        addVote += 1
-                        voteNegatif = true
-                    } else if addVote == 1  && voteNegatif == true {
                         addVote -= 1
+                        voteNegatif = true
+                    } else if addVote == -1  && voteNegatif == true {
+                        addVote += 1
                         voteNegatif = false
                     }
                 }) {
-                    if addVote == 1 && votePositif == false && voteNegatif == true {
+                    if addVote == -1 && votePositif == false && voteNegatif == true {
                         Image(systemName: "hand.thumbsdown.fill")
                             .foregroundColor(.red)
                         

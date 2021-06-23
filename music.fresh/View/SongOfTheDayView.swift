@@ -10,7 +10,7 @@ import AVKit
 
 struct MusicPlayer : View {
     @Environment(\.colorScheme) var colorScheme
-
+    
     @State var player : AVAudioPlayer!
     @State var playing = false
     @State var song = "herestous"
@@ -76,6 +76,9 @@ struct SongOfTheDayView: View {
     
     @State private var isPresented = false
     
+    @State private var showingSheet = false
+    @State private var showModal = false
+    
     var body: some View {
         
         
@@ -83,20 +86,32 @@ struct SongOfTheDayView: View {
             
             VStack{
                 
-                NavigationLink(destination: AddSongOfTheDayView()){
-                    
+                VStack {
+                    Button(action: {
+                        showModal.toggle()
+                    }, label: {
+                        Image(systemName: "plus")
+                    })
+                    .sheet(isPresented: $showModal) {
+                        AddSongOfTheDayView(showModal: false)
+                    }
                 }
-                .navigationTitle("Chanson du jour")
-                // bouton lien vers modale
-                .navigationBarItems(trailing: Button("+") {
-                    isPresented.toggle()
-                }
-                .fullScreenCover(isPresented: $isPresented, content: AddSongOfTheDayView.init)
-                .font(.largeTitle)
-                )
+                
+                
+                //                NavigationLink(destination: AddSongOfTheDayView()){
+                //
+                //                }
+                //                .navigationTitle("Chanson du jour")
+                //                // bouton lien vers modale
+                //                .navigationBarItems(trailing: Button("+") {
+                //                    isPresented.toggle()
+                //                }
+                //                .fullScreenCover(isPresented: $isPresented, content: AddSongOfTheDayView.init)
+                //                .font(.largeTitle)
+                //                )
                 
                 Spacer()
-                Text("Découvrez de la vraie nouveauté, peu connu, que vous ne trouvez pas sur les autres apps.")
+                Text("Découvrez de la vraie nouveauté, peu connue, que vous ne trouvez pas sur les autres apps.")
                 
                 Spacer()
                 
@@ -134,6 +149,8 @@ struct SongOfTheDayView: View {
                 ScrollView(.vertical){
                     
                     VStack{
+                        Text("Propositions des utilisateurs")
+                            .bold()
                         VoteView(vote: vote1)
                             .frame(maxWidth: .infinity, maxHeight:150)
                         VoteView(vote: vote2)
