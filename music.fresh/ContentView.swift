@@ -13,11 +13,12 @@ struct ContentView: View {
     //miniplayer properties...
     @State var expand = false
     @Namespace var animation
+    @State var songChanged : Bool = false
 
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
             TabView(selection: $selection, content:  {
-                SongOfTheDayView()
+                SongOfTheDayView(songChanged: $songChanged)
                     .padding(.bottom, 70)
                     .tabItem {
                         VStack {
@@ -43,7 +44,7 @@ struct ContentView: View {
                     }.tag(2)
             })
             
-            MiniPlayerView(animation: animation, expand: $expand)
+            MiniPlayerView(animation: animation, expand: $expand, songChanged: songChanged)
         })
     }
 }
