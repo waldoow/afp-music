@@ -27,6 +27,8 @@ struct MiniPlayerView: View {
     @State var player : AVAudioPlayer!
     @State var playing = false
     @State var width : CGFloat = 0
+    @State var songs = ["ragnarok", "herestous", "la.brigade.du.kif", "klem", "vincent.malone", "manolo.gonzalez", "laura.cox"]
+    @State var current = 0
     
     var body: some View {
         
@@ -145,9 +147,13 @@ struct MiniPlayerView: View {
                 
                 // player buttons from smpv
                 
-                HStack(spacing: UIScreen.main.bounds.width / 5 - 35) {
+                HStack(spacing: UIScreen.main.bounds.width / 5 - 45) {
                     Button(action: {
                         
+                        if self.current > 0{
+                            self.current -= 1
+                            self.ChangeSongs()
+                        }
                         
                     }) {
                         Image(systemName: "backward.fill").font(.title)
@@ -189,6 +195,11 @@ struct MiniPlayerView: View {
                     }
                     
                     Button(action: {
+                        
+                        if self.songs.count - 1 != self.current{
+                            self.current += 1
+                            self.ChangeSongs()
+                        }
                         
                     }) {
                         Image(systemName: "forward.fill").font(.title)
@@ -275,10 +286,10 @@ struct MiniPlayerView: View {
         }
         .onAppear {
             
-            let url = Bundle.main.path(forResource: "ragnarok", ofType: "mp3")
-            
+            let url = Bundle.main.path(forResource: self.songs[self.current], ofType: "mp3")
+
             self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
-            
+
             self.player.prepareToPlay()
             self.getData()
             
@@ -360,8 +371,22 @@ struct MiniPlayerView: View {
         }
     }
     
-    
-    
+    func ChangeSongs(){
+        
+        let url = Bundle.main.path(forResource: self.songs[self.current], ofType: "mp3")
+        
+        self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+        
+        self.data = .init(count: 0)
+        self.title = ""
+        
+        self.player.prepareToPlay()
+        self.getData()
+        
+        self.player.play()
+        
+        
+    }
 }
 
 //struct MiniPlayerView_Previews: PreviewProvider {
