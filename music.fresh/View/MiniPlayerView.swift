@@ -10,7 +10,7 @@ import AVKit
 
 struct MiniPlayerView: View {
     @Environment(\.colorScheme) var colorScheme
-
+    
     var animation: Namespace.ID
     @Binding var expand : Bool
     var height = UIScreen.main.bounds.height / 3
@@ -101,22 +101,22 @@ struct MiniPlayerView: View {
                 
                 Spacer(minLength: 0)
                 
-//                HStack{
+                //                HStack{
+                
+                if expand{
                     
-                    if expand{
-                        
-                        Text(self.title).font(.headline).padding(.top).foregroundColor(.black)
-                        //                        Text("Karen 0 feat.Michael Kiwanuka - Yo! My Saint")
-                        //                            .font(.title2)
-                        //                            .foregroundColor(.primary)
-                        //                            .fontWeight(.bold)
-                        //                            .matchedGeometryEffect(id: "Label", in: animation)
-                    }
-                    Spacer(minLength: 0)
-                    
-//                }
-//                .padding()
-//                .padding(.top)
+                    Text(self.title).font(.headline).padding(.top).foregroundColor(.black)
+                    //                        Text("Karen 0 feat.Michael Kiwanuka - Yo! My Saint")
+                    //                            .font(.title2)
+                    //                            .foregroundColor(.primary)
+                    //                            .fontWeight(.bold)
+                    //                            .matchedGeometryEffect(id: "Label", in: animation)
+                }
+                Spacer(minLength: 0)
+                
+                //                }
+                //                .padding()
+                //                .padding(.top)
                 
                 //capsule bar from smpv
                 
@@ -136,9 +136,9 @@ struct MiniPlayerView: View {
                                         let screen = UIScreen.main.bounds.width - 30
                                         let percent = x / screen
                                         self.player.currentTime = Double(percent) * self.player.duration
-                                                
-                                    }))
                                         
+                                    }))
+                    
                 }
                 .frame(width: 350)
                 .padding(.top, 30)
