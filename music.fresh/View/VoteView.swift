@@ -11,6 +11,8 @@ struct VoteView: View {
     
     let vote: Vote
     @State var addVote = 0
+    @State var votePositif: Bool = false
+    @State var voteNegatif: Bool = false
     
     var body: some View {
         
@@ -30,62 +32,56 @@ struct VoteView: View {
                 Text(vote.comment)
                     .frame(height: 50)
                 Spacer()
-                // ajouter lecture du morceau sur recentSong, créer des recentSong
                 Image(systemName: "play.circle")
                     .font(.largeTitle)
             }
             HStack{
-                if vote.positiveVote >= vote.negativeVote {
-                    Button(action: {
-                        // action
-                        if (addVote == 0) || (addVote == -1) {
-                            addVote += 1
-                        } else if (addVote == 1){
-                            addVote -= 1
-                        }
-                    }) {
+                Button(action: {
+                    if addVote == 0 && votePositif == false && voteNegatif == false {
+                        addVote += 1
+                        votePositif = true
+                    } else if addVote == 1 && votePositif == true {
+                        addVote -= 1
+                        votePositif = false
+                    }
+                }) {
+                    if addVote == 1 && votePositif == true && voteNegatif == false {
                         Image(systemName: "hand.thumbsup.fill")
                             .foregroundColor(.green)
-                    }
-                    
-                    Text("\(vote.positiveVote + vote.negativeVote + addVote)")
-                        .foregroundColor(.green)
-                    Button(action: {
-                        // action
-                        if (addVote == 0) || (addVote == 1) {
-                            addVote -= 1
-                        } else if (addVote == -1){
-                            addVote += 1
-                        }
-                    }) {
-                        Image(systemName: "hand.thumbsdown")
-                            .foregroundColor(.black)
-                    }
-                } else {
-                    Button(action: {
-                        // action
-                        if (addVote == 0) || (addVote == -1) {
-                            addVote += 1
-                        } else if (addVote == 1){
-                            addVote -= 1
-                        }
-                    }) {
+                        
+                    } else {
+                        
                         Image(systemName: "hand.thumbsup")
                             .foregroundColor(.black)
                     }
+                }
+                
+                if vote.positiveVote >= vote.negativeVote {
+                    Text("\(vote.positiveVote + vote.negativeVote + addVote)")
+                        .foregroundColor(.green)
+                } else if vote.positiveVote < vote.negativeVote {
                     Text("\(vote.positiveVote + vote.negativeVote + addVote)")
                         .foregroundColor(.red)
-                    Button(action: {
-                        // action
-                        if (addVote == 0) || (addVote == 1) {
-                            addVote -= 1
-                        } else if (addVote == -1){
-                            addVote += 1
-                        }
-                        
-                    }) {
+                }
+                
+                
+                Button(action: {
+                    if addVote == 0 && voteNegatif == false && votePositif == false {
+                        addVote += 1
+                        voteNegatif = true
+                    } else if addVote == 1  && voteNegatif == true {
+                        addVote -= 1
+                        voteNegatif = false
+                    }
+                }) {
+                    if addVote == 1 && votePositif == false && voteNegatif == true {
                         Image(systemName: "hand.thumbsdown.fill")
                             .foregroundColor(.red)
+                        
+                    } else {
+                        
+                        Image(systemName: "hand.thumbsdown")
+                            .foregroundColor(.black)
                     }
                 }
             }
