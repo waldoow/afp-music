@@ -25,18 +25,67 @@ struct SearchView_Previews: PreviewProvider {
 
 struct GlobalSearchView: View {
     let songs: [Song]
+    
+    
     let playlists: [Playlist]
     let artists: [Artist]
     let users: [User]
-    
+    @Environment(\.colorScheme) var colorScheme
+
     @State var text = ""
     @State private var showModalAddToPlaylist = false
     @State private var showModalCreatePlaylist = false
+
+    var filteredSongs: [Song] {
+        if "" == text {
+            return songs
+        }
+        
+        return songs.filter {
+            $0.title.contains(text) ||
+            $0.artist.name.contains(text) ||
+            $0.year == Int(text)
+        }
+    }
+    
+    var filteredArtists: [Artist] {
+        if "" == text {
+            return artists
+        }
+        
+        return artists.filter{
+            return $0.name.contains(text)
+        }
+    }
+
+    var filteredPlaylists: [Playlist] {
+        if "" == text {
+            return playlists
+        }
+        
+        return playlists.filter{
+            $0.user.contains(text) ||
+            $0.year == Int(text) ||
+            $0.title.contains(text)
+        }
+    }
+
+    var filteredUsers: [User] {
+        if "" == text {
+            return users
+        }
+        
+        return users.filter{
+                $0.email.contains(text) ||
+                $0.name.contains(text)
+        }
+    }
+    
     var body: some View {
         VStack{
             SearchBar(text: $text)
             List {
-                ForEach(songs.filter({"\($0)".contains(text.lowercased()) || text.isEmpty})) { song in
+                ForEach(filteredSongs) { song in
                     HStack{
                         Image(song.imageName)
                             .resizable()
@@ -61,7 +110,7 @@ struct GlobalSearchView: View {
                         }
                     }
                 }
-                ForEach(playlists.filter({"\($0)".contains(text.lowercased()) || text.isEmpty})) { playlist in
+                ForEach(filteredPlaylists) { playlist in
                     NavigationLink(
                         destination: PlaylistView(playlist: playlist),
                         label: {
@@ -77,9 +126,9 @@ struct GlobalSearchView: View {
                                         .foregroundColor(.secondary)
                                 }
                             }
-                        }).foregroundColor(.black)
+                        }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                 }
-                ForEach(artists.filter({"\($0)".contains(text.lowercased()) || text.isEmpty})) { artist in
+                ForEach(filteredArtists) { artist in
                     NavigationLink(
                         destination: DetailedView(artist: artist),
                         label: {
@@ -95,9 +144,10 @@ struct GlobalSearchView: View {
                                         .foregroundColor(.secondary)
                                 }
                             }
-                        }).foregroundColor(.black)
+                        }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+
                 }
-                ForEach(users.filter({"\($0)".contains(text.lowercased()) || text.isEmpty})) { user in
+                ForEach(filteredUsers) { user in
                     NavigationLink(
                         destination: UserView(user: user),
                         label: {
@@ -113,7 +163,8 @@ struct GlobalSearchView: View {
                                         .foregroundColor(.secondary)
                                 }
                             }
-                        }).foregroundColor(.black)
+                        }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+
                 }
 
             }
