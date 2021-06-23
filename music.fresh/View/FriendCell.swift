@@ -9,15 +9,16 @@ import SwiftUI
 
 struct FriendCell: View {
     let utilisateur: User
-    let colorback = Color(red: 0, green: 0, blue: 0, opacity: 0.1)
     var body: some View {
         HStack{
             
             
-            Image(utilisateur.imageName ?? "").resizable()
-                .frame(width: 100, height: 100)
-            Spacer()
-            VStack(alignment: .center) {
+            Image(utilisateur.imageName ?? "")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 55, height: 55)
+                .clipped()
+            VStack(alignment: .leading){
                 Text(utilisateur.name).font(.title3)
                 Button(action: {
                     
@@ -26,21 +27,20 @@ struct FriendCell: View {
                         
                         Label("Ne plus suivre", systemImage: "star")
                             .foregroundColor(.white)
-                            .padding(5)
-                            .background(Color.blue)
+                            .padding(8)
+                            .background(Color.yellow)
                             .cornerRadius(20)
                     } else {
-                        Label("Suivre", systemImage: "star")
+                        Label("Suivre", systemImage: "star.fill")
                             .foregroundColor(.white)
-                            .padding(5)
-                            .background(Color.blue)
+                            .padding(8)
+                            .background(Color.yellow)
                             .cornerRadius(20)
                     }
-                    
                 })
             }
             Spacer()
-        }.background(colorback)
+        }
         .padding(.horizontal)
     }
 }

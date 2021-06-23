@@ -161,7 +161,7 @@ struct GlobalSearchView: View {
                                 VStack(alignment: .leading) {
                                     Text(user.name)
                                         .font(.title3)
-                                    Text("Artiste")
+                                    Text("Utilisateur")
                                         .foregroundColor(.secondary)
                                 }
                             }
