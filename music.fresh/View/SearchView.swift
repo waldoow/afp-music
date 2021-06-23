@@ -135,6 +135,7 @@ struct GlobalSearchView: View {
                             HStack{
                                 Image(artist.imageName)
                                     .resizable()
+                                    .aspectRatio(contentMode: .fill)
                                     .frame(width: 55, height: 55)
                                     .clipped()
                                 VStack(alignment: .leading) {
@@ -154,6 +155,7 @@ struct GlobalSearchView: View {
                             HStack{
                                 Image(user.imageName ?? "")
                                     .resizable()
+                                    .aspectRatio(contentMode: .fill)
                                     .frame(width: 55, height: 55)
                                     .clipped()
                                 VStack(alignment: .leading) {
