@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct music_freshApp: App {
+    @StateObject var playerSongs = PlayerSongs()
+    
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(playerSongs)
         }
     }
 }

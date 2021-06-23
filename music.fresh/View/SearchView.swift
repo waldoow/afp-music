@@ -31,6 +31,7 @@ struct GlobalSearchView: View {
     let artists: [Artist]
     let users: [User]
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var playerSongs: PlayerSongs
 
     @State var text = ""
     @State private var showModalAddToPlaylist = false
@@ -87,29 +88,43 @@ struct GlobalSearchView: View {
             List {
                 ForEach(filteredSongs) { song in
                     HStack{
-                        Image(song.imageName)
-                            .resizable()
-                            .frame(width: 55, height: 55)
-                        
-                        VStack(alignment: .leading){
-                            Text(song.title)
-                                .font(.title3)
-                            Text(song.artist.name)
-                                .foregroundColor(.secondary)
-                        }
-                        Spacer()
                         Button(action: {
-                            self.showModalAddToPlaylist.toggle()
+                            playerSongs.inLineSongs = [song]
+                            playerSongs.prepare()
+                            playerSongs.play()
+                            
+                        }, label: {
+                            HStack {
+                                Image(song.imageName)
+                                    .resizable()
+                                    .frame(width: 55, height: 55)
+                                
+                                VStack(alignment: .leading){
+                                    Text(song.title)
+                                        .font(.title3)
+                                    Text(song.artist.name)
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                        })
+
+                        Spacer()
+
+                        Button(action: {
+                           showModalAddToPlaylist.toggle()
                         }, label: {
                             Image(systemName: "plus.circle")
                                 .resizable()
                                 .frame(width: 23, height: 23)
                                 .foregroundColor(.yellow)
-                        }).sheet(isPresented: $showModalAddToPlaylist) {
+                        })
+                        .buttonStyle(PlainButtonStyle())
+                        .sheet(isPresented: $showModalAddToPlaylist) {
                             AddToPlaylist(showModalAddToPlaylist: $showModalAddToPlaylist)
                         }
                     }
                 }
+
                 ForEach(filteredPlaylists) { playlist in
                     NavigationLink(
                         destination: PlaylistView(playlist: playlist),

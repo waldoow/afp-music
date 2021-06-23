@@ -9,38 +9,15 @@ import SwiftUI
 
 struct PlaylistView: View {
     var playlist: Playlist
-    
+
+    @EnvironmentObject var playlistSongs: PlayerSongs
+
     var body: some View {
         VStack {
             VStack {
-                //                VStack(spacing: 0) {
-                //                    HStack(spacing: 0) {
-                //                        Spacer()
-                //                        Image(playlist.songs.indices.contains(0) ? playlist.songs[0].imageName : "defaultImageSong")
-                //                            .resizable()
-                //                            .frame(width: 80, height: 80, alignment: .center)
-                //                        Image(playlist.songs.indices.contains(1) ? playlist.songs[1].imageName : "defaultImageSong")
-                //                            .resizable()
-                //                            .frame(width: 80, height: 80, alignment: .center)
-                //                        Spacer()
-                //                    }
-                //                }
                 Image(uiImage: playlist.imageName!)
                     .resizable()
                     .frame(width: 250, height: 250, alignment: .center)
-                
-                
-                //                    HStack(spacing: 0) {
-                //                        Spacer()
-                //                        Image(playlist.songs.indices.contains(0) ? playlist.songs[0].imageName : "defaultImageSong")
-                //                            .resizable()
-                //                            .frame(width: 80, height: 80, alignment: .center)
-                //                        Image(playlist.songs.indices.contains(1) ? playlist.songs[1].imageName : "defaultImageSong")
-                //                            .resizable()
-                //                            .frame(width: 80, height: 80, alignment: .center)
-                //                        Spacer()
-                //                    }
-                //                }
                 
                 HStack{
                     VStack(alignment: .leading) {
@@ -51,10 +28,28 @@ struct PlaylistView: View {
                     }
                     
                     Spacer()
-                    
-                    Image(systemName: "play.circle")
-                        .font(.system(size: 40))
-                        .foregroundColor(.yellow)
+
+                    Button(action: {
+                        if playlistSongs.playing {
+                            playlistSongs.pause()
+                        } else {
+                            playlistSongs.currentIndex = 0
+                            playlistSongs.inLineSongs = playlist.songs
+                            playlistSongs.prepare()
+                            playlistSongs.play()
+                        }
+                    }, label: {
+                        if !playlistSongs.playing {
+                            Image(systemName: "play.circle")
+                                .font(.system(size: 40))
+                                .foregroundColor(.yellow)
+                        } else {
+                            Image(systemName: "pause.circle")
+                                .font(.system(size: 40))
+                                .foregroundColor(.yellow)
+                        }
+                    })
+
                 }
                 .padding(10)
                 

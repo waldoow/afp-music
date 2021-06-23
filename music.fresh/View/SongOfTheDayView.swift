@@ -134,15 +134,15 @@ struct SongOfTheDayView: View {
                 ScrollView(.vertical){
                     
                     VStack{
-                        VoteView(vote: vote1)
+                        VoteView(vote: vote1, song: song1)
                             .frame(maxWidth: .infinity, maxHeight:150)
-                        VoteView(vote: vote2)
+                        VoteView(vote: vote2, song: song2)
                             .frame(maxWidth: .infinity, maxHeight:150)
-                        VoteView(vote: vote3)
+                        VoteView(vote: vote3, song: song3)
                             .frame(maxWidth: .infinity, maxHeight:150)
-                        VoteView(vote: vote4)
+                        VoteView(vote: vote4, song: song1)
                             .frame(maxWidth: .infinity, maxHeight:150)
-                        VoteView(vote: vote5)
+                        VoteView(vote: vote5, song: song3)
                             .frame(maxWidth: .infinity, maxHeight:150)
                     }
                 }
