@@ -10,11 +10,13 @@ import SwiftUI
 struct FriendList: View {
     var userlist = usersList
     var body: some View {
-        VStack(alignment: .leading) {
-            FriendCell(utilisateur: user1)
-            FriendCell(utilisateur: user2)
-            FriendCell(utilisateur: user3)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading) {
+                FriendCell(utilisateur: user1)
+                FriendCell(utilisateur: user3)
+            }
         }
+        .padding(.top, 15)
     }
 }
 
