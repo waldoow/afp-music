@@ -14,9 +14,9 @@ let song3 = Song(title: "Autre monde !", artist: artist3, description: "Autre mo
 var songsList = [song1, song2, song3].shuffled()
 
 
-let playlist1 = Playlist(title: "Chill/Lofi", user: "User", imageName: UIImage(named: "lofi"), year: 2021, songs: songsList)
-let playlist2 = Playlist(title: "Soul/Jazz", user: "User", imageName: UIImage(named: "souljazz"), year: 2021, songs: songsList)
-let playlist3 = Playlist(title: "Rap FR", user: "User", imageName: UIImage(named: "rapfr"), year: 2021, songs: songsList)
+let playlist1 = Playlist(title: "Chill/Lofi", user: "Bilbo Baggins", imageName: UIImage(named: "lofi"), year: 2021, songs: songsList)
+let playlist2 = Playlist(title: "Soul/Jazz", user: "Bilbo Baggins", imageName: UIImage(named: "souljazz"), year: 2021, songs: songsList)
+let playlist3 = Playlist(title: "Rap FR", user: "Bilbo Baggins", imageName: UIImage(named: "rapfr"), year: 2020, songs: songsList)
 var playlistsList = [playlist1, playlist2, playlist3].shuffled()
 
 
