@@ -9,6 +9,8 @@ import SwiftUI
 import AVKit
 
 struct MiniPlayerView: View {
+    @Environment(\.colorScheme) var colorScheme
+
     var animation: Namespace.ID
     @Binding var expand : Bool
     var height = UIScreen.main.bounds.height / 3
@@ -49,7 +51,7 @@ struct MiniPlayerView: View {
                     .cornerRadius(15)
                 
                 if !expand{
-                    Text(self.title).font(.callout).padding(.bottom).foregroundColor(.black)
+                    Text(self.title).font(.callout).padding(.bottom).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                     //                    Text("Karen 0 feat.Michael Kiwanuka - Yo! My Saint")
                     //                        .font(.title2)
                     //                        .fontWeight(.bold)
