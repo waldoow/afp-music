@@ -56,7 +56,7 @@ struct ProfileUpdateForm: View {
                         .padding(.bottom, 20)
                         .textContentType(.emailAddress)
                     
-                    SecureField("Mot de passe", text: $password)
+                    SecureField("mot de passe", text: $password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .textContentType(.password)
                     SecureField("confirmer mot de passe", text: $confirmPassword)
@@ -77,6 +77,15 @@ struct ProfileUpdateForm: View {
                         UserDefaults.standard.set(self.email, forKey: "adresse e-mail")
                         self.retrieved = self.email
                         self.email = ""
+                        
+                        UserDefaults.standard.set(self.password, forKey: "mot de passe")
+                        self.retrieved = self.email
+                        self.password = ""
+                        
+                        UserDefaults.standard.set(self.confirmPassword, forKey: "confirmer mot de passe")
+                        self.retrieved = self.confirmPassword
+                        self.confirmPassword = ""
+                        
                     }) {
                         Text("Valider").padding(5)
                             .frame(alignment: .leading)
