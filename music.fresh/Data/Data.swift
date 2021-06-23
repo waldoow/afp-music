@@ -7,16 +7,17 @@
 
 import Foundation
 import SwiftUI
+import AVKit
 
-let song1 = Song(title: "Néant", artist: artist1, description: "Néant écrit par Carbonne est une musique hors album sorti le 19 Janvier 2021", imageName: "carbonnephoto", url: "", year: 2021)
-let song2 = Song(title: "YO! MY SAINT", artist: artist2, description: "Bande son original de la série 'Ragnarok'", imageName: "yomysaint", url: "", year: 2018)
-let song3 = Song(title: "Autre monde !", artist: artist3, description: "Autre monde écrit par Klem, est une musique hors album sorti le 19 Janvier 2021. L'instrumental fût composée par Maxime.P", imageName: "autremonde", url: "", year: 2021)
-var songsList = [song1, song2, song3].shuffled()
+let song1 = Song(title: "Néant", artist: artist1, description: "Néant écrit par Carbonne est une musique hors album sorti le 19 Janvier 2021", imageName: "carbonnephoto", url: "vincent.malone", year: 2021)
+let song2 = Song(title: "YO! MY SAINT", artist: artist2, description: "Bande son original de la série 'Ragnarok'", imageName: "yomysaint", url: "ragnarok", year: 2018)
+let song3 = Song(title: "Autre monde !", artist: artist3, description: "Autre monde écrit par Klem, est une musique hors album sorti le 19 Janvier 2021. L'instrumental fût composée par Maxime.P", imageName: "autremonde", url: "klem", year: 2021)
+var songsList = [song1, song2, song3]
 
 
-let playlist1 = Playlist(title: "Chill/Lofi", user: "Bilbo Baggins", imageName: UIImage(named: "lofi"), year: 2021, songs: songsList)
-let playlist2 = Playlist(title: "Soul/Jazz", user: "Bilbo Baggins", imageName: UIImage(named: "souljazz"), year: 2021, songs: songsList)
-let playlist3 = Playlist(title: "Rap FR", user: "Bilbo Baggins", imageName: UIImage(named: "rapfr"), year: 2020, songs: songsList)
+let playlist1 = Playlist(title: "Chill/Lofi", user: "Playlist", imageName: UIImage(named: "lofi"), year: 2021, songs: songsList)
+let playlist2 = Playlist(title: "Soul/Jazz", user: "Playlist", imageName: UIImage(named: "souljazz"), year: 2021, songs: songsList)
+let playlist3 = Playlist(title: "Rap FR", user: "Playlist", imageName: UIImage(named: "rapfr"), year: 2021, songs: songsList)
 var playlistsList = [playlist1, playlist2, playlist3].shuffled()
 
 
@@ -39,3 +40,68 @@ let vote4 = Vote(user: user1, positiveVote:932, negativeVote: 129, comment: "Bon
 let vote5 = Vote(user: user2, positiveVote: 234, negativeVote: 518, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est géniale.")
 
 let voteList = [vote1, vote2, vote3, vote4, vote5]
+
+
+class PlayerSongs: ObservableObject {
+    @Published var currentIndex: Int = 0
+    @Published var inLineSongs: [Song] = songsList
+    @Published var player : AVAudioPlayer!
+    @Published var data : Data = .init(count: 0)
+    @Published var title = ""
+    @Published var playing = false
+
+    func prepare() {
+        let url = Bundle.main.path(forResource: inLineSongs[currentIndex].url, ofType: "mp3")
+        player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+        
+        player.prepareToPlay()
+        self.getData()
+    }
+    
+    func next() {
+        if (currentIndex == (inLineSongs.count - 1)) {
+            currentIndex = 0
+        } else {
+            currentIndex += 1
+        }
+        prepare()
+
+        play()
+    }
+    
+    func previous() {
+        currentIndex -= currentIndex == 0 ? 0 : 1
+
+        prepare()
+        play()
+    }
+    
+    func play() {
+        playing = true
+        
+        player.play()
+    }
+    
+    func pause() {
+        player.pause()
+        playing = false
+    }
+    
+    func getData() {
+        let asset = AVAsset(url: player.url!)
+        for i in asset.commonMetadata{
+            if i.commonKey?.rawValue == "artwork" {
+                let data = i.value as! Data
+                self.data = data
+            }
+            
+            if i.commonKey?.rawValue == "title"{
+                let title = i.value as! String
+                self.title = title
+            }
+        }
+    }
+
+    
+}
+

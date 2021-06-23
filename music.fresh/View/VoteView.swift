@@ -11,7 +11,11 @@ struct VoteView: View {
     
     let vote: Vote
     @State var addVote = 0
+    @EnvironmentObject var player: PlayerSongs
+    @Environment(\.colorScheme) var colorScheme
+
     
+    let song: Song
     var body: some View {
         VStack{
             HStack{
@@ -30,8 +34,14 @@ struct VoteView: View {
                     .frame(height: 50)
                 Spacer()
                 // ajouter lecture du morceau sur recentSong, créer des recentSong
-                Image(systemName: "play.circle")
-                    .font(.largeTitle)
+                Button (action: {
+                    player.inLineSongs = [song]
+                    player.prepare()
+                    player.play()
+                }, label: {
+                    Image(systemName: "play.circle")
+                        .font(.largeTitle)
+                }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
             }
             HStack{
                 if vote.positiveVote >= vote.negativeVote {
@@ -95,7 +105,7 @@ struct VoteView: View {
 
 struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
-        VoteView(vote: vote5, addVote: 0)
+        VoteView(vote: vote5, addVote: 0, song: song1)
             .previewLayout(.sizeThatFits)
         
     }
