@@ -14,9 +14,9 @@ let song3 = Song(title: "Autre monde !", artist: artist3, description: "Autre mo
 var songsList = [song1, song2, song3].shuffled()
 
 
-let playlist1 = Playlist(title: "Playlist1", user: "User", imageName: UIImage(named: "imagePlaylist"), year: 2021, songs: songsList)
-let playlist2 = Playlist(title: "Playlist2", user: "User", imageName: UIImage(named: "imagePlaylist"), year: 2021, songs: songsList)
-let playlist3 = Playlist(title: "Playlist3", user: "User", imageName: UIImage(named: "imagePlaylist"), year: 2021, songs: songsList)
+let playlist1 = Playlist(title: "Chill/Lofi", user: "User", imageName: UIImage(named: "lofi"), year: 2021, songs: songsList)
+let playlist2 = Playlist(title: "Soul/Jazz", user: "User", imageName: UIImage(named: "souljazz"), year: 2021, songs: songsList)
+let playlist3 = Playlist(title: "Rap FR", user: "User", imageName: UIImage(named: "rapfr"), year: 2021, songs: songsList)
 var playlistsList = [playlist1, playlist2, playlist3].shuffled()
 
 
@@ -32,9 +32,9 @@ var usersList = [user1, user2, user3]
 var currentUser: User? = nil
 
 
-let vote1 = Vote(user: user1, positiveVote: 300, negativeVote: 200, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est incroyable.")
+let vote1 = Vote(user: user1, positiveVote: 300, negativeVote: 200, comment: "Bonsoir, j'ai entendu ça, je l'ai trouver pas mal, je vous la partage.")
 let vote2 = Vote(user: user2, positiveVote: 406, negativeVote: 232, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est super.")
-let vote3 = Vote(user: user3, positiveVote: 674, negativeVote: 455, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est ouf.")
+let vote3 = Vote(user: user3, positiveVote: 674, negativeVote: 455, comment: "Bon pas sûr que vous allez appréciez mais j'ai accrocher.")
 let vote4 = Vote(user: user1, positiveVote:932, negativeVote: 129, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est top.")
 let vote5 = Vote(user: user2, positiveVote: 234, negativeVote: 518, comment: "Bonjour, je vous propose d'écouter cette chanson, elle est géniale.")
 
