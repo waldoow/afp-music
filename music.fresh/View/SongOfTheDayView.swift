@@ -87,29 +87,19 @@ struct SongOfTheDayView: View {
             
             VStack{
                 
-                VStack {
-                    Button(action: {
-                        self.annuler.toggle()
-                    }, label: {
-                        Image(systemName: "plus")
-                    })
-                    .sheet(isPresented: $annuler) {
-                        AddSongOfTheDayView(annuler: $annuler)
-                    }
-                }
+                NavigationLink(destination: AddSongOfTheDayView(annuler: $annuler)){
                 
-                
-                //                NavigationLink(destination: AddSongOfTheDayView()){
-                //
-                //                }
-                //                .navigationTitle("Chanson du jour")
-                //                // bouton lien vers modale
-                //                .navigationBarItems(trailing: Button("+") {
-                //                    isPresented.toggle()
-                //                }
-                //                .fullScreenCover(isPresented: $isPresented, content: AddSongOfTheDayView.init)
-                //                .font(.largeTitle)
-                //                )
+                                }
+                                .navigationTitle("Chanson du jour")
+                                // bouton lien vers modale
+                                .navigationBarItems(trailing: Button(action: {
+                                    self.annuler.toggle()
+                                }, label: {
+                                    Image(systemName: "plus")
+                                })
+                                .sheet(isPresented: $annuler) {
+                                    AddSongOfTheDayView(annuler: $annuler)
+                                })
                 
                 Spacer()
                 Text("Découvrez de la vraie nouveauté, peu connue, que vous ne trouvez nul part ailleurs.")
