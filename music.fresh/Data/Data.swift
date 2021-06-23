@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-let song1 = Song(title: "Titre1", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
-let song2 = Song(title: "Titre2", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
-let song3 = Song(title: "Titre3", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
+let song1 = Song(title: "Néant", artist: artist1, description: "Néant écrit par Carbonne est une musique hors album sorti le 19 Janvier 2021", imageName: "carbonnephoto", url: "", year: 2021)
+let song2 = Song(title: "YO! MY SAINT", artist: artist2, description: "Bande son original de la série 'Ragnarok'", imageName: "yomysaint", url: "", year: 2018)
+let song3 = Song(title: "Autre monde !", artist: artist3, description: "Autre monde écrit par Klem, est une musique hors album sorti le 19 Janvier 2021. L'instrumental fût composée par Maxime.P", imageName: "autremonde", url: "", year: 2021)
 var songsList = [song1, song2, song3].shuffled()
 
 
@@ -20,9 +20,9 @@ let playlist3 = Playlist(title: "Playlist3", user: "User", imageName: UIImage(na
 var playlistsList = [playlist1, playlist2, playlist3].shuffled()
 
 
-let artist1 = Artist(name: "Klem Schen", imageName: "KlemPhoto", description: "Clément Chotteau AKA Klem Schen est un jeune rappeur originaire d’Aix en Provence (13), né en Décembre 2001. Très productif dès ses débuts avec son propre label KlemLabel, il sort ses trois premiers projets en l’espace d’un mois seulement (Blanc au noir, Sommeil, puis Lueurs) au début de l’année 2019.")
-let artist2 = Artist(name: "Carbonne", imageName: "KlemPhoto", description: "Clément Chotteau AKA Klem Schen est un jeune rappeur originaire d’Aix en Provence (13), né en Décembre 2001. Très productif dès ses débuts avec son propre label KlemLabel, il sort ses trois premiers projets en l’espace d’un mois seulement (Blanc au noir, Sommeil, puis Lueurs) au début de l’année 2019.")
-let artist3 = Artist(name: "Carbonne", imageName: "KlemPhoto", description: "Clément Chotteau AKA Klem Schen est un jeune rappeur originaire d’Aix en Provence (13), né en Décembre 2001. Très productif dès ses débuts avec son propre label KlemLabel, il sort ses trois premiers projets en l’espace d’un mois seulement (Blanc au noir, Sommeil, puis Lueurs) au début de l’année 2019.")
+let artist1 = Artist(name: "Carbonne", imageName: "carbonnephoto", description: "Carbonne est un jeune rappeur. Il possède trois albums. ")
+let artist2 = Artist(name: "Karen.O", imageName: "kareno", description: "Karen Lee Orzolek, née le 22 novembre 1978 à Busan, plus connue sous son nom de scène Karen O, est la chanteuse du groupe de musique new-yorkais Yeah Yeah Yeahs. Elle a également composé des bandes originales de films, comme celle de Max et les Maximonstres du réalisateur Spike Jonze.")
+let artist3 = Artist(name: "Klem Schen", imageName: "KlemPhoto", description: "Clément Chotteau AKA Klem Schen est un jeune rappeur originaire d’Aix en Provence (13), né en Décembre 2001. Très productif dès ses débuts avec son propre label KlemLabel, il sort ses trois premiers projets en l’espace d’un mois seulement (Blanc au noir, Sommeil, puis Lueurs) au début de l’année 2019.")
 var artistsList = [artist1, artist2, artist3].shuffled()
 
 let user1 = User(name: "Bilbo Baggins", email: "bilbobaggins@gmail.com" ,imageName: "user1.jpg", password: "baggins", recentSongs: songsList, myPlaylists: playlistsList, isFavorite: true)

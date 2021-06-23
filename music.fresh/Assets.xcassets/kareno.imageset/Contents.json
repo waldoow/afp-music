@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "1795606-karen-o-agrave-new-york-le-12-624x600-2.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "1795606-karen-o-agrave-new-york-le-12-624x600-3.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "1795606-karen-o-agrave-new-york-le-12-624x600-4.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
