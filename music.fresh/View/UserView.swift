@@ -86,7 +86,7 @@ struct UserView: View {
                             .overlay(Circle().stroke(Color.white, lineWidth: 5))
                     }
             )
-            .padding(.top, 50)
+            .padding(.top, 10)
         }
     }
 }
