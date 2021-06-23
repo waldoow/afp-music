@@ -33,7 +33,7 @@ struct ContentView: View {
                             Text("Recherche")
                         }
                     }.tag(2)
-                UserView(user: user1)
+                UserView(user: user2)
                     .padding(.bottom, 50)
                     .tabItem {
                         VStack {

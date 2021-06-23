@@ -45,7 +45,7 @@ struct AddSongOfTheDayView: View {
                             }, label: {
                                 Image(systemName: "camera.circle.fill")
                                     .resizable()
-                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                    .aspectRatio(contentMode: .fill)
                                     .frame(width: 80, height: 80)
                             })
                         )

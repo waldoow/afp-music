@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-extension Color {
-    static let lightBlueStart = Color(red: 109 / 255, green: 213 / 255, blue: 250 / 255)
-    static let lightBlueEnd = Color(red: 41 / 255, green: 128 / 255, blue: 185 / 255)
-}
-
-extension LinearGradient {
-    init(_ colors: Color...) {
-        self.init(gradient: Gradient(colors: colors), startPoint: .leading, endPoint: .trailing)
-    }
-}
-
 struct UserView: View {
     let user : User
     
@@ -34,7 +23,7 @@ struct UserView: View {
                 HStack(alignment: .center, spacing: 0){
                     selectionsButton(title: "Récents", currentTab: $currentTab, animation: animation)
                     selectionsButton(title: "Playlists", currentTab: $currentTab, animation: animation)
-                    selectionsButton(title: "Mes amis", currentTab: $currentTab, animation: animation)
+                    selectionsButton(title: "Suivis", currentTab: $currentTab, animation: animation)
                 }
                 VStack{
                     if currentTab == "Récents" {
@@ -43,13 +32,17 @@ struct UserView: View {
                     if currentTab == "Playlists" {
                         PlaylistList(playlists: playlistsList)
                     }
+                    if currentTab == "Suivis" {
+                        FriendList(userlist: usersList)
+                    }
                 }
             }
             .navigationBarItems(
                 leading:
                     Text(user.name)
                     .font(.headline)
-                    .foregroundColor(Color(.purple)),
+                    .foregroundColor(Color(.systemYellow))
+                    .padding(.top, 30),
                 
                 trailing:
                     HStack {
@@ -58,7 +51,7 @@ struct UserView: View {
                                 showingSheet.toggle()
                             }, label: {
                                 Image(systemName: "gearshape")
-                                    .foregroundColor(Color(.purple))
+                                    .foregroundColor(Color(.systemYellow))
                                     .padding(.bottom, 5)
                             })
                             .sheet(isPresented: $showingSheet) {
@@ -69,24 +62,27 @@ struct UserView: View {
                                 showModal.toggle()
                             }, label: {
                                 Image(systemName: "plus")
-                                    .foregroundColor(Color(.purple))
+                                    .foregroundColor(Color(.systemYellow))
                                     .padding(.bottom, 5)
                             })
+                            
                             .sheet(isPresented: $showModal) {
                                 NewPlaylistView(showModal: $showModal)
                             }
                             
                         }
-                        
+                        .padding(.top, 30)
                         Image(user.imageName ?? "")
                             .resizable()
                             .frame(width: 60, height: 75)
                             .clipShape(Circle())
                             .shadow(radius: 10)
                             .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                            .padding(.top, 30)
                     }
             )
-            .padding(.top, 10)
+            .padding(.top, 20)
+            
         }
     }
 }
