@@ -11,6 +11,7 @@ import SwiftUI
 let song1 = Song(title: "Titre1", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
 let song2 = Song(title: "Titre2", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
 let song3 = Song(title: "Titre3", artist: artist1, description: "Album", imageName: "imageSong", url: "", year: 2021)
+let song4 = Song(title: "Halestorm", artist: artist4, description: "The Strange Case Of...", imageName: "Halestorm", url: "", year: 2012)
 var songsList = [song1, song2, song3].shuffled()
 
 
@@ -23,6 +24,7 @@ var playlistsList = [playlist1, playlist2, playlist3].shuffled()
 let artist1 = Artist(name: "Klem Schen", imageName: "KlemPhoto", description: "Clément Chotteau AKA Klem Schen est un jeune rappeur originaire d’Aix en Provence (13), né en Décembre 2001. Très productif dès ses débuts avec son propre label KlemLabel, il sort ses trois premiers projets en l’espace d’un mois seulement (Blanc au noir, Sommeil, puis Lueurs) au début de l’année 2019.")
 let artist2 = Artist(name: "Carbonne", imageName: "KlemPhoto", description: "Clément Chotteau AKA Klem Schen est un jeune rappeur originaire d’Aix en Provence (13), né en Décembre 2001. Très productif dès ses débuts avec son propre label KlemLabel, il sort ses trois premiers projets en l’espace d’un mois seulement (Blanc au noir, Sommeil, puis Lueurs) au début de l’année 2019.")
 let artist3 = Artist(name: "Carbonne", imageName: "KlemPhoto", description: "Clément Chotteau AKA Klem Schen est un jeune rappeur originaire d’Aix en Provence (13), né en Décembre 2001. Très productif dès ses débuts avec son propre label KlemLabel, il sort ses trois premiers projets en l’espace d’un mois seulement (Blanc au noir, Sommeil, puis Lueurs) au début de l’année 2019.")
+let artist4 = Artist(name: "Halestorm", imageName: "Halestorm", description: "Halestorm est un groupe de heavy metal américain, originaire de York, en Pennsylvanie. Le groupe est actuellement signé chez Atlantic Records et a réalisé son premier album éponyme en avril 2009. Suit The Strange Case of... en 2012, dont le premier single, Love Bites (So Do I), qui est récompensé d'un Grammy Award dans la catégorie de la meilleure chanson hard rock/metal, le 10 février 2013. En 2015 sort l'album Into the Wild Life. Et en 2018 le groupe sort l'album Vicious, avec le single Uncomfortable qui est nommé au Grammy Award dans la catégorie meilleure prestation rock. Ils ont également sorti plusieurs EP, notamment des albums de reprises.")
 var artistsList = [artist1, artist2, artist3].shuffled()
 
 let user1 = User(name: "Bilbo Baggins", email: "bilbobaggins@gmail.com" ,imageName: "user1.jpg", password: "baggins", recentSongs: songsList, myPlaylists: playlistsList)

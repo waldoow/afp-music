@@ -32,6 +32,7 @@ struct VoteView: View {
                 Text(vote.comment)
                     .frame(height: 50)
                 Spacer()
+                // lecture musique dans player // player.play()
                 Image(systemName: "play.circle")
                     .font(.largeTitle)
             }
