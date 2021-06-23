@@ -21,6 +21,7 @@ struct ArtistList: View {
                         HStack{
                             Image(artist.imageName)
                                 .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: 55, height: 55)
                                 .clipped()
                             VStack(alignment: .leading) {
