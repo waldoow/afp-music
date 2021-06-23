@@ -10,6 +10,7 @@ import SwiftUI
 struct PlaylistList: View {
     var playlists: [Playlist]
     //    let playlists: [Playlist]
+    @Environment(\.colorScheme) var colorScheme
     @State var text = ""
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -35,7 +36,8 @@ struct PlaylistList: View {
                                     .foregroundColor(.gray)
                             })
                         }
-                    }).foregroundColor(.black)
+                    }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+
             }.padding(15)
         }
     }
