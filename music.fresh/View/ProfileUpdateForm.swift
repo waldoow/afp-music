@@ -38,7 +38,7 @@ struct ProfileUpdateForm: View {
                             }, label: {
                                 Image(systemName: "person.crop.circle.badge.plus")
                                     .resizable()
-                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                    .aspectRatio(contentMode: .fill)
                                     .frame(width: 80, height: 80)
                                     .foregroundColor(Color.yellow)
                             })

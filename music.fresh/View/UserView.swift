@@ -97,6 +97,7 @@ struct UserView_Previews: PreviewProvider {
     }
 }
 
+
 struct selectionsButton: View {
         var title: String
         @Binding var currentTab: String
