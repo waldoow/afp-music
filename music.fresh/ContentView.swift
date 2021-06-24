@@ -23,7 +23,7 @@ struct ContentView: View {
                     .tabItem {
                         VStack {
                             Image(systemName: "music.note")
-                            Text("Chanson du jour")
+                            Text("Découvrir")
                         }
                     }.tag(1)
                 SearchView()

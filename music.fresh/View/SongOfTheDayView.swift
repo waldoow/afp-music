@@ -95,19 +95,21 @@ struct SongOfTheDayView: View {
                 NavigationLink(destination: AddSongOfTheDayView(annuler: $annuler)){
                 
                                 }
-                                .navigationTitle("Chanson du jour")
+                                .navigationTitle("Découvrir")
                                 // bouton lien vers modale
                                 .navigationBarItems(trailing: Button(action: {
                                     self.annuler.toggle()
                                 }, label: {
                                     Image(systemName: "plus")
+                                        .foregroundColor(.yellow)
                                 })
                                 .sheet(isPresented: $annuler) {
                                     AddSongOfTheDayView(annuler: $annuler)
                                 })
                 
                 Spacer()
-                Text("Découvrez de la vraie nouveauté, peu connue, que vous ne trouvez nul part ailleurs.")
+                Text("Chanson du jour").font(.title3).foregroundColor(.black)
+                    .padding(.trailing, 160)
                 
                 Spacer()
                 
@@ -130,7 +132,7 @@ struct SongOfTheDayView: View {
                                 Text("Here's To Us")
                                     .font(.title)
                                     .bold()
-                                Text("2012")
+                                Text("Halestorm")
                                     .font(.title)
                                     .bold()
                             }
@@ -145,6 +147,7 @@ struct SongOfTheDayView: View {
                 ScrollView(.vertical){
                     
                     VStack{
+                        Text("Proposition des utilisateurs").bold()
                         VoteView(vote: vote1, songChanged: $songChanged)
                             .frame(maxWidth: .infinity, maxHeight:150)
                         VoteView(vote: vote2, songChanged: $songChanged)

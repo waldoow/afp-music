@@ -28,33 +28,7 @@ struct AddSongOfTheDayView: View {
         NavigationView{
             
             VStack(alignment: .leading) {
-                
-                ZStack {
-                    
-                    Image(uiImage: self.image)
-                        .resizable()
-                        .frame(width: 150, height: 150)
-                        .cornerRadius(15)
-                        .opacity(0.2)
-                        .clipped()
-                        .overlay(
-                            Button(action: {
-                                //affiche la modal pour choisir une image
-                                self.isShowPhotoLibrary = true
-                            }, label: {
-                                Image(systemName: "camera.circle.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 80, height: 80)
-                            })
-                        )
-                        .padding(20)
-                        
-                        .sheet(isPresented: $isShowPhotoLibrary) {
-                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-                        }
-                }
-                
+                                
                 Form{
                     Section{
                         TextField("Artiste", text: $name)
