@@ -71,7 +71,7 @@ struct UserView: View {
                             }
                             
                         }
-                        .padding(.top, 30)
+                        .padding(.top, 20)
                         Image(user.imageName ?? "")
                             .resizable()
                             .frame(width: 60, height: 75)
