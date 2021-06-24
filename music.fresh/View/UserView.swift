@@ -16,7 +16,6 @@ struct UserView: View {
     @State var currentTab = "Récents"
     @Namespace var animation
     @State private var isPresented = false
-    @State private var showM = false
     
     var body: some View {
         NavigationView{
@@ -60,15 +59,15 @@ struct UserView: View {
                             }
                             
                             Button(action: {
-                                showM.toggle()
+                                showModal.toggle()
                             }, label: {
                                 Image(systemName: "plus")
                                     .foregroundColor(Color(.systemYellow))
                                     .padding(.bottom, 5)
                             })
                             
-                            .sheet(isPresented: $showM) {
-                                NewPlaylistView(showModal: $showM)
+                            .sheet(isPresented: $showModal) {
+                                NewPlaylistView(showModal: $showModal)
                             }
                             
                         }
