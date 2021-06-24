@@ -7,16 +7,19 @@
 
 import SwiftUI
 import AVKit
+var player : AVAudioPlayer!
 
 struct MusicPlayer : View {
     @Environment(\.colorScheme) var colorScheme
-    
-    @State var player : AVAudioPlayer!
+
+
     @State var playing = false
     @State var song = "herestous"
     
     @State var finish = false
     @State var del = AVdelegate()
+    
+    @Binding var songChanged : Bool
     
     var body : some View{
         
@@ -25,15 +28,16 @@ struct MusicPlayer : View {
             HStack {
                 
                 Button(action: {
-                    if self.player.isPlaying{
-                        self.player.pause()
+                    songChanged.toggle()
+                    if player.isPlaying{
+                        player.pause()
                         self.playing = false
                     }
                     else{
                         if self.finish{
                             self.finish = false
                         }
-                        self.player.play()
+                        player.play()
                         self.playing = true
                     }
                 }) {
@@ -49,11 +53,11 @@ struct MusicPlayer : View {
             
             let url = Bundle.main.path(forResource: self.song, ofType: "mp3")
             
-            self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+            player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
             
-            self.player.delegate = self.del
+            player.delegate = self.del
             
-            self.player.prepareToPlay()
+            player.prepareToPlay()
             
             NotificationCenter.default.addObserver(forName: NSNotification.Name("Finish"), object: nil, queue: .main) { (_) in
                 
@@ -75,6 +79,7 @@ class AVdelegate : NSObject,AVAudioPlayerDelegate{
 struct SongOfTheDayView: View {
     
     @State private var isPresented = false
+    @Binding var songChanged: Bool
     
     @State private var showingSheet = false
 //    @State private var showModal = false
@@ -90,19 +95,21 @@ struct SongOfTheDayView: View {
                 NavigationLink(destination: AddSongOfTheDayView(annuler: $annuler)){
                 
                                 }
-                                .navigationTitle("Chanson du jour")
+                                .navigationTitle("Découvrir")
                                 // bouton lien vers modale
                                 .navigationBarItems(trailing: Button(action: {
                                     self.annuler.toggle()
                                 }, label: {
                                     Image(systemName: "plus")
+                                        .foregroundColor(.yellow)
                                 })
                                 .sheet(isPresented: $annuler) {
                                     AddSongOfTheDayView(annuler: $annuler)
                                 })
                 
                 Spacer()
-                Text("Découvrez de la vraie nouveauté, peu connue, que vous ne trouvez nul part ailleurs.")
+                Text("Chanson du jour").font(.title3).foregroundColor(.black)
+                    .padding(.trailing, 160)
                 
                 Spacer()
                 
@@ -112,7 +119,7 @@ struct SongOfTheDayView: View {
                     
                     HStack {
                         VStack {
-                            MusicPlayer()
+                            MusicPlayer(songChanged: $songChanged)
                         }
                         Spacer()
                         ZStack{
@@ -125,7 +132,7 @@ struct SongOfTheDayView: View {
                                 Text("Here's To Us")
                                     .font(.title)
                                     .bold()
-                                Text("2012")
+                                Text("Halestorm")
                                     .font(.title)
                                     .bold()
                             }
@@ -140,17 +147,16 @@ struct SongOfTheDayView: View {
                 ScrollView(.vertical){
                     
                     VStack{
-                        Text("Propositions des utilisateurs")
-                            .bold()
-                        VoteView(vote: vote1)
+                        Text("Proposition des utilisateurs").bold()
+                        VoteView(vote: vote1, songChanged: $songChanged)
                             .frame(maxWidth: .infinity, maxHeight:150)
-                        VoteView(vote: vote2)
+                        VoteView(vote: vote2, songChanged: $songChanged)
                             .frame(maxWidth: .infinity, maxHeight:150)
-                        VoteView(vote: vote3)
+                        VoteView(vote: vote3, songChanged: $songChanged)
                             .frame(maxWidth: .infinity, maxHeight:150)
-                        VoteView(vote: vote4)
+                        VoteView(vote: vote4, songChanged: $songChanged)
                             .frame(maxWidth: .infinity, maxHeight:150)
-                        VoteView(vote: vote5)
+                        VoteView(vote: vote5, songChanged: $songChanged)
                             .frame(maxWidth: .infinity, maxHeight:150)
                     }
                 }
@@ -167,7 +173,7 @@ struct SongOfTheDayView: View {
 
 struct SongOfTheDayView_Previews: PreviewProvider {
     static var previews: some View {
-        SongOfTheDayView()
+        SongOfTheDayView(songChanged: .constant(true))
     }
 }
 

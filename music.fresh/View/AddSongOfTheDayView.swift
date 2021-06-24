@@ -28,6 +28,7 @@ struct AddSongOfTheDayView: View {
         NavigationView{
             
             VStack(alignment: .leading) {
+                                
                 Form{
                     Section{
                         TextField("Artiste", text: $name)

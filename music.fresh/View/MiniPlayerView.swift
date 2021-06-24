@@ -24,9 +24,13 @@ struct MiniPlayerView: View {
     //smallmusicplayer
     @State var data : Data = .init(count: 0)
     @State var title = ""
-    @State var player : AVAudioPlayer!
+//    @State var player : AVAudioPlayer!
     @State var playing = false
     @State var width : CGFloat = 0
+    @State var songs = ["ragnarok", "herestous", "la.brigade.du.kif", "klem", "vincent.malone", "manolo.gonzalez", "laura.cox"]
+    @State var current = 0
+    
+    var songChanged: Bool
     
     var body: some View {
         
@@ -52,29 +56,19 @@ struct MiniPlayerView: View {
                 
                 if !expand{
                     Text(self.title).font(.callout).padding(.bottom).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
-                    //                    Text("Karen 0 feat.Michael Kiwanuka - Yo! My Saint")
-                    //                        .font(.title2)
-                    //                        .fontWeight(.bold)
+
                 }
                 Spacer(minLength: 0)
                 
                 if !expand{
                     
-                    //                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    //
-                    //                        Image(systemName:"play.fill")
-                    //                            .font(.title2)
-                    //                            .foregroundColor(.primary)
-                    //                            .matchedGeometryEffect(id: "Label", in: animation)
-                    //                    })
-                    
                     Button(action: {
-                        if self.player.isPlaying{
-                            self.player.pause()
+                        if player.isPlaying{
+                            player.pause()
                             self.playing = false
                         }
                         else{
-                            self.player.play()
+                            player.play()
                             self.playing = true
                             
                         }
@@ -85,13 +79,6 @@ struct MiniPlayerView: View {
                             .matchedGeometryEffect(id: "Label", in: animation)
                         
                     }
-                    
-                    //                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    //
-                    //                        Image(systemName:"forward.fill")
-                    //                            .font(.title2)
-                    //                            .foregroundColor(.primary)
-                    //                    })
                     
                 }
             }
@@ -106,17 +93,10 @@ struct MiniPlayerView: View {
                 if expand{
                     
                     Text(self.title).font(.headline).padding(.top).foregroundColor(.black)
-                    //                        Text("Karen 0 feat.Michael Kiwanuka - Yo! My Saint")
-                    //                            .font(.title2)
-                    //                            .foregroundColor(.primary)
-                    //                            .fontWeight(.bold)
-                    //                            .matchedGeometryEffect(id: "Label", in: animation)
+                    
                 }
                 Spacer(minLength: 0)
                 
-                //                }
-                //                .padding()
-                //                .padding(.top)
                 
                 //capsule bar from smpv
                 
@@ -135,7 +115,7 @@ struct MiniPlayerView: View {
                                         let x = value.location.x
                                         let screen = UIScreen.main.bounds.width - 30
                                         let percent = x / screen
-                                        self.player.currentTime = Double(percent) * self.player.duration
+                                        player.currentTime = Double(percent) * player.duration
                                         
                                     }))
                     
@@ -145,9 +125,13 @@ struct MiniPlayerView: View {
                 
                 // player buttons from smpv
                 
-                HStack(spacing: UIScreen.main.bounds.width / 5 - 35) {
+                HStack(spacing: UIScreen.main.bounds.width / 5 - 45) {
                     Button(action: {
                         
+                        if self.current > 0{
+                            self.current -= 1
+                            self.ChangeSongs()
+                        }
                         
                     }) {
                         Image(systemName: "backward.fill").font(.title)
@@ -155,7 +139,7 @@ struct MiniPlayerView: View {
                     }
                     
                     Button(action: {
-                        self.player.currentTime -= 15
+                        player.currentTime -= 15
                         
                     }) {
                         Image(systemName: "gobackward.15").font(.title)
@@ -163,12 +147,12 @@ struct MiniPlayerView: View {
                     }
                     
                     Button(action: {
-                        if self.player.isPlaying{
-                            self.player.pause()
+                        if player.isPlaying{
+                            player.pause()
                             self.playing = false
                         }
                         else{
-                            self.player.play()
+                            player.play()
                             self.playing = true
                             
                         }
@@ -178,9 +162,9 @@ struct MiniPlayerView: View {
                     }
                     
                     Button(action: {
-                        let increase = self.player.currentTime + 15
-                        if increase < self.player.duration{
-                            self.player.currentTime = increase
+                        let increase = player.currentTime + 15
+                        if increase < player.duration{
+                            player.currentTime = increase
                         }
                         
                     }) {
@@ -189,6 +173,11 @@ struct MiniPlayerView: View {
                     }
                     
                     Button(action: {
+                        
+                        if self.songs.count - 1 != self.current{
+                            self.current += 1
+                            self.ChangeSongs()
+                        }
                         
                     }) {
                         Image(systemName: "forward.fill").font(.title)
@@ -205,24 +194,28 @@ struct MiniPlayerView: View {
         }
         .onAppear {
             
-            let url = Bundle.main.path(forResource: "ragnarok", ofType: "mp3")
-            
-            self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
-            
-            self.player.prepareToPlay()
+            let url = Bundle.main.path(forResource: self.songs[self.current], ofType: "mp3")
+
+            player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+
+            player.prepareToPlay()
             self.getData()
             
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
-                if self.player.isPlaying{
+                if player.isPlaying{
                     
                     let screen = UIScreen.main.bounds.width - 30
                     
-                    let value = self.player.currentTime / self.player.duration
+                    let value = player.currentTime / player.duration
                     
                     self.width = screen * CGFloat(value)
                 }
             }
         }
+        
+        .onChange(of: songChanged, perform: { value in
+            getData()
+        })
         
         
         
@@ -271,7 +264,7 @@ struct MiniPlayerView: View {
 
     }
     func getData(){
-        let asset = AVAsset(url: self.player.url!)
+        let asset = AVAsset(url: player.url!)
         
         for i in asset.commonMetadata{
             
@@ -287,8 +280,22 @@ struct MiniPlayerView: View {
         }
     }
     
-    
-    
+    func ChangeSongs(){
+        
+        let url = Bundle.main.path(forResource: self.songs[self.current], ofType: "mp3")
+        
+        player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+        
+        self.data = .init(count: 0)
+        self.title = ""
+        
+        player.prepareToPlay()
+        self.getData()
+        
+        player.play()
+        
+        
+    }
 }
 
 //struct MiniPlayerView_Previews: PreviewProvider {
