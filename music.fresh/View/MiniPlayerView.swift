@@ -187,77 +187,6 @@ struct MiniPlayerView: View {
                 }
                 .padding(.bottom, 250)
                 .foregroundColor(.black)
-                
-                // Live String...
-                
-                //                HStack{
-                //
-                //                    Capsule()
-                //                        .fill(
-                //                            LinearGradient(gradient: .init(colors:[Color.primary.opacity(0.7), Color.primary.opacity(0.1)]), startPoint: .leading, endPoint: .trailing)
-                //
-                //                        )
-                //                        .frame(height: 4)
-                //
-                //                    Text("LIVE")
-                //                        .fontWeight(.bold)
-                //                        .foregroundColor(.primary)
-                //
-                //                    Capsule()
-                //                        .fill(
-                //                            LinearGradient(gradient: .init(colors:[Color.primary.opacity(0.1), Color.primary.opacity(0.7)]), startPoint: .leading, endPoint: .trailing)
-                //
-                //                        )
-                //                        .frame(height: 4)
-                //
-                //                }
-                //                .padding()
-                
-                // Stop Button...
-                //                Button(action: {}) {
-                //
-                //                    Image(systemName: "stop.fill")
-                //                        .font(.largeTitle)
-                //                        .foregroundColor(.primary)
-                //                }
-                //                .padding()
-                //
-                //                Spacer(minLength: 0)
-                // Stop Button.../
-                
-                //                HStack{
-                //                    Image(systemName: "speaker.fill")
-                //
-                //                    Slider(value: $volume)
-                //
-                //                    Image(systemName: "speaker.wave.2.fill")
-                //                }
-                //                .padding()
-                //                Spacer()
-                
-                //                HStack(spacing: 22){
-                //
-                //                    Button(action: {}) {
-                //                        Image(systemName: "arrow.up.message")
-                //                            .font(.title2)
-                //                            .foregroundColor(.primary)
-                //                    }
-                //
-                //                    Button(action: {}) {
-                //                        Image(systemName: "airplayaudio")
-                //                            .font(.title2)
-                //                            .foregroundColor(.primary)
-                //                    }
-                //
-                //                    Button(action: {}) {
-                //                        Image(systemName: "list.bullet")
-                //                            .font(.title2)
-                //                            .foregroundColor(.primary)
-                //                    }
-                //
-                //                }
-                //                .padding(.bottom,safeArea?.bottom == 0 ? 15 : safeArea?.bottom)
-                
             }
             // this will give strech effect...
             .frame(height: expand ? nil : 0)
@@ -317,9 +246,7 @@ struct MiniPlayerView: View {
         if value.translation.height > 0 && expand {
             
             offset = value.translation.height
-            
         }
-        
     }
     
     func onended(value: DragGesture.Value){
@@ -332,10 +259,9 @@ struct MiniPlayerView: View {
                 
                 expand = false
             }
-            
             offset = 0
         }
-        
+
     }
     func getData(){
         let asset = AVAsset(url: player.url!)
