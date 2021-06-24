@@ -14,10 +14,11 @@ struct AddSongOfTheDayView: View {
     @State private var name: String = ""
     @State private var title: String = ""
     @State private var comments: String = ""
-
+    @State private var url: String = ""
+    
     
     @State private var showingAlert = false
-
+    
     @State private var isShowPhotoLibrary = false
     
     @Binding var annuler: Bool
@@ -29,7 +30,7 @@ struct AddSongOfTheDayView: View {
             VStack(alignment: .leading) {
                 Form{
                     Section{
-                        TextField("Artist", text: $name)
+                        TextField("Artiste", text: $name)
                             .textContentType(.name)
                             .disableAutocorrection(true)
                         TextField("Titre", text: $title)
@@ -38,28 +39,15 @@ struct AddSongOfTheDayView: View {
                     Section{
                         TextField("Commentaires", text: $comments)
                             .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                    }
+                    Section{
+                        TextField("URL", text: $url)
+                            .autocapitalization(.none)
                             .textContentType(.URL)
                             .disableAutocorrection(true)
                     }
                 }
-                // Debut
-//                                HStack {
-//                                    Button("Annuler"){
-//                                        presentationMode.wrappedValue.dismiss()
-//                                    }
-//                                    Spacer()
-//                                    Button("Valider"){
-//
-//                                        showingAlert = true
-//                                    }
-//                                    .alert(isPresented: $annuler) {
-//                                        Alert(title: Text("Ajout effectué."), message: Text("Vous pouvez fermer."), dismissButton: .default(Text("Fermer"), action:{
-//                                            presentationMode.wrappedValue.dismiss()
-//                                        } ))
-//                                    }
-//                                }
-//                                .font(.title2)
-                // Fin
             }
             .padding()
             .navigationBarTitle(Text("Nouvelle musique"), displayMode: .inline)
