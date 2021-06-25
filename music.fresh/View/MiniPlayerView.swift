@@ -266,8 +266,9 @@ struct MiniPlayerView: View {
     }
     func getData(){
         let asset = AVAsset(url: player.url!)
-        
+        var indexValue = 0
         for i in asset.commonMetadata{
+            
             
             if i.commonKey?.rawValue == "artwork" {
                 let data = i.value as! Data
@@ -277,6 +278,7 @@ struct MiniPlayerView: View {
             if i.commonKey?.rawValue == "title"{
                 let title = i.value as! String
                 self.title = title
+                indexValue += 1
             }
         }
     }
