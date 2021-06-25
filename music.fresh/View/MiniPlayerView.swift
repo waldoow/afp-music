@@ -12,6 +12,7 @@ struct MiniPlayerView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var animation: Namespace.ID
+    let encapsulation = Color.red
     @Binding var expand : Bool
     var height = UIScreen.main.bounds.height / 3
     
